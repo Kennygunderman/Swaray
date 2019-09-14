@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		031D3A79232C5A92006978E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D3A78232C5A92006978E5 /* AppDelegate.swift */; };
-		031D3A7B232C5A93006978E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D3A7A232C5A93006978E5 /* ViewController.swift */; };
+		031D3A7B232C5A93006978E5 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D3A7A232C5A93006978E5 /* LoginController.swift */; };
 		031D3A7E232C5A93006978E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 031D3A7C232C5A93006978E5 /* Main.storyboard */; };
 		031D3A80232C5A94006978E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 031D3A7F232C5A94006978E5 /* Assets.xcassets */; };
 		031D3A83232C5A94006978E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 031D3A81232C5A94006978E5 /* LaunchScreen.storyboard */; };
 		031D3A8E232C5A94006978E5 /* SwarayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D3A8D232C5A94006978E5 /* SwarayTests.swift */; };
 		031D3A99232C5A94006978E5 /* SwarayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D3A98232C5A94006978E5 /* SwarayUITests.swift */; };
+		031D3AA9232C67CB006978E5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D3AA8232C67CB006978E5 /* LoginViewModel.swift */; };
+		031D3AAC232C685D006978E5 /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D3AAB232C685D006978E5 /* Consts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,7 @@
 /* Begin PBXFileReference section */
 		031D3A75232C5A92006978E5 /* Swaray.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swaray.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		031D3A78232C5A92006978E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		031D3A7A232C5A93006978E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		031D3A7A232C5A93006978E5 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		031D3A7D232C5A93006978E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		031D3A7F232C5A94006978E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		031D3A82232C5A94006978E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +49,8 @@
 		031D3A94232C5A94006978E5 /* SwarayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwarayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		031D3A98232C5A94006978E5 /* SwarayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwarayUITests.swift; sourceTree = "<group>"; };
 		031D3A9A232C5A94006978E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		031D3AA8232C67CB006978E5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		031D3AAB232C685D006978E5 /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +101,9 @@
 		031D3A77232C5A92006978E5 /* Swaray */ = {
 			isa = PBXGroup;
 			children = (
+				031D3AAA232C6847006978E5 /* Util */,
+				031D3AA6232C6777006978E5 /* UI */,
 				031D3A78232C5A92006978E5 /* AppDelegate.swift */,
-				031D3A7A232C5A93006978E5 /* ViewController.swift */,
 				031D3A7C232C5A93006978E5 /* Main.storyboard */,
 				031D3A7F232C5A94006978E5 /* Assets.xcassets */,
 				031D3A81232C5A94006978E5 /* LaunchScreen.storyboard */,
@@ -123,6 +128,31 @@
 				031D3A9A232C5A94006978E5 /* Info.plist */,
 			);
 			path = SwarayUITests;
+			sourceTree = "<group>";
+		};
+		031D3AA6232C6777006978E5 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				031D3AA7232C6783006978E5 /* Login */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		031D3AA7232C6783006978E5 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				031D3A7A232C5A93006978E5 /* LoginController.swift */,
+				031D3AA8232C67CB006978E5 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		031D3AAA232C6847006978E5 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				031D3AAB232C685D006978E5 /* Consts.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +286,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				031D3A7B232C5A93006978E5 /* ViewController.swift in Sources */,
+				031D3A7B232C5A93006978E5 /* LoginController.swift in Sources */,
+				031D3AAC232C685D006978E5 /* Consts.swift in Sources */,
 				031D3A79232C5A92006978E5 /* AppDelegate.swift in Sources */,
+				031D3AA9232C67CB006978E5 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +467,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3H5N4MHSZX;
 				INFOPLIST_FILE = Swaray/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -453,6 +486,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3H5N4MHSZX;
 				INFOPLIST_FILE = Swaray/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
