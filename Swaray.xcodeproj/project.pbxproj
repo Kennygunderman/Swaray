@@ -19,6 +19,7 @@
 		03DD57D4232C7AD100F78A9D /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D3232C7AD100F78A9D /* BaseController.swift */; };
 		03DD57D6232C7B4700F78A9D /* BaseControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */; };
 		03DD57D8232C7C0600F78A9D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D7232C7C0600F78A9D /* LoginView.swift */; };
+		03DD57DB232C8CB000F78A9D /* TriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57DA232C8CB000F78A9D /* TriangleView.swift */; };
 		5482B0EBF55056135B8D4830 /* Pods_Swaray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2904EF296C876FF5FD6FF741 /* Pods_Swaray.framework */; };
 		627FB2B02EFFD970511231C0 /* Pods_SwarayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71FB30996C1EA176AC06DCE0 /* Pods_SwarayTests.framework */; };
 		C1E2DFB1C257732574871A55 /* Pods_SwarayUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D50E297B894095C918079EC8 /* Pods_SwarayUITests.framework */; };
@@ -61,6 +62,7 @@
 		03DD57D3232C7AD100F78A9D /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseControllerView.swift; sourceTree = "<group>"; };
 		03DD57D7232C7C0600F78A9D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		03DD57DA232C8CB000F78A9D /* TriangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleView.swift; sourceTree = "<group>"; };
 		213DF65E64067817CE94C723 /* Pods-Swaray.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swaray.release.xcconfig"; path = "Target Support Files/Pods-Swaray/Pods-Swaray.release.xcconfig"; sourceTree = "<group>"; };
 		2904EF296C876FF5FD6FF741 /* Pods_Swaray.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swaray.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71FB30996C1EA176AC06DCE0 /* Pods_SwarayTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwarayTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +158,7 @@
 		031D3AA6232C6777006978E5 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				03DD57D9232C8C8C00F78A9D /* Custom */,
 				03DD57D2232C7A8500F78A9D /* Base */,
 				031D3AA7232C6783006978E5 /* Login */,
 			);
@@ -187,6 +190,14 @@
 				03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		03DD57D9232C8C8C00F78A9D /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				03DD57DA232C8CB000F78A9D /* TriangleView.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 		8F3400F175E9E062734CCEB3 /* Frameworks */ = {
@@ -439,6 +450,7 @@
 				031D3A79232C5A92006978E5 /* AppDelegate.swift in Sources */,
 				03DD57D6232C7B4700F78A9D /* BaseControllerView.swift in Sources */,
 				03DD57D4232C7AD100F78A9D /* BaseController.swift in Sources */,
+				03DD57DB232C8CB000F78A9D /* TriangleView.swift in Sources */,
 				031D3AA9232C67CB006978E5 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
