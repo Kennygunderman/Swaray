@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// Custom View that creates a Right Triangle
 class TriangleView : UIView {
     var color: CGColor? = nil
     

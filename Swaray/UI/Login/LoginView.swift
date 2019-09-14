@@ -26,6 +26,7 @@ class LoginView: BaseControllerView {
         return label
     }()
 
+    // This is the magic view that creates the diagonal in the layout
     let triangle: TriangleView = {
         let frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         let color = UIColor.white.cgColor
@@ -34,17 +35,34 @@ class LoginView: BaseControllerView {
         return triangle
     }()
     
-    let button: UIButton = {
-        let btn = UIButton()
-        btn.backgroundColor = .blue
-        return btn
+    lazy var noAccLabel: UILabel = {
+        let label = UILabel()
+        label.text = StringConsts.noAccountLabel
+        label.textColor = .white
+        label.font = loadFont(font: BaseFont.regular, size: DimenConsts.regularFontSize)
+        return label
+    }()
+    
+    // Button for creating an account
+    lazy var createAccBtn: UIButton = {
+        let button = UIButton()
+        button.setTitle(StringConsts.createAccBtnTxt, for: .normal)
+        button.setTitleColor(.appAccent, for: .normal)
+        button.titleLabel?.font = loadFont(font: BaseFont.bold, size: DimenConsts.regularFontSize)
+        
+        // This will remove the padding from the button.
+        // If all values are set to 0, the padding will be be set to it's default,
+        // so the values have to be set the nearly 0 (0.01) for this to work.
+        button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0.01, bottom: 0.01, right: 0)
+        return button
     }()
     
     override func addSubViews() {
         addSubview(loginBg)
         addSubview(loginLabel)
         addSubview(triangle)
-        addSubview(button)
+        addSubview(noAccLabel)
+        addSubview(createAccBtn)
     }
     
     override func setupConstraints() {
@@ -69,6 +87,16 @@ class LoginView: BaseControllerView {
         loginLabel.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(self.snp.top).offset(24)
             make.left.equalTo(self.snp.left).offset(24)
+        }
+        
+        noAccLabel.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(self.loginLabel.snp.bottom).offset(4)
+            make.left.equalTo(self.loginLabel.snp.left)
+        }
+        
+        createAccBtn.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(self.noAccLabel.snp.top)
+            make.left.equalTo(self.noAccLabel.snp.right)
         }
     }
 }
