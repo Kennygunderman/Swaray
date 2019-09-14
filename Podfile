@@ -7,6 +7,10 @@ target 'Swaray' do
 
   # Pods for Swaray
 
+  target 'Swaray' do
+    pod 'SnapKit', '~> 5.0.0'
+  end
+
   target 'SwarayTests' do
     inherit! :search_paths
     # Pods for testing
