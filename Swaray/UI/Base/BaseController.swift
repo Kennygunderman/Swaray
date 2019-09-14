@@ -11,10 +11,10 @@ import UIKit
 
 class BaseController<T_VIEW: BaseControllerView>: UIViewController {
     
-    // baseView used on controller.
-    // access this whenever needing to manipulate/access the
-    // root view for controller. Never call explicitly `self.view`.
-    // when using this Base implementation.
+    // baseView used on Controller.
+    // Access this whenever needing to manipulate/access the
+    // root view for controller. Never explicitly call `self.view`
+    // when using this base implementation.
     lazy var baseView: T_VIEW = T_VIEW()
     
     override func viewDidLoad() {

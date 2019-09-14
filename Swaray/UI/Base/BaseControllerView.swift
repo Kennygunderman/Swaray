@@ -17,15 +17,15 @@ class BaseControllerView: UIView {
         setupConstraints()
     }
     
-    // This method should be used for adding subViews in the
+    // This method should be used for adding sub views
     // when BaseControllerView is implemented. Hence the name
     // `addSubViews` :D
     func addSubViews() {
         
     }
     
-    // Called once the sub views have been added,
-    // this method should be used for setting up constraints
+    // Called once the sub views have been added.
+    // This method should be used for setting up constraints
     // of said sub views.
     func setupConstraints() {
         
