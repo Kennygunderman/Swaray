@@ -7,14 +7,10 @@
 //
 
 import UIKit
+import SnapKit
 
-class LoginController: UIViewController {
+class LoginController: BaseController<LoginView> {
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()
-    }
-    
-    func setupViews() {
-        title = Constants.loginTitle
-    }
+      }
 }

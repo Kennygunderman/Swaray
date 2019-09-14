@@ -10,7 +10,14 @@
 
 
 import Foundation
+import UIKit
 
-struct Constants {
+struct StringConsts {
+    static let appName: String = "Swaray"
     static let loginTitle: String = "Login"
+}
+
+struct DimenConsts {
+    static let headerFontSize: CGFloat = 36
+    static let toolbarHeight: CGFloat = 56 //not sure about this
 }

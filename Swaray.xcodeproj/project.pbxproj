@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,12 @@
 		031D3A99232C5A94006978E5 /* SwarayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D3A98232C5A94006978E5 /* SwarayUITests.swift */; };
 		031D3AA9232C67CB006978E5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D3AA8232C67CB006978E5 /* LoginViewModel.swift */; };
 		031D3AAC232C685D006978E5 /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D3AAB232C685D006978E5 /* Consts.swift */; };
+		03DD57D4232C7AD100F78A9D /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D3232C7AD100F78A9D /* BaseController.swift */; };
+		03DD57D6232C7B4700F78A9D /* BaseControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */; };
+		03DD57D8232C7C0600F78A9D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D7232C7C0600F78A9D /* LoginView.swift */; };
+		5482B0EBF55056135B8D4830 /* Pods_Swaray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2904EF296C876FF5FD6FF741 /* Pods_Swaray.framework */; };
+		627FB2B02EFFD970511231C0 /* Pods_SwarayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71FB30996C1EA176AC06DCE0 /* Pods_SwarayTests.framework */; };
+		C1E2DFB1C257732574871A55 /* Pods_SwarayUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D50E297B894095C918079EC8 /* Pods_SwarayUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00DF9AE178C5E8D2CF60A750 /* Pods-SwarayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwarayTests.release.xcconfig"; path = "Target Support Files/Pods-SwarayTests/Pods-SwarayTests.release.xcconfig"; sourceTree = "<group>"; };
 		031D3A75232C5A92006978E5 /* Swaray.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swaray.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		031D3A78232C5A92006978E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		031D3A7A232C5A93006978E5 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -51,6 +58,17 @@
 		031D3A9A232C5A94006978E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		031D3AA8232C67CB006978E5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		031D3AAB232C685D006978E5 /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
+		03DD57D3232C7AD100F78A9D /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
+		03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseControllerView.swift; sourceTree = "<group>"; };
+		03DD57D7232C7C0600F78A9D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		213DF65E64067817CE94C723 /* Pods-Swaray.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swaray.release.xcconfig"; path = "Target Support Files/Pods-Swaray/Pods-Swaray.release.xcconfig"; sourceTree = "<group>"; };
+		2904EF296C876FF5FD6FF741 /* Pods_Swaray.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swaray.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71FB30996C1EA176AC06DCE0 /* Pods_SwarayTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwarayTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A24ABB76F58AF5E826703B8B /* Pods-SwarayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwarayTests.debug.xcconfig"; path = "Target Support Files/Pods-SwarayTests/Pods-SwarayTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B23D1D9B77FBB9782C205613 /* Pods-SwarayUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwarayUITests.debug.xcconfig"; path = "Target Support Files/Pods-SwarayUITests/Pods-SwarayUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CFA3D7626DC474B3F31A51D2 /* Pods-SwarayUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwarayUITests.release.xcconfig"; path = "Target Support Files/Pods-SwarayUITests/Pods-SwarayUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D50E297B894095C918079EC8 /* Pods_SwarayUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwarayUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB0A04B8B476E06446D101AA /* Pods-Swaray.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swaray.debug.xcconfig"; path = "Target Support Files/Pods-Swaray/Pods-Swaray.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5482B0EBF55056135B8D4830 /* Pods_Swaray.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				627FB2B02EFFD970511231C0 /* Pods_SwarayTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1E2DFB1C257732574871A55 /* Pods_SwarayUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +106,8 @@
 				031D3A8C232C5A94006978E5 /* SwarayTests */,
 				031D3A97232C5A94006978E5 /* SwarayUITests */,
 				031D3A76232C5A92006978E5 /* Products */,
+				B58A21772C226BBD4B194EA8 /* Pods */,
+				8F3400F175E9E062734CCEB3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,6 +156,7 @@
 		031D3AA6232C6777006978E5 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				03DD57D2232C7A8500F78A9D /* Base */,
 				031D3AA7232C6783006978E5 /* Login */,
 			);
 			path = UI;
@@ -143,6 +167,7 @@
 			children = (
 				031D3A7A232C5A93006978E5 /* LoginController.swift */,
 				031D3AA8232C67CB006978E5 /* LoginViewModel.swift */,
+				03DD57D7232C7C0600F78A9D /* LoginView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -155,6 +180,38 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		03DD57D2232C7A8500F78A9D /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				03DD57D3232C7AD100F78A9D /* BaseController.swift */,
+				03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		8F3400F175E9E062734CCEB3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2904EF296C876FF5FD6FF741 /* Pods_Swaray.framework */,
+				71FB30996C1EA176AC06DCE0 /* Pods_SwarayTests.framework */,
+				D50E297B894095C918079EC8 /* Pods_SwarayUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B58A21772C226BBD4B194EA8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DB0A04B8B476E06446D101AA /* Pods-Swaray.debug.xcconfig */,
+				213DF65E64067817CE94C723 /* Pods-Swaray.release.xcconfig */,
+				A24ABB76F58AF5E826703B8B /* Pods-SwarayTests.debug.xcconfig */,
+				00DF9AE178C5E8D2CF60A750 /* Pods-SwarayTests.release.xcconfig */,
+				B23D1D9B77FBB9782C205613 /* Pods-SwarayUITests.debug.xcconfig */,
+				CFA3D7626DC474B3F31A51D2 /* Pods-SwarayUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -162,9 +219,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 031D3A9D232C5A94006978E5 /* Build configuration list for PBXNativeTarget "Swaray" */;
 			buildPhases = (
+				F0AC10801FB02E64C7CEC807 /* [CP] Check Pods Manifest.lock */,
 				031D3A71232C5A92006978E5 /* Sources */,
 				031D3A72232C5A92006978E5 /* Frameworks */,
 				031D3A73232C5A92006978E5 /* Resources */,
+				49F16575B7F473D484399D62 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -179,6 +238,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 031D3AA0232C5A94006978E5 /* Build configuration list for PBXNativeTarget "SwarayTests" */;
 			buildPhases = (
+				FDA77786237FC2AB8710CE30 /* [CP] Check Pods Manifest.lock */,
 				031D3A85232C5A94006978E5 /* Sources */,
 				031D3A86232C5A94006978E5 /* Frameworks */,
 				031D3A87232C5A94006978E5 /* Resources */,
@@ -197,6 +257,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 031D3AA3232C5A94006978E5 /* Build configuration list for PBXNativeTarget "SwarayUITests" */;
 			buildPhases = (
+				182765444E760C79D8913F1A /* [CP] Check Pods Manifest.lock */,
 				031D3A90232C5A94006978E5 /* Sources */,
 				031D3A91232C5A94006978E5 /* Frameworks */,
 				031D3A92232C5A94006978E5 /* Resources */,
@@ -281,14 +342,103 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		182765444E760C79D8913F1A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwarayUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		49F16575B7F473D484399D62 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Swaray/Pods-Swaray-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Swaray/Pods-Swaray-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Swaray/Pods-Swaray-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0AC10801FB02E64C7CEC807 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Swaray-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FDA77786237FC2AB8710CE30 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwarayTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		031D3A71232C5A92006978E5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				031D3A7B232C5A93006978E5 /* LoginController.swift in Sources */,
+				03DD57D8232C7C0600F78A9D /* LoginView.swift in Sources */,
 				031D3AAC232C685D006978E5 /* Consts.swift in Sources */,
 				031D3A79232C5A92006978E5 /* AppDelegate.swift in Sources */,
+				03DD57D6232C7B4700F78A9D /* BaseControllerView.swift in Sources */,
+				03DD57D4232C7AD100F78A9D /* BaseController.swift in Sources */,
 				031D3AA9232C67CB006978E5 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,10 +612,13 @@
 		};
 		031D3A9E232C5A94006978E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB0A04B8B476E06446D101AA /* Pods-Swaray.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3H5N4MHSZX;
+				FRAMEWORK_SEARCH_PATHS = "${inherited}";
+				HEADER_SEARCH_PATHS = "${inherited}";
 				INFOPLIST_FILE = Swaray/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -481,10 +634,13 @@
 		};
 		031D3A9F232C5A94006978E5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 213DF65E64067817CE94C723 /* Pods-Swaray.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3H5N4MHSZX;
+				FRAMEWORK_SEARCH_PATHS = "${inherited}";
+				HEADER_SEARCH_PATHS = "${inherited}";
 				INFOPLIST_FILE = Swaray/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -500,6 +656,7 @@
 		};
 		031D3AA1232C5A94006978E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A24ABB76F58AF5E826703B8B /* Pods-SwarayTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -521,6 +678,7 @@
 		};
 		031D3AA2232C5A94006978E5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00DF9AE178C5E8D2CF60A750 /* Pods-SwarayTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -542,6 +700,7 @@
 		};
 		031D3AA4232C5A94006978E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B23D1D9B77FBB9782C205613 /* Pods-SwarayUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -562,6 +721,7 @@
 		};
 		031D3AA5232C5A94006978E5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFA3D7626DC474B3F31A51D2 /* Pods-SwarayUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
