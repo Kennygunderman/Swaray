@@ -11,7 +11,6 @@ import UIKit
 import SnapKit
 
 class LoginView: BaseControllerView {
-    
     lazy var loginBg: UIView = {
         let frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         let view = UIView(frame: frame)
@@ -50,13 +49,13 @@ class LoginView: BaseControllerView {
     
     override func setupConstraints() {
         loginBg.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.snp.top).offset(DimenConsts.toolbarHeight)
+            make.top.equalTo(self.snp.top).offset(0)
             make.left.equalTo(self.snp.left).offset(0)
             make.right.equalTo(self.snp.right).offset(0)
             
             //set the height to 60% of the screen height
             make.height.equalTo(
-                (UIScreen.main.bounds.height * 0.60) - DimenConsts.toolbarHeight
+                (UIScreen.main.bounds.height * 0.60)
             )
         }
         
@@ -68,7 +67,7 @@ class LoginView: BaseControllerView {
         }
         
         loginLabel.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.snp.top).offset(DimenConsts.toolbarHeight + 24)
+            make.top.equalTo(self.snp.top).offset(24)
             make.left.equalTo(self.snp.left).offset(24)
         }
     }
