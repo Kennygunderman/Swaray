@@ -17,9 +17,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        let root = LoginController()
-        root.view.backgroundColor = .white
-        window?.rootViewController = UINavigationController(rootViewController: root)
+        //Attach root view as LoginController
+        let loginController = LoginController()
+        loginController.view.backgroundColor = .white
+        let root = UINavigationController(rootViewController: loginController)
+        window?.rootViewController = root
+        
+        //Configure navigation bar
+        let navBar = UINavigationBar.appearance()
+        navBar.isTranslucent = false
+        navBar.barTintColor = .appPrimary
+        
+        //This removes the gray `divider` line from the UINavigationBar
+        navBar.setBackgroundImage(UIImage(), for: .default)
+        navBar.shadowImage = UIImage()
+
         return true
     }
 

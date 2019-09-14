@@ -20,6 +20,11 @@
 		03DD57D6232C7B4700F78A9D /* BaseControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */; };
 		03DD57D8232C7C0600F78A9D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D7232C7C0600F78A9D /* LoginView.swift */; };
 		03DD57DB232C8CB000F78A9D /* TriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57DA232C8CB000F78A9D /* TriangleView.swift */; };
+		03DD57DF232D247500F78A9D /* AvenirNextLTPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 03DD57DC232D247500F78A9D /* AvenirNextLTPro-Bold.otf */; };
+		03DD57E0232D247500F78A9D /* AvenirNextLTPro-Demi.otf in Resources */ = {isa = PBXBuildFile; fileRef = 03DD57DD232D247500F78A9D /* AvenirNextLTPro-Demi.otf */; };
+		03DD57E1232D247500F78A9D /* AvenirNextLTPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 03DD57DE232D247500F78A9D /* AvenirNextLTPro-Regular.otf */; };
+		03DD57E4232D2F7D00F78A9D /* BaseFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57E3232D2F7D00F78A9D /* BaseFont.swift */; };
+		03DD57E6232D593000F78A9D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57E5232D593000F78A9D /* Extensions.swift */; };
 		5482B0EBF55056135B8D4830 /* Pods_Swaray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2904EF296C876FF5FD6FF741 /* Pods_Swaray.framework */; };
 		627FB2B02EFFD970511231C0 /* Pods_SwarayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71FB30996C1EA176AC06DCE0 /* Pods_SwarayTests.framework */; };
 		C1E2DFB1C257732574871A55 /* Pods_SwarayUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D50E297B894095C918079EC8 /* Pods_SwarayUITests.framework */; };
@@ -63,6 +68,11 @@
 		03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseControllerView.swift; sourceTree = "<group>"; };
 		03DD57D7232C7C0600F78A9D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		03DD57DA232C8CB000F78A9D /* TriangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleView.swift; sourceTree = "<group>"; };
+		03DD57DC232D247500F78A9D /* AvenirNextLTPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-Bold.otf"; sourceTree = "<group>"; };
+		03DD57DD232D247500F78A9D /* AvenirNextLTPro-Demi.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-Demi.otf"; sourceTree = "<group>"; };
+		03DD57DE232D247500F78A9D /* AvenirNextLTPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-Regular.otf"; sourceTree = "<group>"; };
+		03DD57E3232D2F7D00F78A9D /* BaseFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFont.swift; sourceTree = "<group>"; };
+		03DD57E5232D593000F78A9D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		213DF65E64067817CE94C723 /* Pods-Swaray.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swaray.release.xcconfig"; path = "Target Support Files/Pods-Swaray/Pods-Swaray.release.xcconfig"; sourceTree = "<group>"; };
 		2904EF296C876FF5FD6FF741 /* Pods_Swaray.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swaray.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71FB30996C1EA176AC06DCE0 /* Pods_SwarayTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwarayTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +136,7 @@
 		031D3A77232C5A92006978E5 /* Swaray */ = {
 			isa = PBXGroup;
 			children = (
+				03DD57E2232D249900F78A9D /* fonts */,
 				031D3AAA232C6847006978E5 /* Util */,
 				031D3AA6232C6777006978E5 /* UI */,
 				031D3A78232C5A92006978E5 /* AppDelegate.swift */,
@@ -179,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				031D3AAB232C685D006978E5 /* Consts.swift */,
+				03DD57E5232D593000F78A9D /* Extensions.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -188,6 +200,7 @@
 			children = (
 				03DD57D3232C7AD100F78A9D /* BaseController.swift */,
 				03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */,
+				03DD57E3232D2F7D00F78A9D /* BaseFont.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -198,6 +211,16 @@
 				03DD57DA232C8CB000F78A9D /* TriangleView.swift */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		03DD57E2232D249900F78A9D /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				03DD57DC232D247500F78A9D /* AvenirNextLTPro-Bold.otf */,
+				03DD57DD232D247500F78A9D /* AvenirNextLTPro-Demi.otf */,
+				03DD57DE232D247500F78A9D /* AvenirNextLTPro-Regular.otf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 		8F3400F175E9E062734CCEB3 /* Frameworks */ = {
@@ -333,7 +356,10 @@
 			files = (
 				031D3A83232C5A94006978E5 /* LaunchScreen.storyboard in Resources */,
 				031D3A80232C5A94006978E5 /* Assets.xcassets in Resources */,
+				03DD57DF232D247500F78A9D /* AvenirNextLTPro-Bold.otf in Resources */,
 				031D3A7E232C5A93006978E5 /* Main.storyboard in Resources */,
+				03DD57E1232D247500F78A9D /* AvenirNextLTPro-Regular.otf in Resources */,
+				03DD57E0232D247500F78A9D /* AvenirNextLTPro-Demi.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,7 +473,9 @@
 				031D3A7B232C5A93006978E5 /* LoginController.swift in Sources */,
 				03DD57D8232C7C0600F78A9D /* LoginView.swift in Sources */,
 				031D3AAC232C685D006978E5 /* Consts.swift in Sources */,
+				03DD57E4232D2F7D00F78A9D /* BaseFont.swift in Sources */,
 				031D3A79232C5A92006978E5 /* AppDelegate.swift in Sources */,
+				03DD57E6232D593000F78A9D /* Extensions.swift in Sources */,
 				03DD57D6232C7B4700F78A9D /* BaseControllerView.swift in Sources */,
 				03DD57D4232C7AD100F78A9D /* BaseController.swift in Sources */,
 				03DD57DB232C8CB000F78A9D /* TriangleView.swift in Sources */,

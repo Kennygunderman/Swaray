@@ -19,5 +19,6 @@ struct StringConsts {
 
 struct DimenConsts {
     static let headerFontSize: CGFloat = 36
-    static let toolbarHeight: CGFloat = 56 //not sure about this
+    static let subHeaderFontSize: CGFloat = 24
+    static let toolbarHeight: CGFloat = 0 // not sure about this
 }

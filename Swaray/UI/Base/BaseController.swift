@@ -17,8 +17,33 @@ class BaseController<T_VIEW: BaseControllerView>: UIViewController {
     // when using this base implementation.
     lazy var baseView: T_VIEW = T_VIEW()
     
+    // The default title view for each ViewController
+    lazy var defaultTitleView: UILabel = {
+        let label = UILabel()
+        label.text = StringConsts.appName
+        label.textColor = .white
+        label.font = baseView.loadFont(font: BaseFont.bold, size: DimenConsts.subHeaderFontSize)
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = baseView
+        setTitleView()
+    }
+    
+    fileprivate func setTitleView() {
+        self.navigationItem.titleView = getTitleView()
+    }
+    
+    // This function should be overriden when a custom view is
+    // need for the title.
+    func getTitleView() -> UIView {
+       return defaultTitleView
+    }
+    
+    // Default the status bar to light themed
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
 }

@@ -15,23 +15,23 @@ class LoginView: BaseControllerView {
     lazy var loginBg: UIView = {
         let frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         let view = UIView(frame: frame)
-        view.backgroundColor = .black
+        view.backgroundColor = .appPrimary
         return view
     }()
     
-    let loginLabel: UILabel = {
+    lazy var loginLabel: UILabel = {
         let label = UILabel()
         label.text = StringConsts.loginTitle
-        label.font = UIFont.systemFont(ofSize: DimenConsts.headerFontSize)
+        label.textColor = .white
+        label.font = loadFont(font: BaseFont.regular, size: DimenConsts.headerFontSize)
         return label
     }()
 
-    //UIColor(red: 0.225, green: 1, blue: 1, alpha: 1).cgColor
     let triangle: TriangleView = {
         let frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         let color = UIColor.white.cgColor
         let triangle = TriangleView(color: color, frame: frame)
-        triangle.backgroundColor = .black
+        triangle.backgroundColor = .appPrimary
         return triangle
     }()
     
@@ -70,13 +70,6 @@ class LoginView: BaseControllerView {
         loginLabel.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(self.snp.top).offset(DimenConsts.toolbarHeight + 24)
             make.left.equalTo(self.snp.left).offset(24)
-        }
-        
-        button.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.snp.top).offset(DimenConsts.toolbarHeight + 24)
-            make.left.equalTo(self.snp.left).offset(24)
-            make.width.equalTo(100)
-            make.height.equalTo(50)
         }
     }
 }

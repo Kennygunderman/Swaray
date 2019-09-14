@@ -34,4 +34,15 @@ class BaseControllerView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func loadFont(font: BaseFont, size: CGFloat) -> UIFont {
+        guard let customFont = UIFont(name: font.rawValue, size: size) else {
+            fatalError("""
+        Failed to load the "\(font.rawValue)" font.
+        Make sure the font file is included in the project and the font name is spelled correctly.
+        """
+            )
+        }
+        return customFont
+    }
 }
