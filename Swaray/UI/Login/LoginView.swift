@@ -18,7 +18,7 @@ class LoginView: BaseControllerView {
         return label
     }()
     
-    override func addSubviews() {
+    override func addSubViews() {
         addSubview(loginLabel)
     }
     
