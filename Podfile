@@ -7,6 +7,8 @@ target 'Swaray' do
 
   # Pods for Swaray
   pod 'SnapKit', '~> 4.0.0'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
 
   target 'SwarayTests' do
     inherit! :search_paths
