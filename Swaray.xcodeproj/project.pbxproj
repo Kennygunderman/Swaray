@@ -16,6 +16,7 @@
 		031D3A99232C5A94006978E5 /* SwarayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D3A98232C5A94006978E5 /* SwarayUITests.swift */; };
 		031D3AA9232C67CB006978E5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D3AA8232C67CB006978E5 /* LoginViewModel.swift */; };
 		031D3AAC232C685D006978E5 /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D3AAB232C685D006978E5 /* Consts.swift */; };
+		03B1211F232DDD3B008EB33C /* SwarayTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B1211E232DDD3B008EB33C /* SwarayTextField.swift */; };
 		03DD57D4232C7AD100F78A9D /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D3232C7AD100F78A9D /* BaseController.swift */; };
 		03DD57D6232C7B4700F78A9D /* BaseControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */; };
 		03DD57D8232C7C0600F78A9D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D7232C7C0600F78A9D /* LoginView.swift */; };
@@ -66,6 +67,7 @@
 		031D3A9A232C5A94006978E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		031D3AA8232C67CB006978E5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		031D3AAB232C685D006978E5 /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
+		03B1211E232DDD3B008EB33C /* SwarayTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwarayTextField.swift; sourceTree = "<group>"; };
 		03DD57D3232C7AD100F78A9D /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseControllerView.swift; sourceTree = "<group>"; };
 		03DD57D7232C7C0600F78A9D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				03DD57DA232C8CB000F78A9D /* TriangleView.swift */,
+				03B1211E232DDD3B008EB33C /* SwarayTextField.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				031D3A7B232C5A93006978E5 /* LoginController.swift in Sources */,
+				03B1211F232DDD3B008EB33C /* SwarayTextField.swift in Sources */,
 				03DD57D8232C7C0600F78A9D /* LoginView.swift in Sources */,
 				031D3AAC232C685D006978E5 /* Consts.swift in Sources */,
 				03DD57E4232D2F7D00F78A9D /* BaseFont.swift in Sources */,

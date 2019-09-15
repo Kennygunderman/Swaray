@@ -57,6 +57,27 @@ class SignUpView: BaseControllerView {
         button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0.01, bottom: 0.01, right: 0)
         return button
     }()
+    
+    lazy var emailTxt: SwarayTextField = {
+        let textField = SwarayTextField()
+        textField.font = loadFont(font: .regular, size: DimenConsts.largeFontSize)
+        textField.setPlaceholder(placeholder: StringConsts.emailTxtPlaceholder)
+        return textField
+    }()
+    
+    lazy var passwordTxt: SwarayTextField = {
+        let textField = SwarayTextField()
+        textField.font = loadFont(font: .regular, size: DimenConsts.largeFontSize)
+        textField.setPlaceholder(placeholder: StringConsts.passwordTxtPlaceholder)
+        return textField
+    }()
+    
+    lazy var passwordConfirmTxt: SwarayTextField = {
+        let textField = SwarayTextField()
+        textField.font = loadFont(font: .regular, size: DimenConsts.largeFontSize)
+        textField.setPlaceholder(placeholder: StringConsts.pwConfirmTxtPlaceholder)
+        return textField
+    }()
 
     override func addSubViews() {
         addSubview(signUpBg)
@@ -64,6 +85,9 @@ class SignUpView: BaseControllerView {
         addSubview(triangle)
         addSubview(hasAccLabel)
         addSubview(returnToLoginBtn)
+        addSubview(emailTxt)
+        addSubview(passwordTxt)
+        addSubview(passwordConfirmTxt)
     }
     
     override func setupConstraints() {
@@ -101,10 +125,28 @@ class SignUpView: BaseControllerView {
             make.top.equalTo(self.hasAccLabel.snp.top)
             make.left.equalTo(self.hasAccLabel.snp.right)
         }
+        
+        emailTxt.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(self.hasAccLabel.snp.top).offset(48)
+            make.left.equalTo(self.snp.left).offset(24)
+            make.right.equalTo(self.snp.right).offset(-48)
+        }
+        
+        passwordTxt.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(self.emailTxt.snp.top).offset(60)
+            make.left.equalTo(self.snp.left).offset(24)
+            make.right.equalTo(self.snp.right).offset(-48)
+        }
+        
+        passwordConfirmTxt.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(self.passwordTxt.snp.top).offset(60)
+            make.left.equalTo(self.snp.left).offset(24)
+            make.right.equalTo(self.snp.right).offset(-48)
+        }
     }
     
     override func viewsToAnimate() -> [UIView] {
-        return [signUpLabel, hasAccLabel, returnToLoginBtn]
+        return [signUpLabel, hasAccLabel, returnToLoginBtn, emailTxt, passwordTxt, passwordConfirmTxt]
     }
 }
 
@@ -142,39 +184,15 @@ extension SignUpView {
         }
         
         setNeedsUpdateConstraints()
-        UIView.animate(withDuration: 0.5,
-                       delay: 0.1,
-                       usingSpringWithDamping: 1,
-                       initialSpringVelocity: 1,
-                       options: .curveEaseIn,
-                       animations: {
-                        self.hasAccLabel.alpha = 0
-                        self.returnToLoginBtn.alpha = 0
-                        self.layoutIfNeeded()
-        }, completion: { _ in
+        startAnimation(duration: 0.5, anim: {
+            self.emailTxt.alpha = 0
+            self.passwordTxt.alpha = 0
+            self.passwordConfirmTxt.alpha = 0
+            self.hasAccLabel.alpha = 0
+            self.returnToLoginBtn.alpha = 0
+            self.layoutIfNeeded()
+        }, finished: {
             animationFinished()
         })
     }
-    
-//    // Simple animation for views to fade in.
-//    func handleTransitionInAnimation() {
-//        self.layoutIfNeeded() //This needs to be called to ensure constraints have been set
-//        
-//        self.signUpLabel.alpha = 0
-//        self.hasAccLabel.alpha = 0
-//        self.returnToLoginBtn.alpha = 0
-//        
-//        setNeedsUpdateConstraints()
-//        UIView.animate(withDuration: 0.5,
-//                       delay: 0.1,
-//                       usingSpringWithDamping: 1,
-//                       initialSpringVelocity: 1,
-//                       options: .curveEaseIn,
-//                       animations: {
-//                        self.signUpLabel.alpha = 1
-//                        self.hasAccLabel.alpha = 1
-//                        self.returnToLoginBtn.alpha = 1
-//                        self.layoutIfNeeded()
-//        }, completion: nil)
-//    }
 }

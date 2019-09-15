@@ -20,10 +20,8 @@ class SignUpController: BaseController<SignUpView> {
     }
     
     @objc func handleReturnToLogin() {
-        
         baseView.handleExitAnimation {
             self.navigationController?.popViewController(animated: false)
         }
-        
     }
 }
