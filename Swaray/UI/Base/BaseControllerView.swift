@@ -13,6 +13,7 @@ class BaseControllerView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .white
         addSubViews()
         setupConstraints()
     }
@@ -45,4 +46,41 @@ class BaseControllerView: UIView {
         }
         return customFont
     }
+    
+    // todo: add docs
+    // this is called in viewDidAppear
+    func handleEnterAnimation() {        
+        for v in viewsToAnimate() {
+            v.alpha = 0
+        }
+        
+        startAnimation(duration: 0.25, anim: {
+            for v in self.viewsToAnimate() {
+                v.alpha = 1
+            }
+        })
+    }
+    
+    //todo: add docs
+    //this is the views that will get animated by default on enter
+    func viewsToAnimate() -> [UIView] {
+        return []
+    }
+    
+    //todo: add docs
+    func startAnimation(duration: Double, anim: @escaping () -> Void, finished: (() -> Void)? = nil) {
+        UIView.animate(withDuration: duration,
+                       delay: 0.1,
+                       usingSpringWithDamping: 1,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseIn,
+                       animations: {
+                        anim()
+        }, completion: { _ in
+            if let f = finished {
+                f()
+            }
+        })
+    }
 }
+

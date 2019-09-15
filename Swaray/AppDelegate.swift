@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Attach root view as LoginController
         let loginController = LoginController()
-        loginController.view.backgroundColor = .white
         let root = UINavigationController(rootViewController: loginController)
         window?.rootViewController = root
         

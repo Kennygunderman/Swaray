@@ -12,5 +12,18 @@ import SnapKit
 class LoginController: BaseController<LoginView> {
     override func viewDidLoad() {
         super.viewDidLoad()
-      }
+        setupActions()
+    }
+ 
+    fileprivate func setupActions() {
+        baseView.createAccBtn
+            .addTarget(self, action: #selector(handleCreate), for: .touchUpInside)
+    }
+    
+    @objc func handleCreate() {
+        baseView.handleExitAnimation {
+            let controller = SignUpController()
+            self.navigationController?.pushViewController(controller, animated: false)
+        }
+    }
 }

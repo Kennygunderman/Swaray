@@ -30,6 +30,12 @@ class BaseController<T_VIEW: BaseControllerView>: UIViewController {
         super.viewDidLoad()
         self.view = baseView
         setTitleView()
+        disableBackNavigation()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        // Call logic for animating view into display
+        baseView.handleEnterAnimation()
     }
     
     fileprivate func setTitleView() {
@@ -45,5 +51,14 @@ class BaseController<T_VIEW: BaseControllerView>: UIViewController {
     // Default the status bar to light themed
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return UIStatusBarStyle.lightContent
+    }
+    
+    
+    // Disables back navigation and swiping
+    fileprivate func disableBackNavigation() {
+        self.navigationItem.leftBarButtonItem = nil
+        self.navigationItem.hidesBackButton = true
+        self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
 }

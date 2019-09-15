@@ -14,9 +14,16 @@ import UIKit
 
 struct StringConsts {
     static let appName: String = "Swaray"
+    
+    // Static vals for Login
     static let loginTitle: String = "Login"
     static let noAccountLabel: String = "Don't have an account? "
     static let createAccBtnTxt: String = "Create one here."
+    
+    // Static vals for Sign Up
+    static let signUpTitle = "Sign Up"
+    static let hasAccountLabel: String = "Already have an account? "
+    static let goToLoginBtnTxt: String = "Log in here."
 }
 
 struct DimenConsts {
