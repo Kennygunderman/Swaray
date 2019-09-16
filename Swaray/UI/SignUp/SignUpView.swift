@@ -65,18 +65,55 @@ class SignUpView: BaseControllerView {
         return textField
     }()
     
+    lazy var emailValidationLabel: UILabel = {
+        let label = UILabel()
+        label.text = StringConsts.emailValidation
+        label.textColor = .appAccent
+        label.font = loadFont(font: .bold, size: DimenConsts.smallFontSize)
+        label.alpha = 0
+        return label
+    }()
+    
     lazy var passwordTxt: SwarayTextField = {
         let textField = SwarayTextField()
         textField.font = loadFont(font: .regular, size: DimenConsts.largeFontSize)
         textField.setPlaceholder(placeholder: StringConsts.passwordTxtPlaceholder)
+        textField.isSecureTextEntry = true
         return textField
+    }()
+    
+    lazy var passwordValidationLabel: UILabel = {
+        let label = UILabel()
+        label.text = StringConsts.passwordValidation
+        label.textColor = .appAccent
+        label.font = loadFont(font: .bold, size: DimenConsts.smallFontSize)
+        label.alpha = 0
+        return label
     }()
     
     lazy var passwordConfirmTxt: SwarayTextField = {
         let textField = SwarayTextField()
         textField.font = loadFont(font: .regular, size: DimenConsts.largeFontSize)
         textField.setPlaceholder(placeholder: StringConsts.pwConfirmTxtPlaceholder)
+        textField.isSecureTextEntry = true
         return textField
+    }()
+    
+    lazy var pwMatchValidationLabel: UILabel = {
+        let label = UILabel()
+        label.text = StringConsts.passwordMatchValidation
+        label.textColor = .appAccent
+        label.font = loadFont(font: .bold, size: DimenConsts.smallFontSize)
+        label.alpha = 0
+        return label
+    }()
+    
+    lazy var signUpBtn: UIButton = {
+        let button = UIButton()
+        button.setTitle(StringConsts.signUpBtnText, for: .normal)
+        button.setTitleColor(.appAccent, for: .normal)
+        button.titleLabel?.font = loadFont(font: .regular, size: DimenConsts.regularFontSize)
+        return button
     }()
 
     override func addSubViews() {
@@ -86,8 +123,12 @@ class SignUpView: BaseControllerView {
         addSubview(hasAccLabel)
         addSubview(returnToLoginBtn)
         addSubview(emailTxt)
+        addSubview(emailValidationLabel)
         addSubview(passwordTxt)
+        addSubview(passwordValidationLabel)
         addSubview(passwordConfirmTxt)
+        addSubview(pwMatchValidationLabel)
+        addSubview(signUpBtn)
     }
     
     override func setupConstraints() {
@@ -132,21 +173,44 @@ class SignUpView: BaseControllerView {
             make.right.equalTo(self.snp.right).offset(-48)
         }
         
+        emailValidationLabel.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(self.emailTxt.snp.bottom).offset(4)
+            make.left.equalTo(self.emailTxt.snp.left).offset(0)
+        }
+        
         passwordTxt.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.emailTxt.snp.top).offset(60)
+            make.top.equalTo(self.emailValidationLabel.snp.bottom).offset(8)
             make.left.equalTo(self.snp.left).offset(24)
             make.right.equalTo(self.snp.right).offset(-48)
         }
         
+        passwordValidationLabel.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(self.passwordTxt.snp.bottom).offset(4)
+            make.left.equalTo(self.passwordTxt.snp.left).offset(0)
+        }
+        
         passwordConfirmTxt.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.passwordTxt.snp.top).offset(60)
+            make.top.equalTo(self.passwordValidationLabel.snp.bottom).offset(8)
             make.left.equalTo(self.snp.left).offset(24)
             make.right.equalTo(self.snp.right).offset(-48)
+        }
+        
+        pwMatchValidationLabel.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(self.passwordConfirmTxt.snp.bottom).offset(4)
+            make.left.equalTo(self.passwordConfirmTxt.snp.left).offset(0)
+        }
+        
+        signUpBtn.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(self.signUpBg.snp.bottom).offset(24)
+            make.left.equalTo(self.snp.left).offset(0)
+            make.right.equalTo(self.snp.right).offset(0)
+            make.height.equalTo(50)
+            make.width.equalTo(200)
         }
     }
     
     override func viewsToAnimate() -> [UIView] {
-        return [signUpLabel, hasAccLabel, returnToLoginBtn, emailTxt, passwordTxt, passwordConfirmTxt]
+        return [signUpLabel, hasAccLabel, returnToLoginBtn, emailTxt, passwordTxt, passwordConfirmTxt, signUpBtn]
     }
 }
 
@@ -190,6 +254,10 @@ extension SignUpView {
             self.passwordConfirmTxt.alpha = 0
             self.hasAccLabel.alpha = 0
             self.returnToLoginBtn.alpha = 0
+            self.signUpBtn.alpha = 0
+            self.emailValidationLabel.alpha = 0
+            self.passwordValidationLabel.alpha = 0
+            self.pwMatchValidationLabel.alpha = 0
             self.layoutIfNeeded()
         }, finished: {
             animationFinished()

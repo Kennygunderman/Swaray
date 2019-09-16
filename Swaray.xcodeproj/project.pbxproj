@@ -17,6 +17,8 @@
 		031D3AA9232C67CB006978E5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D3AA8232C67CB006978E5 /* LoginViewModel.swift */; };
 		031D3AAC232C685D006978E5 /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D3AAB232C685D006978E5 /* Consts.swift */; };
 		03B1211F232DDD3B008EB33C /* SwarayTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B1211E232DDD3B008EB33C /* SwarayTextField.swift */; };
+		03B12125232EC6B0008EB33C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03B12124232EC6B0008EB33C /* GoogleService-Info.plist */; };
+		03B12133232ED2E1008EB33C /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B12132232ED2E1008EB33C /* SignUpViewModel.swift */; };
 		03DD57D4232C7AD100F78A9D /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D3232C7AD100F78A9D /* BaseController.swift */; };
 		03DD57D6232C7B4700F78A9D /* BaseControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */; };
 		03DD57D8232C7C0600F78A9D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D7232C7C0600F78A9D /* LoginView.swift */; };
@@ -68,6 +70,8 @@
 		031D3AA8232C67CB006978E5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		031D3AAB232C685D006978E5 /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
 		03B1211E232DDD3B008EB33C /* SwarayTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwarayTextField.swift; sourceTree = "<group>"; };
+		03B12124232EC6B0008EB33C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		03B12132232ED2E1008EB33C /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		03DD57D3232C7AD100F78A9D /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseControllerView.swift; sourceTree = "<group>"; };
 		03DD57D7232C7C0600F78A9D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 				031D3A7F232C5A94006978E5 /* Assets.xcassets */,
 				031D3A81232C5A94006978E5 /* LaunchScreen.storyboard */,
 				031D3A84232C5A94006978E5 /* Info.plist */,
+				03B12124232EC6B0008EB33C /* GoogleService-Info.plist */,
 			);
 			path = Swaray;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				03DD57E8232D6C0A00F78A9D /* SignUpController.swift */,
+				03B12132232ED2E1008EB33C /* SignUpViewModel.swift */,
 				03DD57EA232D6C2100F78A9D /* SignUpView.swift */,
 			);
 			path = SignUp;
@@ -380,6 +386,7 @@
 				031D3A7E232C5A93006978E5 /* Main.storyboard in Resources */,
 				03DD57E1232D247500F78A9D /* AvenirNextLTPro-Regular.otf in Resources */,
 				03DD57E0232D247500F78A9D /* AvenirNextLTPro-Demi.otf in Resources */,
+				03B12125232EC6B0008EB33C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +503,7 @@
 				031D3AAC232C685D006978E5 /* Consts.swift in Sources */,
 				03DD57E4232D2F7D00F78A9D /* BaseFont.swift in Sources */,
 				03DD57EB232D6C2100F78A9D /* SignUpView.swift in Sources */,
+				03B12133232ED2E1008EB33C /* SignUpViewModel.swift in Sources */,
 				031D3A79232C5A92006978E5 /* AppDelegate.swift in Sources */,
 				03DD57E6232D593000F78A9D /* Extensions.swift in Sources */,
 				03DD57D6232C7B4700F78A9D /* BaseControllerView.swift in Sources */,

@@ -27,11 +27,16 @@ struct StringConsts {
     static let emailTxtPlaceholder: String = "Email"
     static let passwordTxtPlaceholder: String = "Password"
     static let pwConfirmTxtPlaceholder: String = "Confirm password"
+    static let emailValidation: String = "Please enter a valid email."
+    static let passwordValidation: String = "Password must be at least 6 characters."
+    static let passwordMatchValidation: String = "Passwords do not match."
+    static let signUpBtnText = "SIGN UP"
 }
 
 struct DimenConsts {
     static let headerFontSize: CGFloat = 36
     static let subHeaderFontSize: CGFloat = 24
+    static let smallFontSize: CGFloat = 12
     static let regularFontSize: CGFloat = 14
     static let largeFontSize: CGFloat = 18
 
