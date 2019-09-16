@@ -39,5 +39,4 @@ struct DimenConsts {
     static let smallFontSize: CGFloat = 12
     static let regularFontSize: CGFloat = 14
     static let largeFontSize: CGFloat = 18
-
 }

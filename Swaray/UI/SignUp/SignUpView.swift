@@ -45,10 +45,10 @@ class SignUpView: BaseControllerView {
     }()
     
     // Button for returning back to login
-    lazy var returnToLoginBtn: UIButton = {
-        let button = UIButton()
+    lazy var returnToLoginBtn: HighlightableTextButton = {
+        let button = HighlightableTextButton()
+        button.textColor = .appAccent
         button.setTitle(StringConsts.goToLoginBtnTxt, for: .normal)
-        button.setTitleColor(.appAccent, for: .normal)
         button.titleLabel?.font = loadFont(font: BaseFont.bold, size: DimenConsts.regularFontSize)
         
         // This will remove the padding from the button.
@@ -108,11 +108,12 @@ class SignUpView: BaseControllerView {
         return label
     }()
     
-    lazy var signUpBtn: UIButton = {
-        let button = UIButton()
+    lazy var signUpBtn: SwarayButton = {
+        let button = SwarayButton()
         button.setTitle(StringConsts.signUpBtnText, for: .normal)
-        button.setTitleColor(.appAccent, for: .normal)
-        button.titleLabel?.font = loadFont(font: .regular, size: DimenConsts.regularFontSize)
+        button.textColor = .white
+        button.titleLabel?.font = loadFont(font: .medium, size: DimenConsts.largeFontSize)
+        button.backgroundColor = .appPrimary
         return button
     }()
 
@@ -202,10 +203,9 @@ class SignUpView: BaseControllerView {
         
         signUpBtn.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(self.signUpBg.snp.bottom).offset(24)
-            make.left.equalTo(self.snp.left).offset(0)
-            make.right.equalTo(self.snp.right).offset(0)
+            make.left.equalTo(self.snp.left).offset(64)
+            make.right.equalTo(self.snp.right).offset(-64)
             make.height.equalTo(50)
-            make.width.equalTo(200)
         }
     }
     

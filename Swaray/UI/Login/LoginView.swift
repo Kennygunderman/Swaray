@@ -46,10 +46,10 @@ class LoginView: BaseControllerView {
     }()
     
     // Button for creating an account
-    lazy var createAccBtn: UIButton = {
-        let button = UIButton()
+    lazy var createAccBtn: HighlightableTextButton = {
+        let button = HighlightableTextButton()
+        button.textColor = .appAccent
         button.setTitle(StringConsts.createAccBtnTxt, for: .normal)
-        button.setTitleColor(.appAccent, for: .normal)
         button.titleLabel?.font = loadFont(font: BaseFont.bold, size: DimenConsts.regularFontSize)
         
         // This will remove the padding from the button.
