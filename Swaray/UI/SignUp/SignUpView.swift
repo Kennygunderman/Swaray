@@ -62,6 +62,7 @@ class SignUpView: BaseControllerView {
         let textField = SwarayTextField()
         textField.font = loadFont(font: .regular, size: DimenConsts.largeFontSize)
         textField.setPlaceholder(placeholder: StringConsts.emailTxtPlaceholder)
+        textField.returnKeyType = .next
         return textField
     }()
     
@@ -78,6 +79,7 @@ class SignUpView: BaseControllerView {
         let textField = SwarayTextField()
         textField.font = loadFont(font: .regular, size: DimenConsts.largeFontSize)
         textField.setPlaceholder(placeholder: StringConsts.passwordTxtPlaceholder)
+        textField.returnKeyType = .next
         textField.isSecureTextEntry = true
         return textField
     }()
@@ -95,6 +97,7 @@ class SignUpView: BaseControllerView {
         let textField = SwarayTextField()
         textField.font = loadFont(font: .regular, size: DimenConsts.largeFontSize)
         textField.setPlaceholder(placeholder: StringConsts.pwConfirmTxtPlaceholder)
+        textField.returnKeyType = .next
         textField.isSecureTextEntry = true
         return textField
     }()
@@ -155,7 +158,7 @@ class SignUpView: BaseControllerView {
             make.left.equalTo(self.snp.left).offset(0)
             make.right.equalTo(self.snp.right).offset(0)
             make.bottom.equalTo(self.signUpBg.snp.bottom).offset(0)
-            make.height.equalTo(150)
+            make.height.equalTo(DimenConsts.triangleCutHeight)
         }
 
         signUpLabel.snp.makeConstraints { (make) -> Void in
@@ -225,7 +228,21 @@ extension SignUpView {
     // Updates & animates constraint changes on the view
     // when exiting.
     func handleExitAnimation(animationFinished: @escaping () -> Void) {
-        
+        signUpBg.snp.updateConstraints { (make) -> Void in
+            make.height.equalTo(
+                (UIScreen.main.bounds.height * 0.6)
+            )
+        }
+
+        setNeedsUpdateConstraints()
+        startAnimation(duration: 0.5, anim: {
+            self.layoutIfNeeded()
+        }, finished: {
+            self.handleExitAnimShrink(animationFinished: animationFinished)
+        })
+    }
+    
+    private func handleExitAnimShrink(animationFinished: @escaping () -> Void) {
         // This get's a little weird. But here we need to set the height constraint of
         // the triangle view to 0 and call `layoutIfNeeded()`. This will automatically
         // set the triangle view to have a height of 0. After setting the height to 0,
@@ -239,7 +256,7 @@ extension SignUpView {
         triangle.alpha = 1
         
         triangle.snp.updateConstraints { (make) -> Void in
-            make.height.equalTo(150) //This should equal the default height in Login.
+            make.height.equalTo(DimenConsts.triangleCutHeight)
         }
         
         signUpBg.snp.updateConstraints { (make) -> Void in
@@ -247,7 +264,7 @@ extension SignUpView {
                 (UIScreen.main.bounds.height * 0.5)
             )
         }
-
+        
         signUpLabel.snp.makeConstraints { (make) -> Void in
             make.width.equalTo(0)
         }
@@ -267,5 +284,6 @@ extension SignUpView {
         }, finished: {
             animationFinished()
         })
+    
     }
 }

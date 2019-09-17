@@ -84,7 +84,7 @@ class LoginView: BaseControllerView {
             make.left.equalTo(self.snp.left).offset(0)
             make.right.equalTo(self.snp.right).offset(0)
             make.bottom.equalTo(self.loginBg.snp.bottom).offset(0)
-            make.height.equalTo(150)
+            make.height.equalTo(DimenConsts.triangleCutHeight)
         }
         
         loginLabel.snp.makeConstraints { (make) -> Void in

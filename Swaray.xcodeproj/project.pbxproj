@@ -20,6 +20,8 @@
 		03B12125232EC6B0008EB33C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03B12124232EC6B0008EB33C /* GoogleService-Info.plist */; };
 		03B12133232ED2E1008EB33C /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B12132232ED2E1008EB33C /* SignUpViewModel.swift */; };
 		03B12135232F0FB7008EB33C /* SwarayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B12134232F0FB7008EB33C /* SwarayButton.swift */; };
+		03B1213A2330753F008EB33C /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B121392330753F008EB33C /* HomeController.swift */; };
+		03B1213C23307554008EB33C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B1213B23307554008EB33C /* HomeView.swift */; };
 		03DD57D4232C7AD100F78A9D /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D3232C7AD100F78A9D /* BaseController.swift */; };
 		03DD57D6232C7B4700F78A9D /* BaseControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */; };
 		03DD57D8232C7C0600F78A9D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D7232C7C0600F78A9D /* LoginView.swift */; };
@@ -74,6 +76,8 @@
 		03B12124232EC6B0008EB33C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		03B12132232ED2E1008EB33C /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		03B12134232F0FB7008EB33C /* SwarayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwarayButton.swift; sourceTree = "<group>"; };
+		03B121392330753F008EB33C /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		03B1213B23307554008EB33C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		03DD57D3232C7AD100F78A9D /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseControllerView.swift; sourceTree = "<group>"; };
 		03DD57D7232C7C0600F78A9D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 				03DD57D2232C7A8500F78A9D /* Base */,
 				031D3AA7232C6783006978E5 /* Login */,
 				03DD57E7232D6BA700F78A9D /* SignUp */,
+				03B121382330751B008EB33C /* Home */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -207,6 +212,15 @@
 				03DD57E5232D593000F78A9D /* Extensions.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		03B121382330751B008EB33C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				03B121392330753F008EB33C /* HomeController.swift */,
+				03B1213B23307554008EB33C /* HomeView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		03DD57D2232C7A8500F78A9D /* Base */ = {
@@ -505,6 +519,7 @@
 				03DD57D8232C7C0600F78A9D /* LoginView.swift in Sources */,
 				031D3AAC232C685D006978E5 /* Consts.swift in Sources */,
 				03DD57E4232D2F7D00F78A9D /* BaseFont.swift in Sources */,
+				03B1213C23307554008EB33C /* HomeView.swift in Sources */,
 				03DD57EB232D6C2100F78A9D /* SignUpView.swift in Sources */,
 				03B12133232ED2E1008EB33C /* SignUpViewModel.swift in Sources */,
 				031D3A79232C5A92006978E5 /* AppDelegate.swift in Sources */,
@@ -512,6 +527,7 @@
 				03DD57D6232C7B4700F78A9D /* BaseControllerView.swift in Sources */,
 				03DD57D4232C7AD100F78A9D /* BaseController.swift in Sources */,
 				03B12135232F0FB7008EB33C /* SwarayButton.swift in Sources */,
+				03B1213A2330753F008EB33C /* HomeController.swift in Sources */,
 				03DD57DB232C8CB000F78A9D /* TriangleView.swift in Sources */,
 				03DD57E9232D6C0A00F78A9D /* SignUpController.swift in Sources */,
 				031D3AA9232C67CB006978E5 /* LoginViewModel.swift in Sources */,

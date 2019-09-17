@@ -36,6 +36,8 @@ struct StringConsts {
 }
 
 struct DimenConsts {
+    //height of the triangle `cut` used in Login, Sign Up & Home
+    static let triangleCutHeight = 100
     static let headerFontSize: CGFloat = 36
     static let subHeaderFontSize: CGFloat = 24
     static let smallFontSize: CGFloat = 12
