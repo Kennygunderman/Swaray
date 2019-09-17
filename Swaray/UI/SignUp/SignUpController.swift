@@ -36,6 +36,14 @@ class SignUpController: BaseController<SignUpView> {
             if let e = error {
                 self.showErrorDialog(error: e)
                 self.baseView.signUpBtn.animate()
+                self.baseView.signUpBtn.isEnabled = true
+            }
+        }
+        
+        _ = viewModel.authSuccess.observeNext { result in
+            if let _ = result {
+                self.baseView.signUpBtn.setTitle(StringConsts.signUpSuccess, for: .normal)
+                self.baseView.signUpBtn.animate()
             }
         }
     }
@@ -56,12 +64,13 @@ class SignUpController: BaseController<SignUpView> {
             .addTarget(self, action: #selector(handleReturnToLogin), for: .touchUpInside)
         
         baseView.signUpBtn
-            .addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
+            .addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)        
     }
     
     @objc func handleSignUp() {
         if viewModel.validate() {
             baseView.signUpBtn.animate()
+            baseView.signUpBtn.isEnabled = false
             viewModel.createUser(
                 email: viewModel.email.value ?? "",
                 password: viewModel.password.value ?? ""
