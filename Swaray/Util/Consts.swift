@@ -31,6 +31,7 @@ struct StringConsts {
     static let passwordValidation: String = "Password must be at least 6 characters."
     static let passwordMatchValidation: String = "Passwords do not match."
     static let signUpBtnText = "SIGN UP"
+    static let signUpError = "Error creating account"
 }
 
 struct DimenConsts {

@@ -8,6 +8,7 @@
 
 import Foundation
 import Bond
+import Firebase
 
 class SignUpViewModel {
     let email = Observable<String?>("")
@@ -17,6 +18,9 @@ class SignUpViewModel {
     let emailValidation = Observable<CGFloat>(0)
     let passwordValidation = Observable<CGFloat>(0)
     let pwMatchValidation = Observable<CGFloat>(0)
+    
+    let authError = Observable<String?>(nil)
+    let authSuccess = Observable<AuthDataResult?>(nil)
     
     init() {
         _ = email.observeNext { _ in
@@ -61,7 +65,7 @@ class SignUpViewModel {
         return password.value == confirmPassword.value && validatePassword()
     }
     
-    func signUp() -> Bool {
+    func validate() -> Bool {
         var validated = true
         
         if (!validateEmail()) {
@@ -79,5 +83,15 @@ class SignUpViewModel {
             validated = false
         }
         return validated
+    }
+    
+    func createUser(email: String, password: String) {
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let e = error {
+                self.authError.value = e.localizedDescription
+            } else {
+                self.authSuccess.value = authResult
+            }
+        }
     }
 }

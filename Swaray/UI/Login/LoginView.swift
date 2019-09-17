@@ -119,7 +119,7 @@ extension LoginView {
         }
         
         loginBg.snp.updateConstraints { (make) -> Void in
-            make.height.equalTo((UIScreen.main.bounds.height * 0.6))
+            make.height.equalTo((UIScreen.main.bounds.height * 0.5))
         }
         
         loginLabel.snp.makeConstraints { (make) -> Void in

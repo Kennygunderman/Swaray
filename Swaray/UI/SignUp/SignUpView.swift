@@ -108,10 +108,15 @@ class SignUpView: BaseControllerView {
         return label
     }()
     
-    lazy var signUpBtn: SwarayButton = {
-        let button = SwarayButton()
+    // Make the button width the size of the screen with
+    // a padding of 64 on each side
+    private let signUpBtnWidth = UIScreen.main.bounds.width - (64 * 2)
+    
+    lazy var signUpBtn: LoadingButton = {
+        let button = LoadingButton()
         button.setTitle(StringConsts.signUpBtnText, for: .normal)
         button.textColor = .white
+        button.width = signUpBtnWidth
         button.titleLabel?.font = loadFont(font: .medium, size: DimenConsts.largeFontSize)
         button.backgroundColor = .appPrimary
         return button
@@ -138,11 +143,11 @@ class SignUpView: BaseControllerView {
             make.left.equalTo(self.snp.left).offset(0)
             make.right.equalTo(self.snp.right).offset(0)
             
-            // set the height to 55% of the screen height.
+            // set the height to 50% of the screen height.
             // This should match the transition animation height
             // in LoginView.
             make.height.equalTo(
-                (UIScreen.main.bounds.height * 0.6)
+                (UIScreen.main.bounds.height * 0.5)
             )
         }
         
@@ -203,9 +208,9 @@ class SignUpView: BaseControllerView {
         
         signUpBtn.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(self.signUpBg.snp.bottom).offset(24)
-            make.left.equalTo(self.snp.left).offset(64)
-            make.right.equalTo(self.snp.right).offset(-64)
+            make.centerX.equalTo(self.snp.centerX)
             make.height.equalTo(50)
+            make.width.equalTo(signUpBtnWidth)
         }
     }
     
