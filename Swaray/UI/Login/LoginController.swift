@@ -14,8 +14,8 @@ class LoginController: BaseController<LoginView> {
         super.viewDidLoad()
         setupActions()
     }
- 
-    fileprivate func setupActions() {
+
+    private func setupActions() {
         baseView.createAccBtn
             .addTarget(self, action: #selector(handleCreate), for: .touchUpInside)
     }

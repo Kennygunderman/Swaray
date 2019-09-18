@@ -47,15 +47,15 @@ class BaseControllerView: UIView {
         return customFont
     }
     
-    // Handles the Enter animation. By default, the animation is a fade-in
-    // of views provided from `viewsToAnimate`.
-    func handleEnterAnimation() {        
-        for v in viewsToAnimate() {
+    // Animation to fade in views provided from `transitionInViews`
+    // when controller is first loaded.
+    func handleEnterTransition() {
+        for v in transitionInViews() {
             v.alpha = 0
         }
         
         startAnimation(duration: 0.25, anim: {
-            for v in self.viewsToAnimate() {
+            for v in self.transitionInViews() {
                 v.alpha = 1
             }
         })
@@ -63,7 +63,7 @@ class BaseControllerView: UIView {
     
     // Provides views to animate when the corresponding
     // ViewController is first loaded (on Enter).
-    func viewsToAnimate() -> [UIView] {
+    func transitionInViews() -> [UIView] {
         return []
     }
     

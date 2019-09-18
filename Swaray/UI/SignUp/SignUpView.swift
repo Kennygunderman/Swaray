@@ -11,10 +11,18 @@ import UIKit
 import SnapKit
 
 class SignUpView: BaseControllerView {
-    lazy var signUpBg: UIView = {
+    lazy var background: UIView = {
         let frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         let view = UIView(frame: frame)
         view.backgroundColor = .appPrimary
+        return view
+    }()
+    
+    // Container view for holding the login/sign-up & social login buttons
+    let bottomHalfView: UIView = {
+        let frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        let view = UIView(frame: frame)
+        view.backgroundColor = .white
         return view
     }()
     
@@ -24,37 +32,39 @@ class SignUpView: BaseControllerView {
         let color = UIColor.white.cgColor
         let triangle = TriangleView(color: color, frame: frame)
         triangle.backgroundColor = .appPrimary
-        triangle.alpha = 0
         return triangle
     }()
     
-    lazy var signUpLabel: UILabel = {
+    //Login but also the Sign Up label
+    lazy var loginLabel: UILabel = {
         let label = UILabel()
-        label.text = StringConsts.signUpTitle
+        label.text = StringConsts.loginTitle
         label.textColor = .white
         label.font = loadFont(font: BaseFont.regular, size: DimenConsts.headerFontSize)
         return label
     }()
     
-    lazy var hasAccLabel: UILabel = {
+    // Label for the call to action (i.e Don't have an account?)
+    lazy var actionLabel: UILabel = {
         let label = UILabel()
-        label.text = StringConsts.hasAccountLabel
+        label.text = StringConsts.noAccountLabel
         label.textColor = .white
         label.font = loadFont(font: BaseFont.regular, size: DimenConsts.regularFontSize)
         return label
     }()
     
-    // Button for returning back to login
-    lazy var returnToLoginBtn: HighlightableTextButton = {
+    // Button for the call to action
+    lazy var actionBtn: HighlightableTextButton = {
         let button = HighlightableTextButton()
         button.textColor = .appAccent
-        button.setTitle(StringConsts.goToLoginBtnTxt, for: .normal)
+        button.setTitle(StringConsts.createAccBtnTxt, for: .normal)
         button.titleLabel?.font = loadFont(font: BaseFont.bold, size: DimenConsts.regularFontSize)
         
         // This will remove the padding from the button.
         // If all values are set to 0, the padding will be be set to it's default,
         // so the values have to be set the nearly 0 (0.01) for this to work.
         button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0.01, bottom: 0.01, right: 0)
+        button.accessibilityIdentifier = "loginActionBtnId"
         return button
     }()
     
@@ -62,7 +72,7 @@ class SignUpView: BaseControllerView {
         let textField = SwarayTextField()
         textField.font = loadFont(font: .regular, size: DimenConsts.largeFontSize)
         textField.setPlaceholder(placeholder: StringConsts.emailTxtPlaceholder)
-        textField.returnKeyType = .next
+        textField.returnKeyType = .done
         return textField
     }()
     
@@ -79,7 +89,7 @@ class SignUpView: BaseControllerView {
         let textField = SwarayTextField()
         textField.font = loadFont(font: .regular, size: DimenConsts.largeFontSize)
         textField.setPlaceholder(placeholder: StringConsts.passwordTxtPlaceholder)
-        textField.returnKeyType = .next
+        textField.returnKeyType = .done
         textField.isSecureTextEntry = true
         return textField
     }()
@@ -97,8 +107,10 @@ class SignUpView: BaseControllerView {
         let textField = SwarayTextField()
         textField.font = loadFont(font: .regular, size: DimenConsts.largeFontSize)
         textField.setPlaceholder(placeholder: StringConsts.pwConfirmTxtPlaceholder)
-        textField.returnKeyType = .next
+        textField.returnKeyType = .done
+        textField.alpha = 0
         textField.isSecureTextEntry = true
+        textField.accessibilityIdentifier = "confirmPwTxtId"
         return textField
     }()
     
@@ -115,69 +127,75 @@ class SignUpView: BaseControllerView {
     // a padding of 64 on each side
     private let signUpBtnWidth = UIScreen.main.bounds.width - (64 * 2)
     
-    lazy var signUpBtn: LoadingButton = {
+    lazy var loginBtn: LoadingButton = {
         let button = LoadingButton()
-        button.setTitle(StringConsts.signUpBtnText, for: .normal)
+        button.setTitle(StringConsts.loginBtnText, for: .normal)
         button.textColor = .white
         button.width = signUpBtnWidth
         button.titleLabel?.font = loadFont(font: .medium, size: DimenConsts.largeFontSize)
         button.backgroundColor = .appPrimary
+        button.accessibilityIdentifier = "loginBtnId"
         return button
     }()
 
     override func addSubViews() {
-        addSubview(signUpBg)
-        addSubview(signUpLabel)
+        addSubview(background)
+        addSubview(bottomHalfView)
+        addSubview(loginLabel)
         addSubview(triangle)
-        addSubview(hasAccLabel)
-        addSubview(returnToLoginBtn)
+        addSubview(actionLabel)
+        addSubview(actionBtn)
         addSubview(emailTxt)
         addSubview(emailValidationLabel)
         addSubview(passwordTxt)
         addSubview(passwordValidationLabel)
         addSubview(passwordConfirmTxt)
         addSubview(pwMatchValidationLabel)
-        addSubview(signUpBtn)
+        bottomHalfView.addSubview(loginBtn)
     }
+    // Keep track of the bottom constraint of background
+    // for handling the state animation transition.
+    var bgBottomConstraint: Constraint? = nil
     
     override func setupConstraints() {
-        signUpBg.snp.makeConstraints { (make) -> Void in
+        background.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(self.snp.top).offset(0)
             make.left.equalTo(self.snp.left).offset(0)
             make.right.equalTo(self.snp.right).offset(0)
-            
-            // set the height to 50% of the screen height.
-            // This should match the transition animation height
-            // in LoginView.
-            make.height.equalTo(
-                (UIScreen.main.bounds.height * 0.5)
-            )
+            bgBottomConstraint = make.bottom.equalTo(self.passwordTxt.snp.bottom).offset(144).constraint
+        }
+        
+        bottomHalfView.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(self.background.snp.bottom)
+            make.left.equalTo(self.snp.left)
+            make.right.equalTo(self.snp.right)
+            make.bottom.equalTo(self.snp.bottom)
         }
         
         triangle.snp.makeConstraints { (make) -> Void in
             make.left.equalTo(self.snp.left).offset(0)
             make.right.equalTo(self.snp.right).offset(0)
-            make.bottom.equalTo(self.signUpBg.snp.bottom).offset(0)
+            make.bottom.equalTo(self.background.snp.bottom).offset(0)
             make.height.equalTo(DimenConsts.triangleCutHeight)
         }
 
-        signUpLabel.snp.makeConstraints { (make) -> Void in
+        loginLabel.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(self.snp.top).offset(24)
             make.left.equalTo(self.snp.left).offset(24)
         }
         
-        hasAccLabel.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.signUpLabel.snp.bottom).offset(4)
-            make.left.equalTo(self.signUpLabel.snp.left)
+        actionLabel.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(self.loginLabel.snp.bottom).offset(4)
+            make.left.equalTo(self.loginLabel.snp.left)
         }
         
-        returnToLoginBtn.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.hasAccLabel.snp.top)
-            make.left.equalTo(self.hasAccLabel.snp.right)
+        actionBtn.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(self.actionLabel.snp.top)
+            make.left.equalTo(self.actionLabel.snp.right)
         }
         
         emailTxt.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.hasAccLabel.snp.top).offset(48)
+            make.top.equalTo(self.actionLabel.snp.top).offset(48)
             make.left.equalTo(self.snp.left).offset(24)
             make.right.equalTo(self.snp.right).offset(-48)
         }
@@ -209,31 +227,85 @@ class SignUpView: BaseControllerView {
             make.left.equalTo(self.passwordConfirmTxt.snp.left).offset(0)
         }
         
-        signUpBtn.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.signUpBg.snp.bottom).offset(24)
-            make.centerX.equalTo(self.snp.centerX)
+        loginBtn.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(50)
             make.width.equalTo(signUpBtnWidth)
+            make.center.equalTo(self.bottomHalfView.snp.center)
         }
     }
     
-    override func viewsToAnimate() -> [UIView] {
-        return [signUpLabel, hasAccLabel, returnToLoginBtn, emailTxt, passwordTxt, passwordConfirmTxt, signUpBtn]
+    override func transitionInViews() -> [UIView] {
+        return [loginLabel, actionLabel, actionBtn, emailTxt, passwordTxt, loginBtn]
     }
 }
 
-// This exention on SignUpView is to handle animation related logic.
+// This exention is to handle animation related logic.
 extension SignUpView {
     
-    // Updates & animates constraint changes on the view
-    // when exiting.
+    // Handle to tranistion from Login -> Sign Up and vice versa.
+    // This handles constraint changes and fading in/out of Views on transition.
+    func animateStateChange(state: LoginState) {
+        triangle.snp.updateConstraints { (make) -> Void in
+            make.height.equalTo( state == .signUp ? 0 : DimenConsts.triangleCutHeight)
+        }
+        
+        bgBottomConstraint?.deactivate()
+        background.snp.makeConstraints { (make) -> Void in
+            let viewToConstrainTo = state == .signUp ? passwordConfirmTxt : passwordTxt
+            bgBottomConstraint = make
+                .bottom
+                .equalTo(viewToConstrainTo.snp.bottom)
+                .offset(state == .signUp ? 48 : 144)
+                .constraint
+        }
+    
+        // Exit animation
+        startAnimation(duration: 0.5, anim: {
+            if (state == .login) {
+                self.emailValidationLabel.alpha = 0
+                self.passwordValidationLabel.alpha = 0
+                self.pwMatchValidationLabel.alpha = 0
+                self.passwordConfirmTxt.alpha = 0
+            }
+        
+            self.loginLabel.alpha = 0
+            self.actionLabel.alpha = 0
+            self.actionBtn.alpha = 0
+            self.emailTxt.alpha = 0
+            self.passwordTxt.alpha = 0
+            self.loginBtn.alpha = 0
+            self.layoutIfNeeded()
+
+        }, finished: {
+            self.loginLabel.text = state == .signUp ? StringConsts.signUpTitle : StringConsts.loginTitle
+            self.actionLabel.text = state == .signUp ? StringConsts.hasAccountLabel : StringConsts.noAccountLabel
+            self.actionBtn.setTitle(state == .signUp ? StringConsts.goToLoginBtnTxt : StringConsts.createAccBtnTxt, for: .normal)
+            self.loginBtn.setTitle(state == .signUp ? StringConsts.signUpBtnText : StringConsts.loginBtnText, for: .normal)
+            
+            // Enter Animation. Performed after the exit anim
+            self.startAnimation(duration: 0.25, anim: {
+                self.loginLabel.alpha = 1
+                self.actionLabel.alpha = 1
+                self.actionBtn.alpha = 1
+                self.emailTxt.alpha = 1
+                self.passwordTxt.alpha = 1
+                if (state == .signUp) {
+                    self.passwordConfirmTxt.alpha = 1
+                }
+                self.loginBtn.alpha = 1
+            })
+        })
+    }
+    
+    // Handles the exiting transiton to HomeController
     func handleExitAnimation(animationFinished: @escaping () -> Void) {
-        signUpBg.snp.updateConstraints { (make) -> Void in
+        bgBottomConstraint?.deactivate()
+        background.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(
                 (UIScreen.main.bounds.height * 0.6)
             )
         }
-
+    
         setNeedsUpdateConstraints()
         startAnimation(duration: 0.5, anim: {
             self.layoutIfNeeded()
@@ -243,47 +315,30 @@ extension SignUpView {
     }
     
     private func handleExitAnimShrink(animationFinished: @escaping () -> Void) {
-        // This get's a little weird. But here we need to set the height constraint of
-        // the triangle view to 0 and call `layoutIfNeeded()`. This will automatically
-        // set the triangle view to have a height of 0. After setting the height to 0,
-        // we can set the alpha of the view to 1, and animate the height change to the user.
-        // We need to do this for the animation to work properly.
-        triangle.snp.updateConstraints { (make) -> Void in
-            make.height.equalTo(0)
-        }
-        
-        layoutIfNeeded()
-        triangle.alpha = 1
-        
         triangle.snp.updateConstraints { (make) -> Void in
             make.height.equalTo(DimenConsts.triangleCutHeight)
         }
-        
-        signUpBg.snp.updateConstraints { (make) -> Void in
+    
+        bgBottomConstraint?.deactivate()
+        background.snp.updateConstraints { (make) -> Void in
+            // This should be set to the same value as the HomeController
             make.height.equalTo(
                 (UIScreen.main.bounds.height * 0.5)
             )
         }
         
-        signUpLabel.snp.makeConstraints { (make) -> Void in
-            make.width.equalTo(0)
-        }
-        
         setNeedsUpdateConstraints()
         startAnimation(duration: 0.5, anim: {
+            self.layoutIfNeeded()
+            self.loginLabel.alpha = 0
+            self.actionLabel.alpha = 0
+            self.actionBtn.alpha = 0
             self.emailTxt.alpha = 0
             self.passwordTxt.alpha = 0
             self.passwordConfirmTxt.alpha = 0
-            self.hasAccLabel.alpha = 0
-            self.returnToLoginBtn.alpha = 0
-            self.signUpBtn.alpha = 0
-            self.emailValidationLabel.alpha = 0
-            self.passwordValidationLabel.alpha = 0
-            self.pwMatchValidationLabel.alpha = 0
-            self.layoutIfNeeded()
+            self.loginBtn.alpha = 0
         }, finished: {
             animationFinished()
         })
-    
     }
 }

@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         //Attach root view as LoginController
-        let loginController = LoginController()
+        let loginController = SignUpController()
         let root = UINavigationController(rootViewController: loginController)
         window?.rootViewController = root
         

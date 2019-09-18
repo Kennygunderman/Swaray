@@ -12,13 +12,14 @@
 import Foundation
 import UIKit
 
-struct StringConsts {
+public struct StringConsts {
     static let appName: String = "Swaray"
     
     // Static vals for Login
     static let loginTitle: String = "Login"
     static let noAccountLabel: String = "Don't have an account? "
     static let createAccBtnTxt: String = "Create one here."
+    static let loginBtnText: String = "LOGIN"
     
     // Static vals for Sign Up
     static let signUpTitle = "Sign Up"

@@ -103,7 +103,7 @@ class LoginView: BaseControllerView {
         }
     }
     
-    override func viewsToAnimate() -> [UIView] {
+    override func transitionInViews() -> [UIView] {
         return [noAccLabel, createAccBtn, loginLabel]
     }
 }

@@ -34,8 +34,8 @@ class BaseController<T_VIEW: BaseControllerView>: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        // Call logic for animating view into display
-        baseView.handleEnterAnimation()
+        // Logic for animating subviews into display
+        baseView.handleEnterTransition()
     }
     
     fileprivate func setTitleView() {

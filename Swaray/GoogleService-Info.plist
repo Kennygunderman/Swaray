@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>115943482586-hsc73jae6b0r253b5qhi20atm165r36u.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.115943482586-hsc73jae6b0r253b5qhi20atm165r36u</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCeJgxHqPa3g6TRWC1b6aVxVphfRhia42U</string>
+	<key>GCM_SENDER_ID</key>
+	<string>115943482586</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.kennygunderman.Swaray</string>
+	<key>PROJECT_ID</key>
+	<string>swaray-521c4</string>
+	<key>STORAGE_BUCKET</key>
+	<string>swaray-521c4.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:115943482586:ios:ef084cfdd09d2d155071e3</string>
+	<key>DATABASE_URL</key>
+	<string>https://swaray-521c4.firebaseio.com</string>
+</dict>
+</plist>
