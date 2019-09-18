@@ -10,7 +10,7 @@ import Foundation
 import Bond
 import Firebase
 
-class SignUpViewModel {
+class LoginViewModel {
     let email = Observable<String?>("")
     let password = Observable<String?>("")
     let confirmPassword = Observable<String?>("")

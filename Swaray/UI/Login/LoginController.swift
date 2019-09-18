@@ -8,10 +8,10 @@
 
 import Foundation
 import UIKit
-class SignUpController: BaseController<SignUpView>, UITextFieldDelegate {
+class LoginController: BaseController<LoginView> {
     private var state: LoginState = .login
     private var currentFocus: UITextField? = nil
-    private let viewModel = SignUpViewModel()
+    private let viewModel = LoginViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()

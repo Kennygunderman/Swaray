@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class SignUpView: BaseControllerView {
+class LoginView: BaseControllerView {
     lazy var background: UIView = {
         let frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         let view = UIView(frame: frame)
@@ -240,7 +240,7 @@ class SignUpView: BaseControllerView {
 }
 
 // This exention is to handle animation related logic.
-extension SignUpView {
+extension LoginView {
     
     // Handle to tranistion from Login -> Sign Up and vice versa.
     // This handles constraint changes and fading in/out of Views on transition.
