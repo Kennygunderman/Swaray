@@ -15,10 +15,9 @@ target 'Swaray' do
     inherit! :search_paths
     # Pods for testing
   end
+end
 
-  target 'SwarayUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
+target 'SwarayUITests' do
+  inherit! :search_paths
+  # Pods for testing
 end
