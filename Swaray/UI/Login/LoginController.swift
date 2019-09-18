@@ -8,28 +8,14 @@
 
 import Foundation
 import UIKit
-class LoginController: BaseController<LoginView> {
+class LoginController: BaseController<LoginView, LoginViewModel> {
     private var state: LoginState = .login
     private var currentFocus: UITextField? = nil
-    private let viewModel = LoginViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupActions()
-        bindViews()
         subscribeUi()
-    }
-    
-    private func bindViews() {
-        // Bind TextFields
-        viewModel.email.bidirectionalBind(to: baseView.emailTxt.reactive.text)
-        viewModel.password.bidirectionalBind(to: baseView.passwordTxt.reactive.text)
-        viewModel.confirmPassword.bidirectionalBind(to: baseView.passwordConfirmTxt.reactive.text)
-    
-        // Bind Validation Labels
-        viewModel.emailValidation.bind(to: baseView.emailValidationLabel.reactive.alpha)
-        viewModel.passwordValidation.bind(to: baseView.passwordValidationLabel.reactive.alpha)
-        viewModel.pwMatchValidation.bind(to: baseView.pwMatchValidationLabel.reactive.alpha)
     }
     
     private func subscribeUi() {

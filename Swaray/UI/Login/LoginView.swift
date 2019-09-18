@@ -9,8 +9,9 @@
 import Foundation
 import UIKit
 import SnapKit
+import Bond
 
-class LoginView: BaseControllerView {
+class LoginView: BaseControllerView<LoginViewModel> {
     lazy var background: UIView = {
         let frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         let view = UIView(frame: frame)
@@ -70,6 +71,7 @@ class LoginView: BaseControllerView {
     
     lazy var emailTxt: SwarayTextField = {
         let textField = SwarayTextField()
+        viewModel?.email.bidirectionalBind(to: textField.reactive.text)
         textField.font = loadFont(font: .regular, size: DimenConsts.largeFontSize)
         textField.setPlaceholder(placeholder: StringConsts.emailTxtPlaceholder)
         textField.returnKeyType = .done
@@ -78,6 +80,7 @@ class LoginView: BaseControllerView {
     
     lazy var emailValidationLabel: UILabel = {
         let label = UILabel()
+        viewModel?.emailValidation.bind(to: label.reactive.alpha)
         label.text = StringConsts.emailValidation
         label.textColor = .appAccent
         label.font = loadFont(font: .bold, size: DimenConsts.smallFontSize)
@@ -87,6 +90,7 @@ class LoginView: BaseControllerView {
     
     lazy var passwordTxt: SwarayTextField = {
         let textField = SwarayTextField()
+        viewModel?.password.bidirectionalBind(to: textField.reactive.text)
         textField.font = loadFont(font: .regular, size: DimenConsts.largeFontSize)
         textField.setPlaceholder(placeholder: StringConsts.passwordTxtPlaceholder)
         textField.returnKeyType = .done
@@ -96,6 +100,7 @@ class LoginView: BaseControllerView {
     
     lazy var passwordValidationLabel: UILabel = {
         let label = UILabel()
+        viewModel?.passwordValidation.bind(to: label.reactive.alpha)
         label.text = StringConsts.passwordValidation
         label.textColor = .appAccent
         label.font = loadFont(font: .bold, size: DimenConsts.smallFontSize)
@@ -105,6 +110,7 @@ class LoginView: BaseControllerView {
     
     lazy var passwordConfirmTxt: SwarayTextField = {
         let textField = SwarayTextField()
+        viewModel?.confirmPassword.bidirectionalBind(to: textField.reactive.text)
         textField.font = loadFont(font: .regular, size: DimenConsts.largeFontSize)
         textField.setPlaceholder(placeholder: StringConsts.pwConfirmTxtPlaceholder)
         textField.returnKeyType = .done
@@ -116,6 +122,7 @@ class LoginView: BaseControllerView {
     
     lazy var pwMatchValidationLabel: UILabel = {
         let label = UILabel()
+        viewModel?.pwMatchValidation.bind(to: label.reactive.alpha)
         label.text = StringConsts.passwordMatchValidation
         label.textColor = .appAccent
         label.font = loadFont(font: .bold, size: DimenConsts.smallFontSize)

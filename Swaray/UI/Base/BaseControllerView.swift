@@ -9,11 +9,16 @@
 import Foundation
 import UIKit
 
-class BaseControllerView: UIView {
+// Base Controller View is responsible for adding all views to a controller,
+// and handling the setup of databinding from view -> viewModel.
+class BaseControllerView<T_VIEWMODEL: BaseViewModel>: UIView {
     
-    override init(frame: CGRect) {
+    var viewModel: T_VIEWMODEL? = nil
+    
+    required init(frame: CGRect, viewModel: T_VIEWMODEL) {
         super.init(frame: frame)
         backgroundColor = .white
+        self.viewModel = viewModel
         addSubViews()
         setupConstraints()
     }

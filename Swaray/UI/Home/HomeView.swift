@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class HomeView: BaseControllerView {
+class HomeView: BaseControllerView<HomeViewModel> {
     lazy var homeBg: UIView = {
         let frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         let view = UIView(frame: frame)

@@ -10,7 +10,7 @@ import Foundation
 import Bond
 import Firebase
 
-class LoginViewModel {
+class LoginViewModel: BaseViewModel {
     let email = Observable<String?>("")
     let password = Observable<String?>("")
     let confirmPassword = Observable<String?>("")
@@ -22,7 +22,8 @@ class LoginViewModel {
     let authError = Observable<String?>(nil)
     let authSuccess = Observable<AuthDataResult?>(nil)
     
-    init() {
+    required init() {
+        super.init()
         _ = email.observeNext { _ in
             if self.emailValidation.value == 1 {
                 if (self.validateEmail()) {

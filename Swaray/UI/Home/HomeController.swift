@@ -9,5 +9,7 @@
 import Foundation
 import UIKit
 
-class HomeController: BaseController<HomeView> {
+class HomeController: BaseController<HomeView, HomeViewModel> {
 }
+
+class HomeViewModel: BaseViewModel {}

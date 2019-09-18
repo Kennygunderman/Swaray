@@ -9,13 +9,15 @@
 import Foundation
 import UIKit
 
-class BaseController<T_VIEW: BaseControllerView>: UIViewController {
+class BaseController<T_VIEW: BaseControllerView<T_VIEWMODEL>, T_VIEWMODEL: BaseViewModel>: UIViewController {
+    
+    lazy var viewModel: T_VIEWMODEL = T_VIEWMODEL.init()
     
     // baseView used on Controller.
     // Access this whenever needing to manipulate/access the
     // root view for controller. Never explicitly call `self.view`
     // when using this base implementation.
-    lazy var baseView: T_VIEW = T_VIEW()
+    lazy var baseView: T_VIEW = T_VIEW.init(frame: self.view.frame, viewModel: viewModel)
     
     // The default title view for each ViewController
     lazy var defaultTitleView: UILabel = {
