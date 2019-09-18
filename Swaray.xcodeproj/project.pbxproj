@@ -21,6 +21,7 @@
 		03B1213C23307554008EB33C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B1213B23307554008EB33C /* HomeView.swift */; };
 		03B121402331C102008EB33C /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B1213F2331C102008EB33C /* LoginState.swift */; };
 		03B1214423327CBB008EB33C /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B1214323327CBA008EB33C /* LoginViewModelTests.swift */; };
+		03B121472332E57B008EB33C /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B121462332E57B008EB33C /* BaseViewModel.swift */; };
 		03DD57D4232C7AD100F78A9D /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D3232C7AD100F78A9D /* BaseController.swift */; };
 		03DD57D6232C7B4700F78A9D /* BaseControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */; };
 		03DD57DB232C8CB000F78A9D /* TriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57DA232C8CB000F78A9D /* TriangleView.swift */; };
@@ -75,6 +76,7 @@
 		03B1213B23307554008EB33C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		03B1213F2331C102008EB33C /* LoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
 		03B1214323327CBA008EB33C /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
+		03B121462332E57B008EB33C /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		03DD57D3232C7AD100F78A9D /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseControllerView.swift; sourceTree = "<group>"; };
 		03DD57DA232C8CB000F78A9D /* TriangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleView.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				03DD57D3232C7AD100F78A9D /* BaseController.swift */,
 				03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */,
 				03DD57E3232D2F7D00F78A9D /* BaseFont.swift */,
+				03B121462332E57B008EB33C /* BaseViewModel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				031D3AAC232C685D006978E5 /* Consts.swift in Sources */,
 				03DD57E4232D2F7D00F78A9D /* BaseFont.swift in Sources */,
 				03B1213C23307554008EB33C /* HomeView.swift in Sources */,
+				03B121472332E57B008EB33C /* BaseViewModel.swift in Sources */,
 				03DD57EB232D6C2100F78A9D /* LoginView.swift in Sources */,
 				03B12133232ED2E1008EB33C /* LoginViewModel.swift in Sources */,
 				031D3A79232C5A92006978E5 /* AppDelegate.swift in Sources */,
