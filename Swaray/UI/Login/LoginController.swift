@@ -9,8 +9,7 @@
 import Foundation
 import UIKit
 class LoginController: BaseController<LoginView, LoginViewModel> {
-    private var state: LoginState = .login
-    private var currentFocus: UITextField? = nil
+    private var state: LoginState = .login // State of controller
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,9 +57,7 @@ class LoginController: BaseController<LoginView, LoginViewModel> {
     
     fileprivate func setupActions() {
         baseView.actionBtn.addTarget(self, action: #selector(handleAction), for: .touchUpInside)
-        
-        baseView.loginBtn
-            .addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
+        baseView.loginBtn.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
     }
     
     @objc private func handleLogin() {
@@ -89,6 +86,6 @@ class LoginController: BaseController<LoginView, LoginViewModel> {
     @objc private func handleAction() {
         state = state == .login ? .signUp : .login
         baseView.animateStateChange(state: state)
-        currentFocus?.resignFirstResponder()
+        baseView.currentTextFocus?.resignFirstResponder()
     }
 }

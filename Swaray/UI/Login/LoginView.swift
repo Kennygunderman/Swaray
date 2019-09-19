@@ -11,7 +11,7 @@ import UIKit
 import SnapKit
 import Bond
 
-class LoginView: BaseControllerView<LoginViewModel> {
+class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
     lazy var background: UIView = {
         let frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         let view = UIView(frame: frame)
@@ -74,6 +74,7 @@ class LoginView: BaseControllerView<LoginViewModel> {
         viewModel?.email.bidirectionalBind(to: textField.reactive.text)
         textField.font = loadFont(font: .regular, size: DimenConsts.largeFontSize)
         textField.setPlaceholder(placeholder: StringConsts.emailTxtPlaceholder)
+        textField.delegate = self
         textField.returnKeyType = .done
         return textField
     }()
@@ -95,6 +96,7 @@ class LoginView: BaseControllerView<LoginViewModel> {
         textField.setPlaceholder(placeholder: StringConsts.passwordTxtPlaceholder)
         textField.returnKeyType = .done
         textField.isSecureTextEntry = true
+        textField.delegate = self
         return textField
     }()
     
@@ -116,6 +118,7 @@ class LoginView: BaseControllerView<LoginViewModel> {
         textField.returnKeyType = .done
         textField.alpha = 0
         textField.isSecureTextEntry = true
+        textField.delegate = self
         textField.accessibilityIdentifier = "confirmPwTxtId"
         return textField
     }()
@@ -144,6 +147,13 @@ class LoginView: BaseControllerView<LoginViewModel> {
         button.accessibilityIdentifier = "loginBtnId"
         return button
     }()
+    
+    // Hold reference to the current focused TextField
+    var currentTextFocus: UITextField? = nil
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        currentTextFocus = textField
+    }
 
     override func addSubViews() {
         addSubview(background)

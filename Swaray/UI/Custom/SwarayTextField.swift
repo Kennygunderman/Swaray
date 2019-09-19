@@ -16,7 +16,7 @@ class SwarayTextField: UITextField {
         textColor = .white
     }
     
-    //Sets the TextField's placeholder text and color
+    // Sets the TextField's placeholder text and color
     func setPlaceholder(placeholder: String) {
         attributedPlaceholder = NSAttributedString(
             string: placeholder,
@@ -24,7 +24,7 @@ class SwarayTextField: UITextField {
         )
     }
     
-    //Add a line to the bottom of TextField
+    // Add a line to the bottom of TextField
     fileprivate func addBottomLine() {
         let color: UIColor = .lightGray
         let bottomBorder = CALayer()
