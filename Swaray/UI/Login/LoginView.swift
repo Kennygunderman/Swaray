@@ -74,6 +74,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
         viewModel?.email.bidirectionalBind(to: textField.reactive.text)
         textField.font = loadFont(font: .regular, size: DimenConsts.largeFontSize)
         textField.setPlaceholder(placeholder: StringConsts.emailTxtPlaceholder)
+        textField.accessibilityIdentifier = "emailTxtId"
         textField.delegate = self
         textField.returnKeyType = .done
         return textField
@@ -85,6 +86,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
         label.text = StringConsts.emailValidation
         label.textColor = .appAccent
         label.font = loadFont(font: .bold, size: DimenConsts.smallFontSize)
+        label.accessibilityIdentifier = "emailValidationLabelId"
         label.alpha = 0
         return label
     }()
@@ -94,6 +96,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
         viewModel?.password.bidirectionalBind(to: textField.reactive.text)
         textField.font = loadFont(font: .regular, size: DimenConsts.largeFontSize)
         textField.setPlaceholder(placeholder: StringConsts.passwordTxtPlaceholder)
+        textField.accessibilityIdentifier = "passwordTxtId"
         textField.returnKeyType = .done
         textField.isSecureTextEntry = true
         textField.delegate = self
@@ -106,6 +109,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
         label.text = StringConsts.passwordValidation
         label.textColor = .appAccent
         label.font = loadFont(font: .bold, size: DimenConsts.smallFontSize)
+        label.accessibilityIdentifier = "passwordValidationLabelId"
         label.alpha = 0
         return label
     }()

@@ -18,7 +18,6 @@ class LoginUITests: XCTestCase {
     // Test's transition from Login to Sign Up
     func testTransition() {
         let app = XCUIApplication()
-        
         let actionButton = app.buttons["loginActionBtnId"]
         let confirmPw = app.secureTextFields["confirmPwTxtId"]
         let loginButton = app.buttons["loginBtnId"]
@@ -39,5 +38,46 @@ class LoginUITests: XCTestCase {
         
         XCTAssertEqual(false, confirmPw.exists)
         XCTAssertEqual("LOGIN", loginButton.label)
+    }
+    
+    //Test's validation labels are displaying properly
+    func testValidation() {
+        let app = XCUIApplication()
+        app.buttons["loginActionBtnId"].tap()
+        sleep(1)
+        
+        let emailValidation = app.staticTexts["emailValidationLabelId"]
+        let passwordValidation = app.staticTexts["passwordValidationLabelId"]
+        
+        XCTAssertEqual(false, emailValidation.exists)
+        XCTAssertEqual(false, passwordValidation.exists)
+
+        
+        let emailTxt = app.textFields["emailTxtId"]
+        emailTxt.tap()
+        emailTxt.typeText("invalidEmail@Email")
+        emailTxt.typeText("\n")
+        
+        let passwordTxt = app.secureTextFields["passwordTxtId"]
+        passwordTxt.tap()
+        passwordTxt.typeText("12345")
+        passwordTxt.typeText("\n")
+        
+        let signUpBtn = app.buttons["loginBtnId"]
+        signUpBtn.tap()
+        
+        XCTAssertEqual(true, emailValidation.exists)
+        XCTAssertEqual(true, passwordValidation.exists)
+        
+        emailTxt.tap()
+        emailTxt.typeText(".com")
+        emailTxt.typeText("\n")
+        
+        passwordTxt.tap()
+        passwordTxt.typeText("123456")
+        passwordTxt.typeText("\n")
+        
+        XCTAssertEqual(false, emailValidation.exists)
+        XCTAssertEqual(false, passwordValidation.exists)
     }
 }
