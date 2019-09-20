@@ -3,18 +3,58 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		031D3A79232C5A92006978E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D3A78232C5A92006978E5 /* AppDelegate.swift */; };
-		031D3A7B232C5A93006978E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D3A7A232C5A93006978E5 /* ViewController.swift */; };
 		031D3A7E232C5A93006978E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 031D3A7C232C5A93006978E5 /* Main.storyboard */; };
 		031D3A80232C5A94006978E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 031D3A7F232C5A94006978E5 /* Assets.xcassets */; };
 		031D3A83232C5A94006978E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 031D3A81232C5A94006978E5 /* LaunchScreen.storyboard */; };
-		031D3A8E232C5A94006978E5 /* SwarayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D3A8D232C5A94006978E5 /* SwarayTests.swift */; };
-		031D3A99232C5A94006978E5 /* SwarayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D3A98232C5A94006978E5 /* SwarayUITests.swift */; };
+		031D3A99232C5A94006978E5 /* LoginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D3A98232C5A94006978E5 /* LoginUITests.swift */; };
+		031D3AAC232C685D006978E5 /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D3AAB232C685D006978E5 /* Consts.swift */; };
+		03B1211F232DDD3B008EB33C /* SwarayTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B1211E232DDD3B008EB33C /* SwarayTextField.swift */; };
+		03B12125232EC6B0008EB33C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03B12124232EC6B0008EB33C /* GoogleService-Info.plist */; };
+		03B12133232ED2E1008EB33C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B12132232ED2E1008EB33C /* LoginViewModel.swift */; };
+		03B12135232F0FB7008EB33C /* SwarayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B12134232F0FB7008EB33C /* SwarayButton.swift */; };
+		03B1213A2330753F008EB33C /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B121392330753F008EB33C /* HomeController.swift */; };
+		03B1213C23307554008EB33C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B1213B23307554008EB33C /* HomeView.swift */; };
+		03B121402331C102008EB33C /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B1213F2331C102008EB33C /* LoginState.swift */; };
+		03B1214423327CBB008EB33C /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B1214323327CBA008EB33C /* LoginViewModelTests.swift */; };
+		03C51B0923330DE20076B17A /* AuthService_P.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B0823330DE20076B17A /* AuthService_P.swift */; };
+		03C51B0C233425830076B17A /* Locator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B0B233425830076B17A /* Locator.swift */; };
+		03C51B0E233428860076B17A /* ServiceModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B0D233428860076B17A /* ServiceModule.swift */; };
+		03C51B14233430480076B17A /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B13233430480076B17A /* MockAuthService.swift */; };
+		03C51B1A233439610076B17A /* AuthService_M.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B19233439610076B17A /* AuthService_M.swift */; };
+		03C51B1D23346BA30076B17A /* AuthServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B1C23346BA30076B17A /* AuthServiceInterface.swift */; };
+		03DD57D4232C7AD100F78A9D /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D3232C7AD100F78A9D /* BaseController.swift */; };
+		03DD57D6232C7B4700F78A9D /* BaseControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */; };
+		03DD57DB232C8CB000F78A9D /* TriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57DA232C8CB000F78A9D /* TriangleView.swift */; };
+		03DD57DF232D247500F78A9D /* AvenirNextLTPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 03DD57DC232D247500F78A9D /* AvenirNextLTPro-Bold.otf */; };
+		03DD57E0232D247500F78A9D /* AvenirNextLTPro-Demi.otf in Resources */ = {isa = PBXBuildFile; fileRef = 03DD57DD232D247500F78A9D /* AvenirNextLTPro-Demi.otf */; };
+		03DD57E1232D247500F78A9D /* AvenirNextLTPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 03DD57DE232D247500F78A9D /* AvenirNextLTPro-Regular.otf */; };
+		03DD57E4232D2F7D00F78A9D /* BaseFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57E3232D2F7D00F78A9D /* BaseFont.swift */; };
+		03DD57E6232D593000F78A9D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57E5232D593000F78A9D /* Extensions.swift */; };
+		03DD57E9232D6C0A00F78A9D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57E8232D6C0A00F78A9D /* LoginController.swift */; };
+		03DD57EB232D6C2100F78A9D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57EA232D6C2100F78A9D /* LoginView.swift */; };
+		35FB5F6C9948A7301DCA9686 /* Pods_SwarayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE87F9065DB90F932812C52 /* Pods_SwarayTests.framework */; };
+		4B482482FC430F3D27876894 /* libPods-SwarayUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC3825FB25A85D6387E0D66 /* libPods-SwarayUITests.a */; };
+		5482B0EBF55056135B8D4830 /* Pods_Swaray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2904EF296C876FF5FD6FF741 /* Pods_Swaray.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		03C51B1B233461460076B17A /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*_[^$(CONFIGURATION_VARIANT)].swift";
+			fileType = pattern.proxy;
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_NAME)_skipped.swift",
+			);
+			script = "> \"$DERIVED_FILE_DIR/${INPUT_FILE_NAME}_skipped.swift\"\n";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
 		031D3A8A232C5A94006978E5 /* PBXContainerItemProxy */ = {
@@ -34,19 +74,58 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00DF9AE178C5E8D2CF60A750 /* Pods-SwarayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwarayTests.release.xcconfig"; path = "Target Support Files/Pods-SwarayTests/Pods-SwarayTests.release.xcconfig"; sourceTree = "<group>"; };
 		031D3A75232C5A92006978E5 /* Swaray.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swaray.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		031D3A78232C5A92006978E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		031D3A7A232C5A93006978E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		031D3A7D232C5A93006978E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		031D3A7F232C5A94006978E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		031D3A82232C5A94006978E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		031D3A84232C5A94006978E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		031D3A89232C5A94006978E5 /* SwarayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwarayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		031D3A8D232C5A94006978E5 /* SwarayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwarayTests.swift; sourceTree = "<group>"; };
 		031D3A8F232C5A94006978E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		031D3A94232C5A94006978E5 /* SwarayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwarayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		031D3A98232C5A94006978E5 /* SwarayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwarayUITests.swift; sourceTree = "<group>"; };
+		031D3A98232C5A94006978E5 /* LoginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUITests.swift; sourceTree = "<group>"; };
 		031D3A9A232C5A94006978E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		031D3AAB232C685D006978E5 /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
+		03B1211E232DDD3B008EB33C /* SwarayTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwarayTextField.swift; sourceTree = "<group>"; };
+		03B12124232EC6B0008EB33C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		03B12132232ED2E1008EB33C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		03B12134232F0FB7008EB33C /* SwarayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwarayButton.swift; sourceTree = "<group>"; };
+		03B121392330753F008EB33C /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		03B1213B23307554008EB33C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		03B1213F2331C102008EB33C /* LoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
+		03B1214323327CBA008EB33C /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
+		03C51B0823330DE20076B17A /* AuthService_P.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService_P.swift; sourceTree = "<group>"; };
+		03C51B0B233425830076B17A /* Locator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locator.swift; sourceTree = "<group>"; };
+		03C51B0D233428860076B17A /* ServiceModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModule.swift; sourceTree = "<group>"; };
+		03C51B13233430480076B17A /* MockAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthService.swift; sourceTree = "<group>"; };
+		03C51B19233439610076B17A /* AuthService_M.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService_M.swift; sourceTree = "<group>"; };
+		03C51B1C23346BA30076B17A /* AuthServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceInterface.swift; sourceTree = "<group>"; };
+		03DD57D3232C7AD100F78A9D /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
+		03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseControllerView.swift; sourceTree = "<group>"; };
+		03DD57DA232C8CB000F78A9D /* TriangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleView.swift; sourceTree = "<group>"; };
+		03DD57DC232D247500F78A9D /* AvenirNextLTPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-Bold.otf"; sourceTree = "<group>"; };
+		03DD57DD232D247500F78A9D /* AvenirNextLTPro-Demi.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-Demi.otf"; sourceTree = "<group>"; };
+		03DD57DE232D247500F78A9D /* AvenirNextLTPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-Regular.otf"; sourceTree = "<group>"; };
+		03DD57E3232D2F7D00F78A9D /* BaseFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFont.swift; sourceTree = "<group>"; };
+		03DD57E5232D593000F78A9D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		03DD57E8232D6C0A00F78A9D /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		03DD57EA232D6C2100F78A9D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		045B083B094A00F63B4D19C3 /* Pods-SwarayTests.mock.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwarayTests.mock.xcconfig"; path = "Target Support Files/Pods-SwarayTests/Pods-SwarayTests.mock.xcconfig"; sourceTree = "<group>"; };
+		213DF65E64067817CE94C723 /* Pods-Swaray.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swaray.release.xcconfig"; path = "Target Support Files/Pods-Swaray/Pods-Swaray.release.xcconfig"; sourceTree = "<group>"; };
+		2904EF296C876FF5FD6FF741 /* Pods_Swaray.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swaray.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3611A135BA3CE6AC4BF60F02 /* Pods-Swaray-SwarayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swaray-SwarayTests.debug.xcconfig"; path = "Target Support Files/Pods-Swaray-SwarayTests/Pods-Swaray-SwarayTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4450ED84DB4D31442C8FA6ED /* Pods-Swaray.mock.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swaray.mock.xcconfig"; path = "Target Support Files/Pods-Swaray/Pods-Swaray.mock.xcconfig"; sourceTree = "<group>"; };
+		4AC3825FB25A85D6387E0D66 /* libPods-SwarayUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwarayUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8111F8FE3A32090909E3F233 /* Pods-Swaray-SwarayUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swaray-SwarayUITests.debug.xcconfig"; path = "Target Support Files/Pods-Swaray-SwarayUITests/Pods-Swaray-SwarayUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		975A1DD9D838321C211B1ED4 /* Pods-Swaray-SwarayUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swaray-SwarayUITests.release.xcconfig"; path = "Target Support Files/Pods-Swaray-SwarayUITests/Pods-Swaray-SwarayUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9CE87F9065DB90F932812C52 /* Pods_SwarayTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwarayTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A24ABB76F58AF5E826703B8B /* Pods-SwarayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwarayTests.debug.xcconfig"; path = "Target Support Files/Pods-SwarayTests/Pods-SwarayTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B23D1D9B77FBB9782C205613 /* Pods-SwarayUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwarayUITests.debug.xcconfig"; path = "Target Support Files/Pods-SwarayUITests/Pods-SwarayUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CD0FC54337A1EC560623603C /* Pods-Swaray-SwarayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swaray-SwarayTests.release.xcconfig"; path = "Target Support Files/Pods-Swaray-SwarayTests/Pods-Swaray-SwarayTests.release.xcconfig"; sourceTree = "<group>"; };
+		CFA3D7626DC474B3F31A51D2 /* Pods-SwarayUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwarayUITests.release.xcconfig"; path = "Target Support Files/Pods-SwarayUITests/Pods-SwarayUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DB0A04B8B476E06446D101AA /* Pods-Swaray.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swaray.debug.xcconfig"; path = "Target Support Files/Pods-Swaray/Pods-Swaray.debug.xcconfig"; sourceTree = "<group>"; };
+		ED49979CD18641D3B8687425 /* Pods-SwarayUITests.mock.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwarayUITests.mock.xcconfig"; path = "Target Support Files/Pods-SwarayUITests/Pods-SwarayUITests.mock.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5482B0EBF55056135B8D4830 /* Pods_Swaray.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35FB5F6C9948A7301DCA9686 /* Pods_SwarayTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B482482FC430F3D27876894 /* libPods-SwarayUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +163,8 @@
 				031D3A8C232C5A94006978E5 /* SwarayTests */,
 				031D3A97232C5A94006978E5 /* SwarayUITests */,
 				031D3A76232C5A92006978E5 /* Products */,
+				B58A21772C226BBD4B194EA8 /* Pods */,
+				8F3400F175E9E062734CCEB3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +181,17 @@
 		031D3A77232C5A92006978E5 /* Swaray */ = {
 			isa = PBXGroup;
 			children = (
+				03DD57E2232D249900F78A9D /* fonts */,
+				03C51B0A233424AF0076B17A /* DI */,
+				03C51B0723330DA50076B17A /* Service */,
+				031D3AAA232C6847006978E5 /* Util */,
+				031D3AA6232C6777006978E5 /* UI */,
 				031D3A78232C5A92006978E5 /* AppDelegate.swift */,
-				031D3A7A232C5A93006978E5 /* ViewController.swift */,
 				031D3A7C232C5A93006978E5 /* Main.storyboard */,
 				031D3A7F232C5A94006978E5 /* Assets.xcassets */,
 				031D3A81232C5A94006978E5 /* LaunchScreen.storyboard */,
 				031D3A84232C5A94006978E5 /* Info.plist */,
+				03B12124232EC6B0008EB33C /* GoogleService-Info.plist */,
 			);
 			path = Swaray;
 			sourceTree = "<group>";
@@ -110,7 +199,8 @@
 		031D3A8C232C5A94006978E5 /* SwarayTests */ = {
 			isa = PBXGroup;
 			children = (
-				031D3A8D232C5A94006978E5 /* SwarayTests.swift */,
+				03C51B12233430360076B17A /* Mock */,
+				03B1214123327C98008EB33C /* UI */,
 				031D3A8F232C5A94006978E5 /* Info.plist */,
 			);
 			path = SwarayTests;
@@ -119,10 +209,161 @@
 		031D3A97232C5A94006978E5 /* SwarayUITests */ = {
 			isa = PBXGroup;
 			children = (
-				031D3A98232C5A94006978E5 /* SwarayUITests.swift */,
+				03B1214523329333008EB33C /* UI */,
 				031D3A9A232C5A94006978E5 /* Info.plist */,
 			);
 			path = SwarayUITests;
+			sourceTree = "<group>";
+		};
+		031D3AA6232C6777006978E5 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				03DD57D9232C8C8C00F78A9D /* Custom */,
+				03DD57D2232C7A8500F78A9D /* Base */,
+				03DD57E7232D6BA700F78A9D /* Login */,
+				03B121382330751B008EB33C /* Home */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		031D3AAA232C6847006978E5 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				031D3AAB232C685D006978E5 /* Consts.swift */,
+				03DD57E5232D593000F78A9D /* Extensions.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		03B121382330751B008EB33C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				03B121392330753F008EB33C /* HomeController.swift */,
+				03B1213B23307554008EB33C /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		03B1214123327C98008EB33C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				03B1214223327CA1008EB33C /* Login */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		03B1214223327CA1008EB33C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				03B1214323327CBA008EB33C /* LoginViewModelTests.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		03B1214523329333008EB33C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				031D3A98232C5A94006978E5 /* LoginUITests.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		03C51B0723330DA50076B17A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				03C51B1C23346BA30076B17A /* AuthServiceInterface.swift */,
+				03C51B0823330DE20076B17A /* AuthService_P.swift */,
+				03C51B19233439610076B17A /* AuthService_M.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		03C51B0A233424AF0076B17A /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				03C51B0B233425830076B17A /* Locator.swift */,
+				03C51B0D233428860076B17A /* ServiceModule.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		03C51B12233430360076B17A /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				03C51B13233430480076B17A /* MockAuthService.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		03DD57D2232C7A8500F78A9D /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				03DD57D3232C7AD100F78A9D /* BaseController.swift */,
+				03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */,
+				03DD57E3232D2F7D00F78A9D /* BaseFont.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		03DD57D9232C8C8C00F78A9D /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				03DD57DA232C8CB000F78A9D /* TriangleView.swift */,
+				03B1211E232DDD3B008EB33C /* SwarayTextField.swift */,
+				03B12134232F0FB7008EB33C /* SwarayButton.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		03DD57E2232D249900F78A9D /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				03DD57DC232D247500F78A9D /* AvenirNextLTPro-Bold.otf */,
+				03DD57DD232D247500F78A9D /* AvenirNextLTPro-Demi.otf */,
+				03DD57DE232D247500F78A9D /* AvenirNextLTPro-Regular.otf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		03DD57E7232D6BA700F78A9D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				03DD57E8232D6C0A00F78A9D /* LoginController.swift */,
+				03B12132232ED2E1008EB33C /* LoginViewModel.swift */,
+				03DD57EA232D6C2100F78A9D /* LoginView.swift */,
+				03B1213F2331C102008EB33C /* LoginState.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		8F3400F175E9E062734CCEB3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2904EF296C876FF5FD6FF741 /* Pods_Swaray.framework */,
+				9CE87F9065DB90F932812C52 /* Pods_SwarayTests.framework */,
+				4AC3825FB25A85D6387E0D66 /* libPods-SwarayUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B58A21772C226BBD4B194EA8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DB0A04B8B476E06446D101AA /* Pods-Swaray.debug.xcconfig */,
+				213DF65E64067817CE94C723 /* Pods-Swaray.release.xcconfig */,
+				A24ABB76F58AF5E826703B8B /* Pods-SwarayTests.debug.xcconfig */,
+				00DF9AE178C5E8D2CF60A750 /* Pods-SwarayTests.release.xcconfig */,
+				B23D1D9B77FBB9782C205613 /* Pods-SwarayUITests.debug.xcconfig */,
+				CFA3D7626DC474B3F31A51D2 /* Pods-SwarayUITests.release.xcconfig */,
+				3611A135BA3CE6AC4BF60F02 /* Pods-Swaray-SwarayTests.debug.xcconfig */,
+				CD0FC54337A1EC560623603C /* Pods-Swaray-SwarayTests.release.xcconfig */,
+				8111F8FE3A32090909E3F233 /* Pods-Swaray-SwarayUITests.debug.xcconfig */,
+				975A1DD9D838321C211B1ED4 /* Pods-Swaray-SwarayUITests.release.xcconfig */,
+				4450ED84DB4D31442C8FA6ED /* Pods-Swaray.mock.xcconfig */,
+				045B083B094A00F63B4D19C3 /* Pods-SwarayTests.mock.xcconfig */,
+				ED49979CD18641D3B8687425 /* Pods-SwarayUITests.mock.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,11 +373,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 031D3A9D232C5A94006978E5 /* Build configuration list for PBXNativeTarget "Swaray" */;
 			buildPhases = (
+				F0AC10801FB02E64C7CEC807 /* [CP] Check Pods Manifest.lock */,
 				031D3A71232C5A92006978E5 /* Sources */,
 				031D3A72232C5A92006978E5 /* Frameworks */,
 				031D3A73232C5A92006978E5 /* Resources */,
+				49F16575B7F473D484399D62 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
+				03C51B1B233461460076B17A /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -149,6 +393,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 031D3AA0232C5A94006978E5 /* Build configuration list for PBXNativeTarget "SwarayTests" */;
 			buildPhases = (
+				FDA77786237FC2AB8710CE30 /* [CP] Check Pods Manifest.lock */,
 				031D3A85232C5A94006978E5 /* Sources */,
 				031D3A86232C5A94006978E5 /* Frameworks */,
 				031D3A87232C5A94006978E5 /* Resources */,
@@ -167,6 +412,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 031D3AA3232C5A94006978E5 /* Build configuration list for PBXNativeTarget "SwarayUITests" */;
 			buildPhases = (
+				182765444E760C79D8913F1A /* [CP] Check Pods Manifest.lock */,
 				031D3A90232C5A94006978E5 /* Sources */,
 				031D3A91232C5A94006978E5 /* Frameworks */,
 				031D3A92232C5A94006978E5 /* Resources */,
@@ -193,13 +439,16 @@
 				TargetAttributes = {
 					031D3A74232C5A92006978E5 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1030;
 					};
 					031D3A88232C5A94006978E5 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1030;
 						TestTargetID = 031D3A74232C5A92006978E5;
 					};
 					031D3A93232C5A94006978E5 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1030;
 						TestTargetID = 031D3A74232C5A92006978E5;
 					};
 				};
@@ -231,7 +480,11 @@
 			files = (
 				031D3A83232C5A94006978E5 /* LaunchScreen.storyboard in Resources */,
 				031D3A80232C5A94006978E5 /* Assets.xcassets in Resources */,
+				03DD57DF232D247500F78A9D /* AvenirNextLTPro-Bold.otf in Resources */,
 				031D3A7E232C5A93006978E5 /* Main.storyboard in Resources */,
+				03DD57E1232D247500F78A9D /* AvenirNextLTPro-Regular.otf in Resources */,
+				03DD57E0232D247500F78A9D /* AvenirNextLTPro-Demi.otf in Resources */,
+				03B12125232EC6B0008EB33C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,13 +504,117 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		182765444E760C79D8913F1A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwarayUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		49F16575B7F473D484399D62 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Swaray/Pods-Swaray-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Swaray/Pods-Swaray-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Swaray/Pods-Swaray-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0AC10801FB02E64C7CEC807 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Swaray-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FDA77786237FC2AB8710CE30 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwarayTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		031D3A71232C5A92006978E5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				031D3A7B232C5A93006978E5 /* ViewController.swift in Sources */,
+				03B121402331C102008EB33C /* LoginState.swift in Sources */,
+				03B1211F232DDD3B008EB33C /* SwarayTextField.swift in Sources */,
+				031D3AAC232C685D006978E5 /* Consts.swift in Sources */,
+				03C51B0E233428860076B17A /* ServiceModule.swift in Sources */,
+				03DD57E4232D2F7D00F78A9D /* BaseFont.swift in Sources */,
+				03B1213C23307554008EB33C /* HomeView.swift in Sources */,
+				03DD57EB232D6C2100F78A9D /* LoginView.swift in Sources */,
+				03B12133232ED2E1008EB33C /* LoginViewModel.swift in Sources */,
 				031D3A79232C5A92006978E5 /* AppDelegate.swift in Sources */,
+				03DD57E6232D593000F78A9D /* Extensions.swift in Sources */,
+				03C51B0C233425830076B17A /* Locator.swift in Sources */,
+				03DD57D6232C7B4700F78A9D /* BaseControllerView.swift in Sources */,
+				03DD57D4232C7AD100F78A9D /* BaseController.swift in Sources */,
+				03B12135232F0FB7008EB33C /* SwarayButton.swift in Sources */,
+				03B1213A2330753F008EB33C /* HomeController.swift in Sources */,
+				03C51B0923330DE20076B17A /* AuthService_P.swift in Sources */,
+				03DD57DB232C8CB000F78A9D /* TriangleView.swift in Sources */,
+				03C51B1D23346BA30076B17A /* AuthServiceInterface.swift in Sources */,
+				03C51B1A233439610076B17A /* AuthService_M.swift in Sources */,
+				03DD57E9232D6C0A00F78A9D /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +622,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				031D3A8E232C5A94006978E5 /* SwarayTests.swift in Sources */,
+				03B1214423327CBB008EB33C /* LoginViewModelTests.swift in Sources */,
+				03C51B14233430480076B17A /* MockAuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +631,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				031D3A99232C5A94006978E5 /* SwarayUITests.swift in Sources */,
+				031D3A99232C5A94006978E5 /* LoginUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,42 +788,57 @@
 		};
 		031D3A9E232C5A94006978E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB0A04B8B476E06446D101AA /* Pods-Swaray.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CONFIGURATION_VARIANT = "";
+				"CONFIGURATION_VARIANT[arch=*]" = P;
 				DEVELOPMENT_TEAM = 3H5N4MHSZX;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "${inherited}";
+				HEADER_SEARCH_PATHS = "${inherited}";
 				INFOPLIST_FILE = Swaray/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kennygunderman.Swaray;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		031D3A9F232C5A94006978E5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 213DF65E64067817CE94C723 /* Pods-Swaray.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CONFIGURATION_VARIANT = "";
+				"CONFIGURATION_VARIANT[arch=*]" = P;
 				DEVELOPMENT_TEAM = 3H5N4MHSZX;
+				ENABLE_TESTABILITY = NO;
+				FRAMEWORK_SEARCH_PATHS = "${inherited}";
+				HEADER_SEARCH_PATHS = "${inherited}";
 				INFOPLIST_FILE = Swaray/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kennygunderman.Swaray;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 		031D3AA1232C5A94006978E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A24ABB76F58AF5E826703B8B /* Pods-SwarayTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -479,7 +852,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kennygunderman.SwarayTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swaray.app/Swaray";
 			};
@@ -487,6 +860,7 @@
 		};
 		031D3AA2232C5A94006978E5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00DF9AE178C5E8D2CF60A750 /* Pods-SwarayTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -500,7 +874,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kennygunderman.SwarayTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swaray.app/Swaray";
 			};
@@ -508,6 +882,7 @@
 		};
 		031D3AA4232C5A94006978E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B23D1D9B77FBB9782C205613 /* Pods-SwarayUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -520,7 +895,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kennygunderman.SwarayUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Swaray;
 			};
@@ -528,6 +903,7 @@
 		};
 		031D3AA5232C5A94006978E5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFA3D7626DC474B3F31A51D2 /* Pods-SwarayUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -540,11 +916,141 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kennygunderman.SwarayUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Swaray;
 			};
 			name = Release;
+		};
+		03C51B15233437F20076B17A /* Mock */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = MOCK;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Mock;
+		};
+		03C51B16233437F20076B17A /* Mock */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4450ED84DB4D31442C8FA6ED /* Pods-Swaray.mock.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CONFIGURATION_VARIANT = "";
+				"CONFIGURATION_VARIANT[arch=*]" = M;
+				DEVELOPMENT_TEAM = 3H5N4MHSZX;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "${inherited}";
+				HEADER_SEARCH_PATHS = "${inherited}";
+				INFOPLIST_FILE = Swaray/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kennygunderman.Swaray;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Mock;
+		};
+		03C51B17233437F20076B17A /* Mock */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 045B083B094A00F63B4D19C3 /* Pods-SwarayTests.mock.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3H5N4MHSZX;
+				INFOPLIST_FILE = SwarayTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kennygunderman.SwarayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swaray.app/Swaray";
+			};
+			name = Mock;
+		};
+		03C51B18233437F20076B17A /* Mock */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED49979CD18641D3B8687425 /* Pods-SwarayUITests.mock.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3H5N4MHSZX;
+				INFOPLIST_FILE = SwarayUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kennygunderman.SwarayUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Swaray;
+			};
+			name = Mock;
 		};
 /* End XCBuildConfiguration section */
 
@@ -553,6 +1059,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				031D3A9B232C5A94006978E5 /* Debug */,
+				03C51B15233437F20076B17A /* Mock */,
 				031D3A9C232C5A94006978E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -562,6 +1069,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				031D3A9E232C5A94006978E5 /* Debug */,
+				03C51B16233437F20076B17A /* Mock */,
 				031D3A9F232C5A94006978E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -571,6 +1079,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				031D3AA1232C5A94006978E5 /* Debug */,
+				03C51B17233437F20076B17A /* Mock */,
 				031D3AA2232C5A94006978E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -580,6 +1089,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				031D3AA4232C5A94006978E5 /* Debug */,
+				03C51B18233437F20076B17A /* Mock */,
 				031D3AA5232C5A94006978E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

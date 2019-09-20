@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,7 +15,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // Enable Firebase
+        FirebaseApp.configure()
+        
+        // Setup logic
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        
+        // Attach root view as LoginController
+        let loginController = LoginController()
+        let root = UINavigationController(rootViewController: loginController)
+        window?.rootViewController = root
+        
+        // Configure navigation bar
+        let navBar = UINavigationBar.appearance()
+        navBar.isTranslucent = false
+        navBar.barTintColor = .appPrimary
+        
+        // This removes the gray `divider` line from the UINavigationBar
+        navBar.setBackgroundImage(UIImage(), for: .default)
+        navBar.shadowImage = UIImage()
+
         return true
     }
 
@@ -39,7 +61,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 
