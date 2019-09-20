@@ -7,7 +7,7 @@
 //
 
 // Mock AuthService intended only for use under the Mock build configuration.
-// This class will only get compiled and used with the `Mock` Build configuration.
+// This class will only get compiled and used under the `Mock` Build configuration.
 //
 // This type of set up inspired by: https://medium.com/@londeix/xcode-file-variants-without-targets-9724cbabe821
 
