@@ -22,6 +22,7 @@ class LoginController: BaseController<LoginView, LoginViewModel> {
         return viewModel
     }
     
+    // Subscribe UI to changes in observers from ViewModel
     private func subscribeUi() {
         _ = viewModel.authError.observeNext { error in
             if let e = error {
