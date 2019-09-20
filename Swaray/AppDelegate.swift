@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Enable Firebase
         FirebaseApp.configure()
         
-        // Setup logic for dynamic views (no storyboards)
+        // Setup logic
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
