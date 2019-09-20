@@ -2,6 +2,10 @@
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '9.0'
 
+project 'Swaray', {
+  'Mock' => :debug
+}
+
 target 'Swaray' do
   use_frameworks!
 

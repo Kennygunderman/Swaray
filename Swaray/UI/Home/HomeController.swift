@@ -12,4 +12,4 @@ import UIKit
 class HomeController: BaseController<HomeView, HomeViewModel> {
 }
 
-class HomeViewModel: BaseViewModel {}
+class HomeViewModel {}

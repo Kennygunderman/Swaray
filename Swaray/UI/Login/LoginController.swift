@@ -10,11 +10,16 @@ import Foundation
 import UIKit
 class LoginController: BaseController<LoginView, LoginViewModel> {
     private var state: LoginState = .login // State of controller
-
+    let viewModel = LoginViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupActions()
         subscribeUi()
+    }
+    
+    override func getViewModel() -> LoginViewModel? {
+        return viewModel
     }
     
     private func subscribeUi() {

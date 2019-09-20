@@ -51,7 +51,6 @@ class LoginUITests: XCTestCase {
         
         XCTAssertEqual(false, emailValidation.exists)
         XCTAssertEqual(false, passwordValidation.exists)
-
         
         let emailTxt = app.textFields["emailTxtId"]
         emailTxt.tap()
@@ -79,5 +78,42 @@ class LoginUITests: XCTestCase {
         
         XCTAssertEqual(false, emailValidation.exists)
         XCTAssertEqual(false, passwordValidation.exists)
+    }
+    
+    func testSignUpSuccess() {
+        let app = XCUIApplication()
+        app.buttons["loginActionBtnId"].tap()
+        
+        let emailTxt = app.textFields["emailTxtId"]
+        emailTxt.tap()
+        emailTxt.typeText("valid@Email.com")
+        emailTxt.typeText("\n")
+        
+        let passwordTxt = app.secureTextFields["passwordTxtId"]
+        passwordTxt.tap()
+        passwordTxt.typeText("123456")
+        passwordTxt.typeText("\n")
+        
+        let confirmPw = app.secureTextFields["confirmPwTxtId"]
+        confirmPw.tap()
+        confirmPw.typeText("123456")
+        confirmPw.typeText("\n")
+        
+        //check that values are on the screen
+        XCTAssertEqual(true, emailTxt.exists)
+        XCTAssertEqual(true, passwordTxt.exists)
+        XCTAssertEqual(true, confirmPw.exists)
+
+        let signUpBtn = app.buttons["loginBtnId"]
+        signUpBtn.tap()
+        
+        // Check login button
+        XCTAssertEqual("SUCCESS!", signUpBtn.label)
+        sleep(2)
+        
+        //check values are gone
+        XCTAssertEqual(false, emailTxt.exists)
+        XCTAssertEqual(false, passwordTxt.exists)
+        XCTAssertEqual(false, confirmPw.exists)
     }
 }

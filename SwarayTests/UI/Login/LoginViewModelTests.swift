@@ -12,7 +12,8 @@ import XCTest
 @testable import Swaray
 
 class LoginViewModelTests: XCTestCase {
-    let viewModel = LoginViewModel()
+    
+    var viewModel = LoginViewModel()
     
     func testValidateEmail() {
         viewModel.email.value = "test@test"
@@ -110,5 +111,17 @@ class LoginViewModelTests: XCTestCase {
         XCTAssertTrue(viewModel.passwordValidation.value == 0)
         XCTAssertTrue(viewModel.pwMatchValidation.value == 0)
         XCTAssertTrue(result)
+    }
+    
+    func testCreateUserFailure() {
+        viewModel = LoginViewModel(authService: MockAuthServiceError())
+        viewModel.createUser(email: "e", password: "p")
+        XCTAssertTrue(viewModel.authError.value == "Test Error")
+    }
+    
+    func testCreateUserSuccess() {
+        viewModel = LoginViewModel(authService: MockAuthServiceSuccess())
+        viewModel.createUser(email: "e", password: "p")
+        XCTAssertTrue(viewModel.authSuccess.value?.email == "success@email.com")
     }
 }

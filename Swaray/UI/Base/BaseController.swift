@@ -9,15 +9,13 @@
 import Foundation
 import UIKit
 
-class BaseController<T_VIEW: BaseControllerView<T_VIEWMODEL>, T_VIEWMODEL: BaseViewModel>: UIViewController {
-    
-    lazy var viewModel: T_VIEWMODEL = T_VIEWMODEL.init()
+class BaseController<T_VIEW: BaseControllerView<T_VIEWMODEL>, T_VIEWMODEL>: UIViewController {
     
     // baseView used on Controller.
     // Access this whenever needing to manipulate/access the
     // root view for controller. Never explicitly call `self.view`
     // when using this base implementation.
-    lazy var baseView: T_VIEW = T_VIEW.init(frame: self.view.frame, viewModel: viewModel)
+    lazy var baseView: T_VIEW = T_VIEW.init(frame: self.view.frame, viewModel: getViewModel())
     
     // The default title view for each ViewController
     lazy var defaultTitleView: UILabel = {
@@ -33,6 +31,11 @@ class BaseController<T_VIEW: BaseControllerView<T_VIEWMODEL>, T_VIEWMODEL: BaseV
         self.view = baseView
         setTitleView()
         disableBackNavigation()
+    }
+    
+    // Override if Controller has a ViewModel
+    func getViewModel() -> T_VIEWMODEL? {
+        return nil
     }
     
     override func viewDidAppear(_ animated: Bool) {

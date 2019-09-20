@@ -8,9 +8,8 @@
 
 import Foundation
 import Bond
-import Firebase
 
-class LoginViewModel: BaseViewModel {
+class LoginViewModel {
     let email = Observable<String?>("")
     let password = Observable<String?>("")
     let confirmPassword = Observable<String?>("")
@@ -20,10 +19,13 @@ class LoginViewModel: BaseViewModel {
     let pwMatchValidation = Observable<CGFloat>(0)
     
     let authError = Observable<String?>(nil)
-    let authSuccess = Observable<AuthDataResult?>(nil)
+    let authSuccess = Observable<AuthResult?>(nil)
     
-    required init() {
-        super.init()
+    private let authService: AuthServiceInterface
+    
+    init(authService: AuthServiceInterface = getAuthService()) {
+        self.authService = authService
+    
         _ = email.observeNext { _ in
             if self.emailValidation.value == 1 {
                 if (self.validateEmail()) {
@@ -87,12 +89,15 @@ class LoginViewModel: BaseViewModel {
     }
     
     func createUser(email: String, password: String) {
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            if let e = error {
-                self.authError.value = e.localizedDescription
-            } else {
-                self.authSuccess.value = authResult
-            }
-        }
+        authService.createUser(
+            email: email,
+            password: password,
+            callback: { authResult, error in
+                if let e = error {
+                    self.authError.value = e.localizedDescription
+                } else {
+                    self.authSuccess.value = authResult
+                }
+        })
     }
 }
