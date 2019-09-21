@@ -28,12 +28,11 @@
 		03C51B1A233439610076B17A /* AuthService_M.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B19233439610076B17A /* AuthService_M.swift */; };
 		03C51B1D23346BA30076B17A /* AuthServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B1C23346BA30076B17A /* AuthServiceInterface.swift */; };
 		03C51B1F2335AA7B0076B17A /* AssertionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B1E2335AA7B0076B17A /* AssertionHelper.swift */; };
+		03C51B222335BC080076B17A /* GoogleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B212335BC080076B17A /* GoogleButton.swift */; };
+		03C51B242335CD5F0076B17A /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03C51B232335CB000076B17A /* Roboto-Medium.ttf */; };
 		03DD57D4232C7AD100F78A9D /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D3232C7AD100F78A9D /* BaseController.swift */; };
 		03DD57D6232C7B4700F78A9D /* BaseControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */; };
 		03DD57DB232C8CB000F78A9D /* TriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57DA232C8CB000F78A9D /* TriangleView.swift */; };
-		03DD57DF232D247500F78A9D /* AvenirNextLTPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 03DD57DC232D247500F78A9D /* AvenirNextLTPro-Bold.otf */; };
-		03DD57E0232D247500F78A9D /* AvenirNextLTPro-Demi.otf in Resources */ = {isa = PBXBuildFile; fileRef = 03DD57DD232D247500F78A9D /* AvenirNextLTPro-Demi.otf */; };
-		03DD57E1232D247500F78A9D /* AvenirNextLTPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 03DD57DE232D247500F78A9D /* AvenirNextLTPro-Regular.otf */; };
 		03DD57E4232D2F7D00F78A9D /* BaseFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57E3232D2F7D00F78A9D /* BaseFont.swift */; };
 		03DD57E6232D593000F78A9D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57E5232D593000F78A9D /* Extensions.swift */; };
 		03DD57E9232D6C0A00F78A9D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57E8232D6C0A00F78A9D /* LoginController.swift */; };
@@ -103,12 +102,11 @@
 		03C51B19233439610076B17A /* AuthService_M.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService_M.swift; sourceTree = "<group>"; };
 		03C51B1C23346BA30076B17A /* AuthServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceInterface.swift; sourceTree = "<group>"; };
 		03C51B1E2335AA7B0076B17A /* AssertionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssertionHelper.swift; sourceTree = "<group>"; };
+		03C51B212335BC080076B17A /* GoogleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleButton.swift; sourceTree = "<group>"; };
+		03C51B232335CB000076B17A /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		03DD57D3232C7AD100F78A9D /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseControllerView.swift; sourceTree = "<group>"; };
 		03DD57DA232C8CB000F78A9D /* TriangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleView.swift; sourceTree = "<group>"; };
-		03DD57DC232D247500F78A9D /* AvenirNextLTPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-Bold.otf"; sourceTree = "<group>"; };
-		03DD57DD232D247500F78A9D /* AvenirNextLTPro-Demi.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-Demi.otf"; sourceTree = "<group>"; };
-		03DD57DE232D247500F78A9D /* AvenirNextLTPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-Regular.otf"; sourceTree = "<group>"; };
 		03DD57E3232D2F7D00F78A9D /* BaseFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFont.swift; sourceTree = "<group>"; };
 		03DD57E5232D593000F78A9D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		03DD57E8232D6C0A00F78A9D /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -183,7 +181,6 @@
 		031D3A77232C5A92006978E5 /* Swaray */ = {
 			isa = PBXGroup;
 			children = (
-				03DD57E2232D249900F78A9D /* fonts */,
 				03C51B0A233424AF0076B17A /* DI */,
 				03C51B0723330DA50076B17A /* Service */,
 				031D3AAA232C6847006978E5 /* Util */,
@@ -194,6 +191,7 @@
 				031D3A81232C5A94006978E5 /* LaunchScreen.storyboard */,
 				031D3A84232C5A94006978E5 /* Info.plist */,
 				03B12124232EC6B0008EB33C /* GoogleService-Info.plist */,
+				03DD57E2232D249900F78A9D /* fonts */,
 			);
 			path = Swaray;
 			sourceTree = "<group>";
@@ -322,6 +320,7 @@
 				03DD57DA232C8CB000F78A9D /* TriangleView.swift */,
 				03B1211E232DDD3B008EB33C /* SwarayTextField.swift */,
 				03B12134232F0FB7008EB33C /* SwarayButton.swift */,
+				03C51B212335BC080076B17A /* GoogleButton.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -329,11 +328,10 @@
 		03DD57E2232D249900F78A9D /* fonts */ = {
 			isa = PBXGroup;
 			children = (
-				03DD57DC232D247500F78A9D /* AvenirNextLTPro-Bold.otf */,
-				03DD57DD232D247500F78A9D /* AvenirNextLTPro-Demi.otf */,
-				03DD57DE232D247500F78A9D /* AvenirNextLTPro-Regular.otf */,
+				03C51B232335CB000076B17A /* Roboto-Medium.ttf */,
 			);
-			path = fonts;
+			name = fonts;
+			path = Fonts.temp_caseinsensitive_rename.;
 			sourceTree = "<group>";
 		};
 		03DD57E7232D6BA700F78A9D /* Login */ = {
@@ -489,12 +487,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03C51B242335CD5F0076B17A /* Roboto-Medium.ttf in Resources */,
 				031D3A83232C5A94006978E5 /* LaunchScreen.storyboard in Resources */,
 				031D3A80232C5A94006978E5 /* Assets.xcassets in Resources */,
-				03DD57DF232D247500F78A9D /* AvenirNextLTPro-Bold.otf in Resources */,
 				031D3A7E232C5A93006978E5 /* Main.storyboard in Resources */,
-				03DD57E1232D247500F78A9D /* AvenirNextLTPro-Regular.otf in Resources */,
-				03DD57E0232D247500F78A9D /* AvenirNextLTPro-Demi.otf in Resources */,
 				03B12125232EC6B0008EB33C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -610,6 +606,7 @@
 				03B1211F232DDD3B008EB33C /* SwarayTextField.swift in Sources */,
 				031D3AAC232C685D006978E5 /* Consts.swift in Sources */,
 				03C51B0E233428860076B17A /* ServiceModule.swift in Sources */,
+				03C51B222335BC080076B17A /* GoogleButton.swift in Sources */,
 				03DD57E4232D2F7D00F78A9D /* BaseFont.swift in Sources */,
 				03B1213C23307554008EB33C /* HomeView.swift in Sources */,
 				03DD57EB232D6C2100F78A9D /* LoginView.swift in Sources */,

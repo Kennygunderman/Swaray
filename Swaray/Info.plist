@@ -24,9 +24,7 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>AvenirNextLTPro-Bold.otf</string>
-		<string>AvenirNextLTPro-Demi.otf</string>
-		<string>AvenirNextLTPro-Regular.otf</string>
+		<string>Roboto-Medium.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

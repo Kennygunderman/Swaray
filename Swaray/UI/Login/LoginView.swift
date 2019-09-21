@@ -137,6 +137,12 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
         return label
     }()
     
+    private let loginBtnsGroup: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
+    }()
+    
     // Make the button width the size of the screen with
     // a padding of 64 on each side
     private let signUpBtnWidth = UIScreen.main.bounds.width - (64 * 2)
@@ -149,6 +155,25 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
         button.titleLabel?.font = loadFont(font: .medium, size: DimenConsts.largeFontSize)
         button.backgroundColor = .appPrimary
         button.accessibilityIdentifier = "loginBtnId"
+        return button
+    }()
+    
+    lazy var orLabel: UILabel = {
+        let label = UILabel()
+        label.font = loadFont(font: .medium, size: DimenConsts.largeFontSize)
+        label.text = StringConsts.signUpOrLabel
+        return label
+    }()
+    
+    lazy var googleBtn: GoogleButton = {
+        let button = GoogleButton()
+        button.setTitle(title: StringConsts.googleSignUpBtnText)
+        return button
+    }()
+    
+    lazy var facebookBtn: GoogleButton = {
+        let button = GoogleButton()
+        button.setTitle(title: StringConsts.googleSignUpBtnText)
         return button
     }()
     
@@ -172,7 +197,13 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
         addSubview(passwordValidationLabel)
         addSubview(passwordConfirmTxt)
         addSubview(pwMatchValidationLabel)
-        bottomHalfView.addSubview(loginBtn)
+        
+        bottomHalfView.addSubview(loginBtnsGroup)
+        loginBtnsGroup.addSubview(loginBtn)
+        loginBtnsGroup.addSubview(orLabel)
+        loginBtnsGroup.addSubview(googleBtn)
+        loginBtnsGroup.addSubview(facebookBtn)
+
     }
     // Keep track of the bottom constraint of background
     // for handling the state animation transition.
@@ -248,15 +279,41 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
             make.left.equalTo(self.passwordConfirmTxt.snp.left).offset(0)
         }
         
+        loginBtnsGroup.snp.makeConstraints { (make) -> Void in
+            make.center.equalTo(self.bottomHalfView.snp.center)
+            make.top.equalTo(self.loginBtn.snp.top)
+            make.bottom.equalTo(self.facebookBtn.snp.bottom)
+        }
+        
         loginBtn.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(50)
             make.width.equalTo(signUpBtnWidth)
-            make.center.equalTo(self.bottomHalfView.snp.center)
+            make.top.equalTo(self.loginBtnsGroup.snp.top)
+            make.centerX.equalTo(self.loginBtnsGroup.snp.centerX)
+        }
+        
+        orLabel.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(self.loginBtn.snp.bottom).offset(8)
+            make.centerX.equalTo(self.loginBtnsGroup.snp.centerX)
+        }
+
+        googleBtn.snp.makeConstraints { (make) -> Void in
+            make.height.equalTo(40)
+            make.width.equalTo(signUpBtnWidth)
+            make.top.equalTo(self.orLabel.snp.bottom).offset(8)
+            make.centerX.equalTo(self.loginBtnsGroup.snp.centerX)
+        }
+        
+        facebookBtn.snp.makeConstraints { (make) -> Void in
+            make.height.equalTo(40)
+            make.width.equalTo(signUpBtnWidth)
+            make.top.equalTo(self.googleBtn.snp.bottom).offset(16)
+            make.centerX.equalTo(self.loginBtnsGroup.snp.centerX)
         }
     }
     
     override func transitionInViews() -> [UIView] {
-        return [loginLabel, actionLabel, actionBtn, emailTxt, passwordTxt, loginBtn]
+        return [loginLabel, actionLabel, actionBtn, emailTxt, passwordTxt, loginBtnsGroup]
     }
 }
 
@@ -294,7 +351,7 @@ extension LoginView {
             self.actionBtn.alpha = 0
             self.emailTxt.alpha = 0
             self.passwordTxt.alpha = 0
-            self.loginBtn.alpha = 0
+            self.loginBtnsGroup.alpha = 0
             self.layoutIfNeeded()
 
         }, finished: {
@@ -313,7 +370,7 @@ extension LoginView {
                 if (state == .signUp) {
                     self.passwordConfirmTxt.alpha = 1
                 }
-                self.loginBtn.alpha = 1
+                self.loginBtnsGroup.alpha = 1
             })
         })
     }

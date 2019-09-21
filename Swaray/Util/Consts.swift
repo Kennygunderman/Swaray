@@ -33,6 +33,10 @@ public struct StringConsts {
     static let passwordMatchValidation: String = "Passwords do not match."
     static let signUpBtnText: String = "SIGN UP"
     static let signUpSuccess: String = "SUCCESS!"
+    static let signUpOrLabel: String = "Or"
+    
+    // Social Logins
+    static let googleSignUpBtnText: String = "SIGN UP WITH GOOGLE"
     
     // Login/Sign Up errors
     static let signUpError: String = "Error Creating Account"
