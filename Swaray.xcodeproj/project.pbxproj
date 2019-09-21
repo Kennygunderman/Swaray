@@ -27,6 +27,7 @@
 		03C51B14233430480076B17A /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B13233430480076B17A /* MockAuthService.swift */; };
 		03C51B1A233439610076B17A /* AuthService_M.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B19233439610076B17A /* AuthService_M.swift */; };
 		03C51B1D23346BA30076B17A /* AuthServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B1C23346BA30076B17A /* AuthServiceInterface.swift */; };
+		03C51B1F2335AA7B0076B17A /* AssertionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B1E2335AA7B0076B17A /* AssertionHelper.swift */; };
 		03DD57D4232C7AD100F78A9D /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D3232C7AD100F78A9D /* BaseController.swift */; };
 		03DD57D6232C7B4700F78A9D /* BaseControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */; };
 		03DD57DB232C8CB000F78A9D /* TriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57DA232C8CB000F78A9D /* TriangleView.swift */; };
@@ -101,6 +102,7 @@
 		03C51B13233430480076B17A /* MockAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthService.swift; sourceTree = "<group>"; };
 		03C51B19233439610076B17A /* AuthService_M.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService_M.swift; sourceTree = "<group>"; };
 		03C51B1C23346BA30076B17A /* AuthServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceInterface.swift; sourceTree = "<group>"; };
+		03C51B1E2335AA7B0076B17A /* AssertionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssertionHelper.swift; sourceTree = "<group>"; };
 		03DD57D3232C7AD100F78A9D /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseControllerView.swift; sourceTree = "<group>"; };
 		03DD57DA232C8CB000F78A9D /* TriangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleView.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 		031D3A8C232C5A94006978E5 /* SwarayTests */ = {
 			isa = PBXGroup;
 			children = (
+				03C51B202335AA8E0076B17A /* Util */,
 				03C51B12233430360076B17A /* Mock */,
 				03B1214123327C98008EB33C /* UI */,
 				031D3A8F232C5A94006978E5 /* Info.plist */,
@@ -293,6 +296,14 @@
 				03C51B13233430480076B17A /* MockAuthService.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		03C51B202335AA8E0076B17A /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				03C51B1E2335AA7B0076B17A /* AssertionHelper.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		03DD57D2232C7A8500F78A9D /* Base */ = {
@@ -623,6 +634,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03B1214423327CBB008EB33C /* LoginViewModelTests.swift in Sources */,
+				03C51B1F2335AA7B0076B17A /* AssertionHelper.swift in Sources */,
 				03C51B14233430480076B17A /* MockAuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

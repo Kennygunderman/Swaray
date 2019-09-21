@@ -35,8 +35,8 @@ public struct StringConsts {
     static let signUpSuccess: String = "SUCCESS!"
     
     // Login/Sign Up errors
-    static let signUpError: String = "Error creating account"
-    static let loginError: String = "Error Logging in"
+    static let signUpError: String = "Error Creating Account"
+    static let loginError: String = "Error Logging In"
     static let emailInUseError: String = "The email you have provided is already in use."
     static let invalidEmail: String = "The email you have provided is invalid."
     static let invalidPassword: String = "The password you have provided is invalid."

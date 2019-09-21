@@ -77,7 +77,7 @@ class LoginViewModel {
         return validated
     }
     
-    func validate() -> Bool {
+    func validateSignUp() -> Bool {
         var validated = true
         
         if (!validateEmail()) {
@@ -97,7 +97,7 @@ class LoginViewModel {
         return validated
     }
     
-    func parseAuthErrorCode(code: AuthErrorCode?, _ isLogin: Bool) -> String {
+    private func parseAuthErrorCode(code: AuthErrorCode?, _ isLogin: Bool) -> String {
         let error: String
         switch code {
         case .invalidEmail?:
@@ -122,7 +122,7 @@ class LoginViewModel {
                 if let e = error {
                     let code = AuthErrorCode(rawValue: e._code)
                     let authError = AuthError(
-                        title: StringConsts.loginError,
+                        title: StringConsts.signUpError,
                         description: self.parseAuthErrorCode(code: code, false)
                     )
                     self.authError.value = authError

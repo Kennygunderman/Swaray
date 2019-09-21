@@ -91,7 +91,7 @@ class LoginController: BaseController<LoginView, LoginViewModel> {
     }
     
     func signUp() {
-        if viewModel.validate() {
+        if viewModel.validateSignUp() {
             setLoginButtonLoading()
             viewModel.createUser(
                 email: viewModel.email.value ?? "",
