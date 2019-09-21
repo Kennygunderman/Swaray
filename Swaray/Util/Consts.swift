@@ -36,7 +36,8 @@ public struct StringConsts {
     static let signUpOrLabel: String = "Or"
     
     // Social Logins
-    static let googleSignUpBtnText: String = "SIGN UP WITH GOOGLE"
+    static let googleSignUpBtnText: String = "SIGN IN WITH GOOGLE"
+    static let facebookSignUpBtnText: String = "CONTINUE WITH FACEBOOK"
     
     // Login/Sign Up errors
     static let signUpError: String = "Error Creating Account"

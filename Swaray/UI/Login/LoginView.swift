@@ -165,15 +165,20 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
         return label
     }()
     
-    lazy var googleBtn: GoogleButton = {
-        let button = GoogleButton()
-        button.setTitle(title: StringConsts.googleSignUpBtnText)
+    lazy var googleBtn: SocialButton = {
+        let button = SocialButton()
+        button.title = StringConsts.googleSignUpBtnText
+        button.backgroundColor = .rgb(red: 66, green: 133, blue: 244)
+        button.logo = UIImage(named: "google-logo")
         return button
     }()
     
-    lazy var facebookBtn: GoogleButton = {
-        let button = GoogleButton()
-        button.setTitle(title: StringConsts.googleSignUpBtnText)
+    lazy var facebookBtn: SocialButton = {
+        let button = SocialButton()
+        button.title = StringConsts.facebookSignUpBtnText
+        button.backgroundColor = .rgb(red: 59, green: 89, blue: 152)
+        button.logo = UIImage(named: "facebook-logo")
+        button.tileColor = .clear
         return button
     }()
     

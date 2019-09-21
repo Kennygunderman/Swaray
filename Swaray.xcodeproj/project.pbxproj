@@ -28,7 +28,7 @@
 		03C51B1A233439610076B17A /* AuthService_M.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B19233439610076B17A /* AuthService_M.swift */; };
 		03C51B1D23346BA30076B17A /* AuthServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B1C23346BA30076B17A /* AuthServiceInterface.swift */; };
 		03C51B1F2335AA7B0076B17A /* AssertionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B1E2335AA7B0076B17A /* AssertionHelper.swift */; };
-		03C51B222335BC080076B17A /* GoogleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B212335BC080076B17A /* GoogleButton.swift */; };
+		03C51B222335BC080076B17A /* SocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B212335BC080076B17A /* SocialButton.swift */; };
 		03C51B242335CD5F0076B17A /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03C51B232335CB000076B17A /* Roboto-Medium.ttf */; };
 		03DD57D4232C7AD100F78A9D /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D3232C7AD100F78A9D /* BaseController.swift */; };
 		03DD57D6232C7B4700F78A9D /* BaseControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */; };
@@ -102,7 +102,7 @@
 		03C51B19233439610076B17A /* AuthService_M.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService_M.swift; sourceTree = "<group>"; };
 		03C51B1C23346BA30076B17A /* AuthServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceInterface.swift; sourceTree = "<group>"; };
 		03C51B1E2335AA7B0076B17A /* AssertionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssertionHelper.swift; sourceTree = "<group>"; };
-		03C51B212335BC080076B17A /* GoogleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleButton.swift; sourceTree = "<group>"; };
+		03C51B212335BC080076B17A /* SocialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButton.swift; sourceTree = "<group>"; };
 		03C51B232335CB000076B17A /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		03DD57D3232C7AD100F78A9D /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseControllerView.swift; sourceTree = "<group>"; };
@@ -320,7 +320,7 @@
 				03DD57DA232C8CB000F78A9D /* TriangleView.swift */,
 				03B1211E232DDD3B008EB33C /* SwarayTextField.swift */,
 				03B12134232F0FB7008EB33C /* SwarayButton.swift */,
-				03C51B212335BC080076B17A /* GoogleButton.swift */,
+				03C51B212335BC080076B17A /* SocialButton.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -606,7 +606,7 @@
 				03B1211F232DDD3B008EB33C /* SwarayTextField.swift in Sources */,
 				031D3AAC232C685D006978E5 /* Consts.swift in Sources */,
 				03C51B0E233428860076B17A /* ServiceModule.swift in Sources */,
-				03C51B222335BC080076B17A /* GoogleButton.swift in Sources */,
+				03C51B222335BC080076B17A /* SocialButton.swift in Sources */,
 				03DD57E4232D2F7D00F78A9D /* BaseFont.swift in Sources */,
 				03B1213C23307554008EB33C /* HomeView.swift in Sources */,
 				03DD57EB232D6C2100F78A9D /* LoginView.swift in Sources */,
