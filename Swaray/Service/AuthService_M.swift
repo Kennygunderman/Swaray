@@ -17,4 +17,8 @@ class AuthService: AuthServiceInterface {
     func createUser(email: String, password: String, callback: @escaping (AuthResult?, Error?) -> Void) {
         callback(AuthResult(email: "mock@email.com"), nil)
     }
+    
+    func login(email: String, password: String, callback: @escaping (AuthResult?, Error?) -> Void) {
+        callback(AuthResult(email: "mock@email.com"), nil)
+    }
 }
