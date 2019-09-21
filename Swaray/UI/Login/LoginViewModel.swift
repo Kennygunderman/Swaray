@@ -8,6 +8,7 @@
 
 import Foundation
 import Bond
+import Firebase
 
 class LoginViewModel {
     let email = Observable<String?>("")
@@ -18,7 +19,7 @@ class LoginViewModel {
     let passwordValidation = Observable<CGFloat>(0)
     let pwMatchValidation = Observable<CGFloat>(0)
     
-    let authError = Observable<String?>(nil)
+    let authError = Observable<AuthError?>(nil)
     let authSuccess = Observable<AuthResult?>(nil)
     
     private let authService: AuthServiceInterface
@@ -68,6 +69,14 @@ class LoginViewModel {
         return password.value == confirmPassword.value && validatePassword()
     }
     
+    func validateLogin() -> Bool {
+        let validated = validateEmail()
+        if (!validated) {
+            emailValidation.value = 1
+        }
+        return validated
+    }
+    
     func validate() -> Bool {
         var validated = true
         
@@ -88,16 +97,64 @@ class LoginViewModel {
         return validated
     }
     
+    func parseAuthErrorCode(code: AuthErrorCode?, _ isLogin: Bool) -> String {
+        let error: String
+        switch code {
+        case .invalidEmail?:
+            error = StringConsts.invalidEmail
+        case .emailAlreadyInUse?:
+            error = StringConsts.emailInUseError
+        case .wrongPassword?:
+            error = StringConsts.invalidPassword
+        case .invalidCredential?:
+            error = StringConsts.invalidCredentials
+        default:
+            error = isLogin ? StringConsts.genericLoginError : StringConsts.genericSignUpError
+        }
+        return error
+    }
+    
     func createUser(email: String, password: String) {
         authService.createUser(
             email: email,
             password: password,
             callback: { authResult, error in
                 if let e = error {
-                    self.authError.value = e.localizedDescription
+                    let code = AuthErrorCode(rawValue: e._code)
+                    let authError = AuthError(
+                        title: StringConsts.loginError,
+                        description: self.parseAuthErrorCode(code: code, false)
+                    )
+                    self.authError.value = authError
                 } else {
                     self.authSuccess.value = authResult
                 }
         })
     }
+    
+    func login(email: String, password: String) {
+        authService.login(
+            email: email,
+            password: password,
+            callback: { authResult, error in
+                if let e = error {
+                    let code = AuthErrorCode(rawValue: e._code)
+                    let authError = AuthError(
+                        title: StringConsts.loginError,
+                        description: self.parseAuthErrorCode(code: code, true)
+                    )
+                    self.authError.value = authError
+                } else {
+                    self.authSuccess.value = authResult
+                }
+        })
+    }
+}
+
+// Wrapper for Auth Errors from Firebase
+struct AuthError {
+    
+    //Title of the error, whether it is a Login or Sign Up error.
+    var title: String
+    var description: String
 }

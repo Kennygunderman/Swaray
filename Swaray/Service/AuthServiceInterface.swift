@@ -16,4 +16,5 @@ struct AuthResult {
 
 protocol AuthServiceInterface {
     func createUser(email: String, password: String, callback: @escaping  (AuthResult?, Error?) -> Void)
+    func login(email: String, password: String, callback: @escaping (AuthResult?, Error?) -> Void)
 }
