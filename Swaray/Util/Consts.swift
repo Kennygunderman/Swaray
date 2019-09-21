@@ -43,9 +43,6 @@ public struct StringConsts {
     static let invalidCredentials: String = "The email or password you have provided is invalid."
     static let genericLoginError: String = "Unable to login with the email and password you have provided."
     static let genericSignUpError: String = "Unable to sign up with the email and password you have provided. Please try again."
-
-
-
 }
 
 struct DimenConsts {
