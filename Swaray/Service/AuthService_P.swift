@@ -13,10 +13,20 @@ class AuthService: AuthServiceInterface {
     func createUser(email: String, password: String, callback: @escaping (AuthResult?, Error?) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password, completion: { result, error in
             var authResult: AuthResult?
-            if let r = result {
-                authResult = AuthResult(email: r.user.email ?? "")
+            if let user = result?.user {
+                authResult = AuthResult(email: user.email ?? "")
             }
             callback(authResult, error)
         })
+    }
+    
+    func login(email: String, password: String, callback: @escaping (AuthResult?, Error?) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            var authResult: AuthResult?
+            if let user = result?.user {
+                authResult = AuthResult(email: user.email ?? "")
+            }
+            callback(authResult, error)
+        }
     }
 }

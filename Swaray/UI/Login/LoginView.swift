@@ -283,12 +283,12 @@ extension LoginView {
         // Exit animation
         startAnimation(duration: 0.5, anim: {
             if (state == .login) {
-                self.emailValidationLabel.alpha = 0
                 self.passwordValidationLabel.alpha = 0
                 self.pwMatchValidationLabel.alpha = 0
                 self.passwordConfirmTxt.alpha = 0
             }
         
+            self.emailValidationLabel.alpha = 0
             self.loginLabel.alpha = 0
             self.actionLabel.alpha = 0
             self.actionBtn.alpha = 0

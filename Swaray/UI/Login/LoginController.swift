@@ -50,10 +50,10 @@ class LoginController: BaseController<LoginView, LoginViewModel> {
         }
     }
     
-    private func showErrorDialog(error: String) {
+    private func showErrorDialog(error: AuthError) {
         let alert = UIAlertController(
-            title: StringConsts.signUpError,
-            message: error,
+            title: error.title,
+            message: error.description,
             preferredStyle: .alert
         )
         
@@ -75,13 +75,24 @@ class LoginController: BaseController<LoginView, LoginViewModel> {
     }
     
     func login() {
-        
+        if (viewModel.validateLogin()) {
+            setLoginButtonLoading()
+            viewModel.login(
+                email: viewModel.email.value ?? "",
+                password: viewModel.password.value ?? ""
+            )
+        }
+    }
+    
+    // Sets the login button to a loading state
+    private func setLoginButtonLoading() {
+        baseView.loginBtn.animate()
+        baseView.loginBtn.isEnabled = false
     }
     
     func signUp() {
-        if viewModel.validate() {
-            baseView.loginBtn.animate()
-            baseView.loginBtn.isEnabled = false
+        if viewModel.validateSignUp() {
+            setLoginButtonLoading()
             viewModel.createUser(
                 email: viewModel.email.value ?? "",
                 password: viewModel.password.value ?? ""
