@@ -12,13 +12,11 @@
 import Foundation
 import UIKit
 
-class SocialButton: UIView {
-    
-    private let cornerRadius: CGFloat = 2
+class SocialButton: LoadingButton {
     
     //TODO: move to load font function. Move load font into util
     // Default font for the Google Button is `Roboto-Medium`
-    private let font = UIFont(name: "Roboto-Medium", size: DimenConsts.regularFontSize) ?? UIFont.systemFont(ofSize: 14)
+    private let customFont = UIFont(name: "Roboto-Medium", size: DimenConsts.regularFontSize) ?? UIFont.systemFont(ofSize: 14)
     
     private let tile: UIView = {
         let view = UIView()
@@ -35,18 +33,18 @@ class SocialButton: UIView {
         return imageView
     }()
     
-    private lazy var titleLabel: UILabel = {
+    private lazy var customTitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
-        label.font = font
+        label.font = customFont
         return label
     }()
     
     var title: String = "" {
         didSet {
-            self.titleLabel.text = title
+            self.customTitleLabel.text = title
         }
     }
     
@@ -62,19 +60,24 @@ class SocialButton: UIView {
         }
     }
     
+    override var textColor: UIColor {
+        didSet {
+            self.customTitleLabel.textColor = textColor
+        }
+    }
+    
+    override var cornerRadius: CGFloat {
+        return 2
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.layer.cornerRadius = cornerRadius
-        self.layer.shadowColor = UIColor.gray.cgColor
-        self.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
-        self.layer.shadowOpacity = 0.5
-        self.layer.shadowRadius = 0.75
-        self.layer.masksToBounds = false
+        self.loadingButtonWidth = 40
         addViews()
     }
     
     func addViews() {
-        addSubview(titleLabel)
+        addSubview(customTitleLabel)
         addSubview(tile)
         tile.addSubview(socialIconImageView)
     
@@ -88,11 +91,17 @@ class SocialButton: UIView {
         socialIconImageView.snp.makeConstraints { (make) in
             make.center.equalTo(self.tile.snp.center)
         }
-        titleLabel.snp.makeConstraints { (make) in
+        customTitleLabel.snp.makeConstraints { (make) in
             make.left.equalTo(socialIconImageView.snp.right).offset(24)
             make.centerY.equalTo(self.snp.centerY)
             make.right.equalTo(self.snp.right).offset(-8)
         }
+    }
+    
+    
+    override func animate() {
+        super.animate()
+        tile.alpha = 0
     }
     
     required init?(coder aDecoder: NSCoder) {

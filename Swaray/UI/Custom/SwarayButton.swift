@@ -22,18 +22,29 @@ class LoadingButton: UIButton {
             self.setTitleColor(self.textColor, for: .normal)
         }
     }
-
+    
     // The width of the button when it returns back to it's
     // regular state
     var width: CGFloat = 300 //default
     
+    // Width of button when it's in its loading state
+    var loadingButtonWidth: CGFloat = 50
+    
+    // Corner radius of button, default is 4
+    var cornerRadius: CGFloat {
+        return 4
+    }
+    
     private var buttonState: ButtonState = .regular
-    private let cornerRadius: CGFloat = 4
     private let animationDuration: Double = 0.3
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.layer.cornerRadius = cornerRadius
+        self.addShadow()
+    }
+    
+    private func addShadow() {
         self.layer.shadowColor = UIColor.gray.cgColor
         self.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
         self.layer.shadowOpacity = 0.5
@@ -55,7 +66,7 @@ class LoadingButton: UIButton {
             self.addSubview(spinner)
             
             snp.updateConstraints { (make) -> Void in
-                make.width.equalTo(50)
+                make.width.equalTo(loadingButtonWidth)
             }
             
             spinner.snp.makeConstraints { (make) -> Void in
@@ -68,7 +79,7 @@ class LoadingButton: UIButton {
             
             UIView.animate(withDuration: animationDuration, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
                 self.textColor = .clear
-                self.layer.cornerRadius = 25
+                self.layer.cornerRadius = self.loadingButtonWidth / 2
                 spinner.alpha = 1
                 self.layoutIfNeeded()
             }, completion: nil)
