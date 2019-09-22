@@ -143,16 +143,16 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
         return view
     }()
     
-    // Make the button width the size of the screen with
+    // Make the buttons width the size of the screen with
     // a padding of 64 on each side
-    private let signUpBtnWidth = UIScreen.main.bounds.width - (64 * 2)
+    private let loginBtnsWidth = UIScreen.main.bounds.width - (64 * 2)
     
     lazy var loginBtn: LoadingButton = {
         let button = LoadingButton()
         button.contentScaleFactor = 0.5
-        button.setTitle(StringConsts.loginBtnText, for: .normal)
+        button.setTitle(title: StringConsts.loginBtnText)
         button.textColor = .white
-        button.width = signUpBtnWidth
+        button.width = loginBtnsWidth
         button.titleLabel?.font = loadFont(font: .medium, size: DimenConsts.largeFontSize)
         button.backgroundColor = .appPrimary
         button.accessibilityIdentifier = "loginBtnId"
@@ -169,7 +169,8 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
     
     lazy var googleBtn: SocialButton = {
         let button = SocialButton()
-        button.title = StringConsts.googleSignUpBtnText
+        button.width = loginBtnsWidth
+        button.setTitle(title: StringConsts.googleSignUpBtnText)
         button.backgroundColor = .rgb(red: 66, green: 133, blue: 244)
         button.logo = UIImage(named: "google-logo")
         return button
@@ -177,7 +178,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
     
     lazy var facebookBtn: SocialButton = {
         let button = SocialButton()
-        button.title = StringConsts.facebookSignUpBtnText
+        button.setTitle(title: StringConsts.facebookSignUpBtnText)
         button.backgroundColor = .rgb(red: 59, green: 89, blue: 152)
         button.logo = UIImage(named: "facebook-logo")
         button.tileColor = .clear
@@ -290,12 +291,12 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
             make.center.equalTo(self.bottomHalfView.snp.center)
             make.top.equalTo(self.loginBtn.snp.top)
             make.bottom.equalTo(self.facebookBtn.snp.bottom)
-            make.width.equalTo(signUpBtnWidth)
+            make.width.equalTo(loginBtnsWidth)
         }
         
         loginBtn.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(50)
-            make.width.equalTo(signUpBtnWidth)
+            make.width.equalTo(loginBtnsWidth)
             make.top.equalTo(self.loginBtnsGroup.snp.top)
             make.centerX.equalTo(self.loginBtnsGroup.snp.centerX)
         }
@@ -307,21 +308,17 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
 
         googleBtn.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(40)
-            make.width.equalTo(signUpBtnWidth)
+            make.width.equalTo(loginBtnsWidth)
             make.top.equalTo(self.orLabel.snp.bottom).offset(8)
             make.centerX.equalTo(self.loginBtnsGroup.snp.centerX)
         }
         
         facebookBtn.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(40)
-            make.width.equalTo(signUpBtnWidth)
+            make.width.equalTo(loginBtnsWidth)
             make.top.equalTo(self.googleBtn.snp.bottom).offset(4)
             make.centerX.equalTo(self.loginBtnsGroup.snp.centerX)
         }
-    }
-    
-    override func transitionInViews() -> [UIView] {
-        return [loginLabel, actionLabel, actionBtn, emailTxt, passwordTxt, loginBtnsGroup]
     }
 }
 

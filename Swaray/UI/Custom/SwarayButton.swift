@@ -12,7 +12,7 @@ import UIKit
 
 // UIButton that turns into a loading indicator
 class LoadingButton: UIButton {
-    private enum ButtonState {
+    enum ButtonState {
         case loading
         case regular
     }
@@ -35,7 +35,8 @@ class LoadingButton: UIButton {
         return 4
     }
     
-    private var buttonState: ButtonState = .regular
+    var buttonState: ButtonState = .regular
+    
     private let animationDuration: Double = 0.3
     
     override init(frame: CGRect) {
@@ -54,6 +55,10 @@ class LoadingButton: UIButton {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setTitle(title: String) {
+        self.setTitle(title, for: .normal)
     }
     
     // Animate's button into a spinner view. In order for this to work

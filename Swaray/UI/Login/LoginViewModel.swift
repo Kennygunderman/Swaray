@@ -143,11 +143,26 @@ class LoginViewModel {
                         title: StringConsts.loginError,
                         description: self.parseAuthErrorCode(code: code, true)
                     )
+                    
                     self.authError.value = authError
                 } else {
                     self.authSuccess.value = authResult
                 }
         })
+    }
+    
+    func signIn(credentials: AuthCredential, provider: AuthProvider) {
+        authService.signIn(with: credentials, provider: provider, callback: { (authResult, error) in
+            if let _ = error {
+                self.authError.value = self.googleSignInError()
+            } else {
+                self.authSuccess.value = authResult
+            }
+        })
+    }
+    
+    func googleSignInError() -> AuthError {
+        return AuthError(title: StringConsts.loginTitle, description: StringConsts.googleSignInError)
     }
 }
 

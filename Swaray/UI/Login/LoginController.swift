@@ -8,14 +8,24 @@
 
 import Foundation
 import UIKit
+import GoogleSignIn
+import Firebase
+
 class LoginController: BaseController<LoginView, LoginViewModel> {
     private var state: LoginState = .login // State of controller
     let viewModel = LoginViewModel()
+    
+    private var currentLoginButton: LoadingButton? {
+        didSet {
+            currentLoginButton?.animate()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupActions()
         subscribeUi()
+        GIDSignIn.sharedInstance().delegate = self //set Google Sign In delegate
     }
     
     override func getViewModel() -> LoginViewModel? {
@@ -27,15 +37,16 @@ class LoginController: BaseController<LoginView, LoginViewModel> {
         _ = viewModel.authError.observeNext { error in
             if let e = error {
                 self.showErrorDialog(error: e)
-                self.baseView.loginBtn.animate()
-                self.baseView.loginBtn.isEnabled = true
+                self.currentLoginButton?.animate()
+                self.currentLoginButton = nil
+                self.enableLoginButtons()
             }
         }
         
         _ = viewModel.authSuccess.observeNext { result in
             if let _ = result {
-                self.baseView.loginBtn.setTitle(StringConsts.signUpSuccess, for: .normal)
-                self.baseView.loginBtn.animate()
+                self.currentLoginButton?.animate()
+                self.currentLoginButton?.setTitle(title: StringConsts.signUpSuccess)
                 
                 // Wait 1 second before navigating. This is done because we want to give
                 // the user enough time to read the success message of their account creation.
@@ -64,6 +75,12 @@ class LoginController: BaseController<LoginView, LoginViewModel> {
     fileprivate func setupActions() {
         baseView.actionBtn.addTarget(self, action: #selector(handleAction), for: .touchUpInside)
         baseView.loginBtn.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
+        baseView.googleBtn.addTarget(self, action: #selector(handleGoogleSignIn), for: .touchUpInside)
+    }
+    
+    @objc private func handleGoogleSignIn() {
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance().signIn()
     }
     
     @objc private func handleLogin() {
@@ -76,7 +93,8 @@ class LoginController: BaseController<LoginView, LoginViewModel> {
     
     func login() {
         if (viewModel.validateLogin()) {
-            setLoginButtonLoading()
+            disableLoginButtons()
+            self.currentLoginButton = baseView.loginBtn
             viewModel.login(
                 email: viewModel.email.value ?? "",
                 password: viewModel.password.value ?? ""
@@ -84,15 +102,22 @@ class LoginController: BaseController<LoginView, LoginViewModel> {
         }
     }
     
-    // Sets the login button to a loading state
-    private func setLoginButtonLoading() {
-        baseView.loginBtn.animate()
+    private func enableLoginButtons() {
+        baseView.loginBtn.isEnabled = true
+        baseView.googleBtn.isEnabled = true
+        baseView.facebookBtn.isEnabled = true
+    }
+    
+    private func disableLoginButtons() {
         baseView.loginBtn.isEnabled = false
+        baseView.googleBtn.isEnabled = false
+        baseView.facebookBtn.isEnabled = false
     }
     
     func signUp() {
         if viewModel.validateSignUp() {
-            setLoginButtonLoading()
+            disableLoginButtons()
+            self.currentLoginButton = baseView.loginBtn
             viewModel.createUser(
                 email: viewModel.email.value ?? "",
                 password: viewModel.password.value ?? ""
@@ -104,5 +129,28 @@ class LoginController: BaseController<LoginView, LoginViewModel> {
         state = state == .login ? .signUp : .login
         baseView.animateStateChange(state: state)
         baseView.currentTextFocus?.resignFirstResponder()
+    }
+}
+
+// Delegate functions for Google Log In
+extension LoginController: GIDSignInDelegate {
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+        if let e = error {
+            if e._code != -1 {
+                viewModel.authError.value = viewModel.googleSignInError()
+            }
+            return
+        }
+        
+        guard let authentication = user.authentication else { return }
+        
+        let credential = GoogleAuthProvider.credential(
+            withIDToken: authentication.idToken,
+            accessToken: authentication.accessToken
+        )
+        
+        disableLoginButtons()
+        self.currentLoginButton = baseView.googleBtn
+        viewModel.signIn(credentials: credential, provider: .google)
     }
 }

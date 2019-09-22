@@ -42,12 +42,6 @@ class SocialButton: LoadingButton {
         return label
     }()
     
-    var title: String = "" {
-        didSet {
-            self.customTitleLabel.text = title
-        }
-    }
-    
     var tileColor: UIColor = .white {
         didSet {
             tile.backgroundColor = tileColor
@@ -76,6 +70,10 @@ class SocialButton: LoadingButton {
         addViews()
     }
     
+    override func setTitle(title: String) {
+        self.customTitleLabel.text = title
+    }
+    
     func addViews() {
         addSubview(customTitleLabel)
         addSubview(tile)
@@ -101,7 +99,12 @@ class SocialButton: LoadingButton {
     
     override func animate() {
         super.animate()
-        tile.alpha = 0
+        
+        if (buttonState == .loading) {
+            tile.alpha = 0
+        } else {
+            tile.alpha = 1
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
