@@ -37,7 +37,7 @@ public struct StringConsts {
     
     // Social Logins
     static let googleSignUpBtnText: String = "SIGN IN WITH GOOGLE"
-    static let facebookSignUpBtnText: String = "CONTINUE WITH FACEBOOK"
+    static let facebookSignUpBtnText: String = "SIGN IN WITH FACEBOOK"
     
     // Login/Sign Up errors
     static let signUpError: String = "Error Creating Account"
@@ -52,7 +52,9 @@ public struct StringConsts {
 
 struct DimenConsts {
     //height of the triangle `cut` used in Login, Sign Up & Home
-    static let triangleCutHeight = 100
+    static let triangleCutHeight: CGFloat = UIScreen.main.nativeBounds.height <= 1136 ? 80 : 100
+    static let loginBgBottomConstraint: CGFloat = UIScreen.main.nativeBounds.height <= 1136 ? 120 : 144
+    
     static let headerFontSize: CGFloat = 36
     static let subHeaderFontSize: CGFloat = 24
     static let smallFontSize: CGFloat = 12

@@ -149,6 +149,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
     
     lazy var loginBtn: LoadingButton = {
         let button = LoadingButton()
+        button.contentScaleFactor = 0.5
         button.setTitle(StringConsts.loginBtnText, for: .normal)
         button.textColor = .white
         button.width = signUpBtnWidth
@@ -160,7 +161,8 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
     
     lazy var orLabel: UILabel = {
         let label = UILabel()
-        label.font = loadFont(font: .medium, size: DimenConsts.largeFontSize)
+        label.contentScaleFactor = 0.5
+        label.font = loadFont(font: .medium, size: DimenConsts.regularFontSize)
         label.text = StringConsts.signUpOrLabel
         return label
     }()
@@ -219,7 +221,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
             make.top.equalTo(self.snp.top).offset(0)
             make.left.equalTo(self.snp.left).offset(0)
             make.right.equalTo(self.snp.right).offset(0)
-            bgBottomConstraint = make.bottom.equalTo(self.passwordTxt.snp.bottom).offset(144).constraint
+            bgBottomConstraint = make.bottom.equalTo(self.passwordTxt.snp.bottom).offset(DimenConsts.loginBgBottomConstraint).constraint
         }
         
         bottomHalfView.snp.makeConstraints { (make) -> Void in
@@ -288,6 +290,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
             make.center.equalTo(self.bottomHalfView.snp.center)
             make.top.equalTo(self.loginBtn.snp.top)
             make.bottom.equalTo(self.facebookBtn.snp.bottom)
+            make.width.equalTo(signUpBtnWidth)
         }
         
         loginBtn.snp.makeConstraints { (make) -> Void in
@@ -312,7 +315,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
         facebookBtn.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(40)
             make.width.equalTo(signUpBtnWidth)
-            make.top.equalTo(self.googleBtn.snp.bottom).offset(16)
+            make.top.equalTo(self.googleBtn.snp.bottom).offset(4)
             make.centerX.equalTo(self.loginBtnsGroup.snp.centerX)
         }
     }
@@ -338,7 +341,7 @@ extension LoginView {
             bgBottomConstraint = make
                 .bottom
                 .equalTo(viewToConstrainTo.snp.bottom)
-                .offset(state == .signUp ? 48 : 144)
+                .offset(state == .signUp ? 48 : DimenConsts.loginBgBottomConstraint)
                 .constraint
         }
     
@@ -419,7 +422,7 @@ extension LoginView {
             self.emailTxt.alpha = 0
             self.passwordTxt.alpha = 0
             self.passwordConfirmTxt.alpha = 0
-            self.loginBtn.alpha = 0
+            self.loginBtnsGroup.alpha = 0
         }, finished: {
             animationFinished()
         })

@@ -387,6 +387,7 @@
 				031D3A72232C5A92006978E5 /* Frameworks */,
 				031D3A73232C5A92006978E5 /* Resources */,
 				49F16575B7F473D484399D62 /* [CP] Embed Pods Frameworks */,
+				D443440114A0129FD87DCABC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 				03C51B1B233461460076B17A /* PBXBuildRule */,
@@ -549,6 +550,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Swaray/Pods-Swaray-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D443440114A0129FD87DCABC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Swaray/Pods-Swaray-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Swaray/Pods-Swaray-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Swaray/Pods-Swaray-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F0AC10801FB02E64C7CEC807 /* [CP] Check Pods Manifest.lock */ = {
