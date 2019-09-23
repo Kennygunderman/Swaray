@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        configureFirebase()
+        // Enable Firebase
+        FirebaseApp.configure()
+        
+        // Set Google Sign in clientID
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        
+        // Configure facebook for Sign In
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
         // Setup logic
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -37,14 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navBar.shadowImage = UIImage()
 
         return true
-    }
-    
-    private func configureFirebase() {
-        // Enable Firebase
-        FirebaseApp.configure()
-        
-        // Set Google Sign in clientID
-        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
     }
     
     @available(iOS 9.0, *)

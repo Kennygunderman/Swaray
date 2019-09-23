@@ -154,7 +154,7 @@ class LoginViewModel {
     func signIn(credentials: AuthCredential, provider: AuthProvider) {
         authService.signIn(with: credentials, provider: provider, callback: { (authResult, error) in
             if let _ = error {
-                self.authError.value = self.googleSignInError()
+                self.authError.value = self.googleSignInError() 
             } else {
                 self.authSuccess.value = authResult
             }
@@ -163,6 +163,10 @@ class LoginViewModel {
     
     func googleSignInError() -> AuthError {
         return AuthError(title: StringConsts.loginTitle, description: StringConsts.googleSignInError)
+    }
+    
+    func facebookSignInError() -> AuthError {
+        return AuthError(title: StringConsts.loginTitle, description: StringConsts.facebookSignInError)
     }
 }
 

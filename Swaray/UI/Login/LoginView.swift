@@ -178,6 +178,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
     
     lazy var facebookBtn: SocialButton = {
         let button = SocialButton()
+        button.width = loginBtnsWidth
         button.setTitle(title: StringConsts.facebookSignUpBtnText)
         button.backgroundColor = .rgb(red: 59, green: 89, blue: 152)
         button.logo = UIImage(named: "facebook-logo")

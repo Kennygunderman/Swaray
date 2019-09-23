@@ -19,7 +19,7 @@ public struct StringConsts {
     static let loginTitle: String = "Login"
     static let noAccountLabel: String = "Don't have an account? "
     static let createAccBtnTxt: String = "Create one here."
-    static let loginBtnText: String = "LOGIN"
+    static let loginBtnText: String = "Login"
     
     // Static vals for Sign Up
     static let signUpTitle: String = "Sign Up"
@@ -31,13 +31,13 @@ public struct StringConsts {
     static let emailValidation: String = "Please enter a valid email."
     static let passwordValidation: String = "Password must be at least 6 characters."
     static let passwordMatchValidation: String = "Passwords do not match."
-    static let signUpBtnText: String = "SIGN UP"
-    static let signUpSuccess: String = "SUCCESS!"
+    static let signUpBtnText: String = "Sign Up"
+    static let signUpSuccess: String = "Success!"
     static let signUpOrLabel: String = "Or"
     
     // Social Logins
-    static let googleSignUpBtnText: String = "SIGN IN WITH GOOGLE"
-    static let facebookSignUpBtnText: String = "SIGN IN WITH FACEBOOK"
+    static let googleSignUpBtnText: String = "Sign In with Google"
+    static let facebookSignUpBtnText: String = "Sign In with Facebook"
     
     // Login/Sign Up errors
     static let signUpError: String = "Error Creating Account"
@@ -48,7 +48,9 @@ public struct StringConsts {
     static let invalidCredentials: String = "The email or password you have provided is invalid."
     static let genericLoginError: String = "Unable to login with the email and password you have provided."
     static let genericSignUpError: String = "Unable to sign up with the email and password you have provided. Please try again."
-    static let googleSignInError: String = "Unable to sign in with google at this time."
+    static let googleSignInError: String = "Unable to sign in with Google at this time."
+    static let facebookSignInError: String = "Unable to sign in with Facebook at this time."
+
 }
 
 struct DimenConsts {
