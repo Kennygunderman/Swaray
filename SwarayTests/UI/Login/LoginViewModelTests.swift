@@ -14,9 +14,11 @@ import Firebase
 
 class LoginViewModelTests: XCTestCase {
     
-    var viewModel = LoginViewModel()
+    let vmWithMockAuth = LoginViewModel(signInManager: SignInManager(authService: MockAuthService()))
     
     func testValidateEmail() {
+        let viewModel = vmWithMockAuth
+        
         viewModel.email.value = "test@test"
         XCTAssertFalse(viewModel.validateEmail())
         
@@ -46,6 +48,8 @@ class LoginViewModelTests: XCTestCase {
     }
     
     func testValidatePassword() {
+        let viewModel = vmWithMockAuth
+        
         viewModel.password.value = "passw"
         XCTAssertFalse(viewModel.validatePassword())
         
@@ -57,6 +61,8 @@ class LoginViewModelTests: XCTestCase {
     }
     
     func testValidatedPasswordMatch() {
+        let viewModel = vmWithMockAuth
+        
         viewModel.password.value = "passw"
         viewModel.confirmPassword.value = "pass"
         XCTAssertFalse(viewModel.confirmPasswordMatch())
@@ -83,6 +89,8 @@ class LoginViewModelTests: XCTestCase {
     }
     
     func testValidateSignUp_invalidEmail_invalidPassword() {
+        let viewModel = vmWithMockAuth
+        
         viewModel.email.value = "invalid-format-email"
         viewModel.password.value = "2shrt"
         viewModel.confirmPassword.value = "2shrt"
@@ -95,6 +103,8 @@ class LoginViewModelTests: XCTestCase {
     }
     
     func testValidateSignUp_passwordMismatch() {
+        let viewModel = vmWithMockAuth
+        
         viewModel.email.value = "validEmail@email.com"
         viewModel.password.value = "password"
         viewModel.confirmPassword.value = "pass0wrd"
@@ -107,6 +117,8 @@ class LoginViewModelTests: XCTestCase {
     }
     
     func testValidateSignUp_valid() {
+        let viewModel = vmWithMockAuth
+        
         viewModel.email.value = "validEmail@email.com"
         viewModel.password.value = "password"
         viewModel.confirmPassword.value = "password"
@@ -136,12 +148,13 @@ class LoginViewModelTests: XCTestCase {
     
     func loginFailureTest(errorCode: AuthErrorCode, desc: String) {
         let mockAuthService = MockAuthServiceError(errorCode: errorCode)
-        viewModel = LoginViewModel(authService: mockAuthService)
+        let viewModel = LoginViewModel(signInManager: SignInManager(authService: mockAuthService))
+        
         viewModel.login(email: "e", password: "p")
         
         let authError = viewModel.authError.value!
         XCTAssertEqual(desc, authError.description, eg(desc, authError.description))
-        XCTAssertEqual(StringConsts.loginError, authError.title, eg(StringConsts.loginError, authError.title))
+        XCTAssertEqual(StringConsts.loginErrorTitle, authError.title, eg(StringConsts.loginErrorTitle, authError.title))
     }
     
     func testSignUpFailure_emailInUse() {
@@ -154,30 +167,36 @@ class LoginViewModelTests: XCTestCase {
     
     func signUpFailureTest(errorCode: AuthErrorCode, desc: String) {
         let mockAuthService = MockAuthServiceError(errorCode: errorCode)
-        viewModel = LoginViewModel(authService: mockAuthService)
+        let viewModel = LoginViewModel(signInManager: SignInManager(authService: mockAuthService))
+        
         viewModel.createUser(email: "e", password: "p")
         
         let authError = viewModel.authError.value!
         XCTAssertEqual(desc, authError.description, eg(desc, authError.description))
-        XCTAssertEqual(StringConsts.signUpError, authError.title, eg(StringConsts.signUpError, authError.title))
+        XCTAssertEqual(StringConsts.signUpErrorTitle, authError.title, eg(StringConsts.signUpErrorTitle, authError.title))
     }
 
     
     func testCreateUserSuccess() {
-        let successResult = AuthResult(email: "success@email.com")
-        viewModel = LoginViewModel(authService: MockAuthServiceSuccess(result: successResult))
+        let successResult = AuthResult(provider: .creation, email: "success@email.com")
+        let mockAuthService = MockAuthServiceSuccess(result: successResult)
+        let viewModel = LoginViewModel(signInManager: SignInManager(authService: mockAuthService))
+        
         viewModel.createUser(email: "e", password: "p")
-        XCTAssertTrue(viewModel.authSuccess.value?.email == "success@email.com")
+        XCTAssertEqual("success@email.com", viewModel.authSuccess.value?.email, eg("success@email.com", viewModel.authSuccess.value?.email))
     }
     
     func testLoginSuccess() {
-        let successResult = AuthResult(email: "success@email.com")
-        viewModel = LoginViewModel(authService: MockAuthServiceSuccess(result: successResult))
+        let successResult = AuthResult(provider: .creation, email: "success@email.com")
+        let mockAuthService = MockAuthServiceSuccess(result: successResult)
+        let viewModel = LoginViewModel(signInManager: SignInManager(authService: mockAuthService))
+        
         viewModel.login(email: "e", password: "p")
-        XCTAssertTrue(viewModel.authSuccess.value?.email == "success@email.com")
+        XCTAssertEqual("success@email.com", viewModel.authSuccess.value?.email, eg("success@email.com", viewModel.authSuccess.value?.email))
     }
 
     func testValidateLogin_invalidEmail() {
+        let viewModel = vmWithMockAuth
         viewModel.email.value = "invalid"
         let result = viewModel.validateLogin()
         XCTAssertEqual(1, viewModel.emailValidation.value, eg(1, viewModel.emailValidation.value))
@@ -185,9 +204,80 @@ class LoginViewModelTests: XCTestCase {
     }
     
     func testValidateLogin_valid() {
+        let viewModel = vmWithMockAuth
         viewModel.email.value = "valid@email.com"
         let result = viewModel.validateLogin()
         XCTAssertEqual(0, viewModel.emailValidation.value, eg(0, viewModel.emailValidation.value))
         XCTAssertTrue(result)
+    }
+    
+    func testDelegateAuthing() {
+        let viewModel = vmWithMockAuth
+        XCTAssertFalse(viewModel.authingTrigger.value)
+        viewModel.authing()
+        XCTAssertTrue(viewModel.authingTrigger.value)
+    }
+    
+    func testDelegateAuthError_fromFacebook() {
+        let viewModel = vmWithMockAuth
+        viewModel.authError(error: .invalidAppCredential, from: .facebook)
+        let authError = viewModel.authError.value!
+        
+        XCTAssertEqual(StringConsts.loginErrorTitle, authError.title, eg(StringConsts.loginErrorTitle, authError.title))
+        XCTAssertEqual(StringConsts.facebookSignInError, authError.description, eg(StringConsts.facebookSignInError, authError.description))
+    }
+    
+    func testDelegateAuthError_fromGoogle() {
+        let viewModel = vmWithMockAuth
+        viewModel.authError(error: .invalidAppCredential, from: .google)
+        let authError = viewModel.authError.value!
+        
+        XCTAssertEqual(StringConsts.loginErrorTitle, authError.title, eg(StringConsts.loginErrorTitle, authError.title))
+        XCTAssertEqual(StringConsts.googleSignInError, authError.description, eg(StringConsts.googleSignInError, authError.description))
+    }
+    
+    func testDelegateAuthError_fromCreation() {
+        let viewModel = vmWithMockAuth
+        viewModel.authError(error: .invalidAppCredential, from: .creation)
+        let authError = viewModel.authError.value!
+        
+        XCTAssertEqual(StringConsts.signUpErrorTitle, authError.title, eg(StringConsts.signUpErrorTitle, authError.title))
+        XCTAssertEqual(StringConsts.genericSignUpError, authError.description, eg(StringConsts.genericSignUpError, authError.description))
+    }
+    
+    func testDelegateAuthError_fromLogin() {
+        let viewModel = vmWithMockAuth
+        viewModel.authError(error: .invalidAppCredential, from: .login)
+        let authError = viewModel.authError.value!
+        
+        XCTAssertEqual(StringConsts.loginErrorTitle, authError.title, eg(StringConsts.loginErrorTitle, authError.title))
+        XCTAssertEqual(StringConsts.genericLoginError, authError.description, eg(StringConsts.genericLoginError, authError.description))
+    }
+    
+    func testDelegateSignInError_facebook() {
+        let viewModel = vmWithMockAuth
+        viewModel.signInError(error: NSError(), from: .facebook)
+        let authError = viewModel.authError.value!
+        
+        XCTAssertEqual(StringConsts.loginErrorTitle, authError.title, eg(StringConsts.loginErrorTitle, authError.title))
+        XCTAssertEqual(StringConsts.facebookSignInError, authError.description, eg(StringConsts.facebookSignInError, authError.description))
+    }
+    
+    func testDelegateSignInError_google() {
+        let viewModel = vmWithMockAuth
+        viewModel.signInError(error: NSError(), from: .facebook)
+        let authError = viewModel.authError.value!
+        
+        XCTAssertEqual(StringConsts.loginErrorTitle, authError.title, eg(StringConsts.loginErrorTitle, authError.title))
+        XCTAssertEqual(StringConsts.facebookSignInError, authError.description, eg(StringConsts.facebookSignInError, authError.description))
+    }
+    
+    func testDelegateSignInError_appLogin() {
+        let viewModel = vmWithMockAuth
+        viewModel.signInError(error: NSError(), from: .login)
+        let authError = viewModel.authError.value!
+        
+        XCTAssertEqual(StringConsts.loginErrorTitle, authError.title, eg(StringConsts.loginErrorTitle, authError.title))
+        XCTAssertEqual(StringConsts.genericLoginError, authError.description, eg(StringConsts.genericLoginError, authError.description))
     }
 }

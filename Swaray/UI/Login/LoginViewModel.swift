@@ -9,6 +9,7 @@
 import Foundation
 import Bond
 import Firebase
+import GoogleSignIn
 
 class LoginViewModel {
     let email = Observable<String?>("")
@@ -20,13 +21,14 @@ class LoginViewModel {
     let pwMatchValidation = Observable<CGFloat>(0)
     
     let authError = Observable<AuthError?>(nil)
+    let authingTrigger = Observable<Bool>(false)
     let authSuccess = Observable<AuthResult?>(nil)
     
-    private let authService: AuthServiceInterface
+    let signInManager: SignInManager
     
-    init(authService: AuthServiceInterface = getAuthService()) {
-        self.authService = authService
-    
+    init(signInManager: SignInManager = getSignInManager()) {
+        self.signInManager = signInManager
+        
         _ = email.observeNext { _ in
             if self.emailValidation.value == 1 {
                 if (self.validateEmail()) {
@@ -52,6 +54,9 @@ class LoginViewModel {
                 self.pwMatchValidation.value = 0
             }
         }
+        
+        signInManager.delegate = self
+        GIDSignIn.sharedInstance().delegate = signInManager
     }
     
     func validateEmail() -> Bool {
@@ -97,83 +102,86 @@ class LoginViewModel {
         return validated
     }
     
-    private func parseAuthErrorCode(code: AuthErrorCode?, _ isLogin: Bool) -> String {
-        let error: String
-        switch code {
-        case .invalidEmail?:
-            error = StringConsts.invalidEmail
-        case .emailAlreadyInUse?:
-            error = StringConsts.emailInUseError
-        case .wrongPassword?:
-            error = StringConsts.invalidPassword
-        case .invalidCredential?:
-            error = StringConsts.invalidCredentials
-        default:
-            error = isLogin ? StringConsts.genericLoginError : StringConsts.genericSignUpError
-        }
-        return error
-    }
-    
     func createUser(email: String, password: String) {
-        authService.createUser(
-            email: email,
-            password: password,
-            callback: { authResult, error in
-                if let e = error {
-                    let code = AuthErrorCode(rawValue: e._code)
-                    let authError = AuthError(
-                        title: StringConsts.signUpError,
-                        description: self.parseAuthErrorCode(code: code, false)
-                    )
-                    self.authError.value = authError
-                } else {
-                    self.authSuccess.value = authResult
-                }
-        })
+        signInManager.createUser(email: email, password: password)
     }
     
     func login(email: String, password: String) {
-        authService.login(
-            email: email,
-            password: password,
-            callback: { authResult, error in
-                if let e = error {
-                    let code = AuthErrorCode(rawValue: e._code)
-                    let authError = AuthError(
-                        title: StringConsts.loginError,
-                        description: self.parseAuthErrorCode(code: code, true)
-                    )
-                    
-                    self.authError.value = authError
-                } else {
-                    self.authSuccess.value = authResult
-                }
-        })
+        signInManager.auth(with: email, password: password)
     }
     
-    func signIn(credentials: AuthCredential, provider: AuthProvider) {
-        authService.signIn(with: credentials, provider: provider, callback: { (authResult, error) in
-            if let _ = error {
-                self.authError.value = self.googleSignInError() 
-            } else {
-                self.authSuccess.value = authResult
-            }
-        })
+    private func googleSignInError() -> AuthError {
+        return AuthError(title: StringConsts.loginErrorTitle, description: StringConsts.googleSignInError)
     }
-    
-    func googleSignInError() -> AuthError {
-        return AuthError(title: StringConsts.loginTitle, description: StringConsts.googleSignInError)
-    }
-    
-    func facebookSignInError() -> AuthError {
-        return AuthError(title: StringConsts.loginTitle, description: StringConsts.facebookSignInError)
+
+    private func facebookSignInError() -> AuthError {
+        return AuthError(title: StringConsts.loginErrorTitle, description: StringConsts.facebookSignInError)
     }
 }
 
-// Wrapper for Auth Errors from Firebase
-struct AuthError {
+// SignInManager Delegate functions
+extension LoginViewModel: SignInManagerDelegate {
+    func signInError(error: Error, from: AuthProvider) {
+        if error._code == -1 {
+            return
+        }
+        
+        switch from {
+        case .google:
+            self.authError.value = googleSignInError()
+        case .facebook:
+            self.authError.value = facebookSignInError()
+        default:
+            self.authError.value = AuthError(title: StringConsts.loginErrorTitle, description: StringConsts.genericLoginError)
+        }
+    }
     
-    //Title of the error, whether it is a Login or Sign Up error.
-    var title: String
-    var description: String
+    // While authing is in progress, we want to notify the UI to make any changes,
+    // such as displaying a spinner.
+    func authing() {
+        authingTrigger.value = true
+    }
+    
+    func authed(result: AuthResult?) {
+        self.authSuccess.value = result
+    }
+    
+    // This implementation with return a generic error for Google & Facebook,
+    // but provide a more descriptive error if the AuthProvider is from creation or login.
+    func authError(error: AuthErrorCode?, from: AuthProvider) {
+        switch from {
+        case .google:
+            self.authError.value = googleSignInError()
+            break
+        case .facebook:
+            self.authError.value = facebookSignInError()
+            break
+        case .login, .creation:
+            var errorDesc = ""
+            if let code = error {
+                errorDesc = parseAuthErrorCode(code: code) ?? (from == .login ? StringConsts.genericLoginError : StringConsts.genericSignUpError)
+            }
+            let title = from == .login ? StringConsts.loginErrorTitle : StringConsts.signUpErrorTitle
+            self.authError.value = AuthError(title: title, description: errorDesc)
+            break
+        }
+    }
+    
+    // Parse the AuthErrorCode to return a more informative error
+    private func parseAuthErrorCode(code: AuthErrorCode) -> String? {
+        let error: String
+        switch code {
+        case .invalidCredential:
+            error = StringConsts.invalidCredentials
+        case .invalidEmail:
+            error = StringConsts.invalidEmail
+        case .emailAlreadyInUse:
+            error = StringConsts.emailInUseError
+        case .wrongPassword:
+            error = StringConsts.invalidPassword
+        default:
+            return nil
+        }
+        return error
+    }
 }

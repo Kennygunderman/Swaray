@@ -9,3 +9,5 @@
 import Foundation
 
 let getAuthService = Locator.bind(AuthServiceInterface.self) { AuthService() }
+
+let getSignInManager = Locator.bind(SignInManager.self) { SignInManager(authService: getAuthService()) }

@@ -21,7 +21,6 @@ class LoginController: BaseController<LoginView, LoginViewModel> {
         super.viewDidLoad()
         setupActions()
         subscribeUi()
-        GIDSignIn.sharedInstance().delegate = self //set Google Sign In delegate
     }
     
     override func getViewModel() -> LoginViewModel? {
@@ -30,6 +29,13 @@ class LoginController: BaseController<LoginView, LoginViewModel> {
     
     // Subscribe UI to changes in observers from ViewModel
     private func subscribeUi() {
+        _ = viewModel.authingTrigger.observeNext { isAuthing in
+            if isAuthing {
+                self.baseView.loginBtn.animate()
+                self.disableLoginButtons()
+            }
+        }
+        
         _ = viewModel.authError.observeNext { error in
             if let e = error {
                 self.showErrorDialog(error: e)
@@ -80,23 +86,7 @@ class LoginController: BaseController<LoginView, LoginViewModel> {
     }
     
     @objc private func handleFacebookSignIn() {
-        let loginManager = LoginManager()
-        loginManager.logIn(permissions: ["email"], from: self) { (result, error) -> Void in
-            self.disableLoginButtons()
-            self.baseView.loginBtn.animate()
-            
-            if let _ = error {
-                self.viewModel.authError.value = self.viewModel.facebookSignInError()
-            } else {
-                if let result = result {
-                    if (result.grantedPermissions.contains("email"))  {
-                        let cred = FacebookAuthProvider
-                                .credential(withAccessToken: result.token?.tokenString ?? "")
-                        self.viewModel.signIn(credentials: cred, provider: .facebook)
-                    }
-                }
-            }
-        }
+        viewModel.signInManager.facebookSignIn(presentingController: self)
     }
     
     @objc private func handleLogin() {
@@ -109,8 +99,6 @@ class LoginController: BaseController<LoginView, LoginViewModel> {
     
     func login() {
         if (viewModel.validateLogin()) {
-            disableLoginButtons()
-            baseView.loginBtn.animate()
             viewModel.login(
                 email: viewModel.email.value ?? "",
                 password: viewModel.password.value ?? ""
@@ -132,8 +120,6 @@ class LoginController: BaseController<LoginView, LoginViewModel> {
     
     func signUp() {
         if viewModel.validateSignUp() {
-            disableLoginButtons()
-            baseView.loginBtn.animate()
             viewModel.createUser(
                 email: viewModel.email.value ?? "",
                 password: viewModel.password.value ?? ""
@@ -145,27 +131,5 @@ class LoginController: BaseController<LoginView, LoginViewModel> {
         state = state == .login ? .signUp : .login
         baseView.animateStateChange(state: state)
         baseView.currentTextFocus?.resignFirstResponder()
-    }
-}
-
-// Delegate functions for Google Log In
-extension LoginController: GIDSignInDelegate {
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-        if let e = error {
-            if e._code != -1 {
-                viewModel.authError.value = viewModel.googleSignInError()
-            }
-        } else {
-            guard let authentication = user.authentication else { return }
-            
-            let credential = GoogleAuthProvider.credential(
-                withIDToken: authentication.idToken,
-                accessToken: authentication.accessToken
-            )
-            
-            disableLoginButtons()
-            baseView.loginBtn.animate()
-            viewModel.signIn(credentials: credential, provider: .google)
-        }
     }
 }

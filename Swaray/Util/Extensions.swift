@@ -11,6 +11,11 @@ import UIKit
 
 extension UIColor {
     // Color palette for Application
+
+    //static let appPrimary = rgb(red: 1, green: 131, blue: 143)
+    //static let appAccent = rgb(red: 255, green: 171, blue: 145)
+
+    
     static let appPrimary = rgb(red: 66, green: 14, blue: 194)
     static let appAccent = rgb(red: 229, green: 57, blue: 53)
     

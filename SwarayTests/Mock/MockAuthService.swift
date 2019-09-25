@@ -10,6 +10,25 @@ import Foundation
 @testable import Swaray
 import Firebase
 
+
+// Mock that doesn't do anything.
+// This mock is used for testing Functions in which the
+// parent object has dependency on an AuthServiceInterface
+// but the actual function does not.
+class MockAuthService: AuthServiceInterface {
+    func createUser(email: String, password: String, callback: @escaping (AuthResult?, Error?) -> Void) {
+        // Do nothing
+    }
+    
+    func auth(with email: String, password: String, callback: @escaping (AuthResult?, Error?) -> Void) {
+        // Do nothing
+    }
+    
+    func auth(with credential: AuthCredential, provider: AuthProvider, callback: @escaping (AuthResult?, Error?) -> Void) {
+        // Do nothing
+    }
+}
+
 class MockAuthServiceError: AuthServiceInterface {
     let errorCode: AuthErrorCode
     init(errorCode: AuthErrorCode) {
@@ -24,13 +43,19 @@ class MockAuthServiceError: AuthServiceInterface {
         callback(nil, error)
     }
     
-    func login(email: String, password: String, callback: @escaping (AuthResult?, Error?) -> Void) {
+    func auth(with email: String, password: String, callback: @escaping (AuthResult?, Error?) -> Void) {
+        let error = NSError(domain: "test", code: errorCode.rawValue, userInfo: userInfo)
+        callback(nil, error)
+    }
+    
+    func auth(with credential: AuthCredential, provider: AuthProvider, callback: @escaping (AuthResult?, Error?) -> Void) {
         let error = NSError(domain: "test", code: errorCode.rawValue, userInfo: userInfo)
         callback(nil, error)
     }
 }
 
 class MockAuthServiceSuccess: AuthServiceInterface {
+    
     let successResult: AuthResult
     init(result: AuthResult) {
         self.successResult = result
@@ -40,7 +65,11 @@ class MockAuthServiceSuccess: AuthServiceInterface {
         callback(successResult, nil)
     }
     
-    func login(email: String, password: String, callback: @escaping (AuthResult?, Error?) -> Void) {
+    func auth(with email: String, password: String, callback: @escaping (AuthResult?, Error?) -> Void) {
+        callback(successResult, nil)
+    }
+    
+    func auth(with credential: AuthCredential, provider: AuthProvider, callback: @escaping (AuthResult?, Error?) -> Void) {
         callback(successResult, nil)
     }
 }

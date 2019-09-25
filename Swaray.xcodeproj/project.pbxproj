@@ -30,6 +30,10 @@
 		03C51B1F2335AA7B0076B17A /* AssertionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B1E2335AA7B0076B17A /* AssertionHelper.swift */; };
 		03C51B222335BC080076B17A /* SocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B212335BC080076B17A /* SocialButton.swift */; };
 		03C51B242335CD5F0076B17A /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03C51B232335CB000076B17A /* Roboto-Medium.ttf */; };
+		03C51B272339B4590076B17A /* SignInManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B262339B4590076B17A /* SignInManager.swift */; };
+		03C51B2C233A3E530076B17A /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B2B233A3E530076B17A /* AuthProvider.swift */; };
+		03C51B2E233A3E6C0076B17A /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B2D233A3E6C0076B17A /* AuthError.swift */; };
+		03C51B30233A3E8D0076B17A /* AuthResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B2F233A3E8D0076B17A /* AuthResult.swift */; };
 		03DD57D4232C7AD100F78A9D /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D3232C7AD100F78A9D /* BaseController.swift */; };
 		03DD57D6232C7B4700F78A9D /* BaseControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */; };
 		03DD57DB232C8CB000F78A9D /* TriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57DA232C8CB000F78A9D /* TriangleView.swift */; };
@@ -104,6 +108,10 @@
 		03C51B1E2335AA7B0076B17A /* AssertionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssertionHelper.swift; sourceTree = "<group>"; };
 		03C51B212335BC080076B17A /* SocialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButton.swift; sourceTree = "<group>"; };
 		03C51B232335CB000076B17A /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		03C51B262339B4590076B17A /* SignInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInManager.swift; sourceTree = "<group>"; };
+		03C51B2B233A3E530076B17A /* AuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
+		03C51B2D233A3E6C0076B17A /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		03C51B2F233A3E8D0076B17A /* AuthResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResult.swift; sourceTree = "<group>"; };
 		03DD57D3232C7AD100F78A9D /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseControllerView.swift; sourceTree = "<group>"; };
 		03DD57DA232C8CB000F78A9D /* TriangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleView.swift; sourceTree = "<group>"; };
@@ -272,9 +280,8 @@
 		03C51B0723330DA50076B17A /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				03C51B1C23346BA30076B17A /* AuthServiceInterface.swift */,
-				03C51B0823330DE20076B17A /* AuthService_P.swift */,
-				03C51B19233439610076B17A /* AuthService_M.swift */,
+				03C51B2A233A3E2E0076B17A /* Auth */,
+				03C51B252339B44B0076B17A /* SignIn */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -302,6 +309,27 @@
 				03C51B1E2335AA7B0076B17A /* AssertionHelper.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		03C51B252339B44B0076B17A /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				03C51B262339B4590076B17A /* SignInManager.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		03C51B2A233A3E2E0076B17A /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				03C51B1C23346BA30076B17A /* AuthServiceInterface.swift */,
+				03C51B0823330DE20076B17A /* AuthService_P.swift */,
+				03C51B19233439610076B17A /* AuthService_M.swift */,
+				03C51B2B233A3E530076B17A /* AuthProvider.swift */,
+				03C51B2D233A3E6C0076B17A /* AuthError.swift */,
+				03C51B2F233A3E8D0076B17A /* AuthResult.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		03DD57D2232C7A8500F78A9D /* Base */ = {
@@ -626,13 +654,17 @@
 				03C51B0E233428860076B17A /* ServiceModule.swift in Sources */,
 				03C51B222335BC080076B17A /* SocialButton.swift in Sources */,
 				03DD57E4232D2F7D00F78A9D /* BaseFont.swift in Sources */,
+				03C51B30233A3E8D0076B17A /* AuthResult.swift in Sources */,
+				03C51B2E233A3E6C0076B17A /* AuthError.swift in Sources */,
 				03B1213C23307554008EB33C /* HomeView.swift in Sources */,
+				03C51B272339B4590076B17A /* SignInManager.swift in Sources */,
 				03DD57EB232D6C2100F78A9D /* LoginView.swift in Sources */,
 				03B12133232ED2E1008EB33C /* LoginViewModel.swift in Sources */,
 				031D3A79232C5A92006978E5 /* AppDelegate.swift in Sources */,
 				03DD57E6232D593000F78A9D /* Extensions.swift in Sources */,
 				03C51B0C233425830076B17A /* Locator.swift in Sources */,
 				03DD57D6232C7B4700F78A9D /* BaseControllerView.swift in Sources */,
+				03C51B2C233A3E530076B17A /* AuthProvider.swift in Sources */,
 				03DD57D4232C7AD100F78A9D /* BaseController.swift in Sources */,
 				03B12135232F0FB7008EB33C /* SwarayButton.swift in Sources */,
 				03B1213A2330753F008EB33C /* HomeController.swift in Sources */,

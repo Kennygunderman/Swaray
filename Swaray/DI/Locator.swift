@@ -14,7 +14,7 @@ import Foundation
 fileprivate typealias TypeInstantator = Any
 enum Locator {
     private static var instantiators: [String: TypeInstantator] = [:]
-    private static var mockInstantiators: [String: TypeInstantator] = [:]
+    private static var mockInstantiators: [String: TypeInstantator?] = [:]
     static var isTestEnvironment = false
     
     static func bind<T>(
@@ -29,7 +29,7 @@ enum Locator {
         let key = String(describing: T.self)
         if self.isTestEnvironment {
             guard let instantiator = mockInstantiators[key] as? () -> T else {
-                fatalError("Type \\(key) unmocked in test!")
+                fatalError("Type \(key) unmocked in test!")
             }
             return instantiator()
         }
@@ -37,7 +37,17 @@ enum Locator {
         return instantiator()
     }
     
+    //todo move to a `Mock impl` (Locator_M.swift)
     static func mock<T>(_ type: T.Type, instantiator: @escaping () -> T) {
         mockInstantiators[String(describing: type)] = instantiator
+    }
+    
+    //todo move to a `Mock impl` (Locator_M.swift)
+    static func removeMocks() {
+        for (key, _) in mockInstantiators {
+            mockInstantiators[key] = nil
+        }
+        
+        mockInstantiators = [:]
     }
 }
