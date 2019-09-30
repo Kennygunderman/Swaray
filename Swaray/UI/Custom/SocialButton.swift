@@ -14,9 +14,7 @@ import UIKit
 
 class SocialButton: LoadingButton {
     
-    //TODO: move to load font function. Move load font into util
-    // Default font for the Google Button is `Roboto-Medium`
-    private let customFont = UIFont(name: "Roboto-Medium", size: DimenConsts.regularFontSize) ?? UIFont.systemFont(ofSize: 14)
+    private let customFont = FontUtil.loadFont(font: BaseFont.medium.rawValue, size: DimenConsts.regularFontSize)
     
     private let tile: UIView = {
         let view = UIView()

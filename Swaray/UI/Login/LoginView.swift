@@ -41,7 +41,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
         let label = UILabel()
         label.text = StringConsts.loginTitle
         label.textColor = .white
-        label.font = loadFont(font: BaseFont.regular, size: DimenConsts.headerFontSize)
+        label.font = FontUtil.loadFont(font: BaseFont.regular, size: DimenConsts.headerFontSize)
         return label
     }()
     
@@ -50,7 +50,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
         let label = UILabel()
         label.text = StringConsts.noAccountLabel
         label.textColor = .white
-        label.font = loadFont(font: BaseFont.regular, size: DimenConsts.regularFontSize)
+        label.font = FontUtil.loadFont(font: BaseFont.regular, size: DimenConsts.regularFontSize)
         return label
     }()
     
@@ -59,7 +59,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
         let button = HighlightableTextButton()
         button.textColor = .appAccent
         button.setTitle(StringConsts.createAccBtnTxt, for: .normal)
-        button.titleLabel?.font = loadFont(font: BaseFont.bold, size: DimenConsts.regularFontSize)
+        button.titleLabel?.font = FontUtil.loadFont(font: BaseFont.bold, size: DimenConsts.regularFontSize)
         
         // This will remove the padding from the button.
         // If all values are set to 0, the padding will be be set to it's default,
@@ -72,7 +72,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
     lazy var emailTxt: SwarayTextField = {
         let textField = SwarayTextField()
         viewModel?.email.bidirectionalBind(to: textField.reactive.text)
-        textField.font = loadFont(font: .regular, size: DimenConsts.largeFontSize)
+        textField.font = FontUtil.loadFont(font: .regular, size: DimenConsts.largeFontSize)
         textField.setPlaceholder(placeholder: StringConsts.emailTxtPlaceholder)
         textField.accessibilityIdentifier = "emailTxtId"
         textField.delegate = self
@@ -85,7 +85,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
         viewModel?.emailValidation.bind(to: label.reactive.alpha)
         label.text = StringConsts.emailValidation
         label.textColor = .appAccent
-        label.font = loadFont(font: .bold, size: DimenConsts.smallFontSize)
+        label.font = FontUtil.loadFont(font: .bold, size: DimenConsts.smallFontSize)
         label.accessibilityIdentifier = "emailValidationLabelId"
         label.alpha = 0
         return label
@@ -94,7 +94,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
     lazy var passwordTxt: SwarayTextField = {
         let textField = SwarayTextField()
         viewModel?.password.bidirectionalBind(to: textField.reactive.text)
-        textField.font = loadFont(font: .regular, size: DimenConsts.largeFontSize)
+        textField.font = FontUtil.loadFont(font: .regular, size: DimenConsts.largeFontSize)
         textField.setPlaceholder(placeholder: StringConsts.passwordTxtPlaceholder)
         textField.accessibilityIdentifier = "passwordTxtId"
         textField.returnKeyType = .done
@@ -108,7 +108,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
         viewModel?.passwordValidation.bind(to: label.reactive.alpha)
         label.text = StringConsts.passwordValidation
         label.textColor = .appAccent
-        label.font = loadFont(font: .bold, size: DimenConsts.smallFontSize)
+        label.font = FontUtil.loadFont(font: .bold, size: DimenConsts.smallFontSize)
         label.accessibilityIdentifier = "passwordValidationLabelId"
         label.alpha = 0
         return label
@@ -117,7 +117,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
     lazy var passwordConfirmTxt: SwarayTextField = {
         let textField = SwarayTextField()
         viewModel?.confirmPassword.bidirectionalBind(to: textField.reactive.text)
-        textField.font = loadFont(font: .regular, size: DimenConsts.largeFontSize)
+        textField.font = FontUtil.loadFont(font: .regular, size: DimenConsts.largeFontSize)
         textField.setPlaceholder(placeholder: StringConsts.pwConfirmTxtPlaceholder)
         textField.returnKeyType = .done
         textField.alpha = 0
@@ -132,7 +132,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
         viewModel?.pwMatchValidation.bind(to: label.reactive.alpha)
         label.text = StringConsts.passwordMatchValidation
         label.textColor = .appAccent
-        label.font = loadFont(font: .bold, size: DimenConsts.smallFontSize)
+        label.font = FontUtil.loadFont(font: .bold, size: DimenConsts.smallFontSize)
         label.alpha = 0
         return label
     }()
@@ -153,7 +153,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
         button.setTitle(title: StringConsts.loginBtnText)
         button.textColor = .white
         button.width = loginBtnsWidth
-        button.titleLabel?.font = loadFont(font: .medium, size: DimenConsts.largeFontSize)
+        button.titleLabel?.font = FontUtil.loadFont(font: .medium, size: DimenConsts.largeFontSize)
         button.backgroundColor = .appPrimary
         button.accessibilityIdentifier = "loginBtnId"
         return button
@@ -162,7 +162,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
     lazy var orLabel: UILabel = {
         let label = UILabel()
         label.contentScaleFactor = 0.5
-        label.font = loadFont(font: .medium, size: DimenConsts.regularFontSize)
+        label.font = FontUtil.loadFont(font: .medium, size: DimenConsts.regularFontSize)
         label.text = StringConsts.signUpOrLabel
         return label
     }()

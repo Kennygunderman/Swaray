@@ -22,7 +22,7 @@ class BaseController<T_VIEW: BaseControllerView<T_VIEWMODEL>, T_VIEWMODEL>: UIVi
         let label = UILabel()
         label.text = StringConsts.appName
         label.textColor = .white
-        label.font = baseView.loadFont(font: BaseFont.bold, size: DimenConsts.subHeaderFontSize)
+        label.font = FontUtil.loadFont(font: BaseFont.bold, size: DimenConsts.subHeaderFontSize)
         return label
     }()
     
