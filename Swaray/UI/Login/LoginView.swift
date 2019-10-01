@@ -414,6 +414,9 @@ extension LoginView {
         setNeedsUpdateConstraints()
         startAnimation(duration: 0.5, anim: {
             self.layoutIfNeeded()
+            self.emailValidationLabel.alpha = 0
+            self.passwordValidationLabel.alpha = 0
+            self.pwMatchValidationLabel.alpha = 0
             self.loginLabel.alpha = 0
             self.actionLabel.alpha = 0
             self.actionBtn.alpha = 0
