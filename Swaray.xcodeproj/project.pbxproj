@@ -16,7 +16,7 @@
 		03B1211F232DDD3B008EB33C /* SwarayTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B1211E232DDD3B008EB33C /* SwarayTextField.swift */; };
 		03B12125232EC6B0008EB33C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03B12124232EC6B0008EB33C /* GoogleService-Info.plist */; };
 		03B12133232ED2E1008EB33C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B12132232ED2E1008EB33C /* LoginViewModel.swift */; };
-		03B12135232F0FB7008EB33C /* SwarayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B12134232F0FB7008EB33C /* SwarayButton.swift */; };
+		03B12135232F0FB7008EB33C /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B12134232F0FB7008EB33C /* LoadingButton.swift */; };
 		03B1213A2330753F008EB33C /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B121392330753F008EB33C /* HomeController.swift */; };
 		03B1213C23307554008EB33C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B1213B23307554008EB33C /* HomeView.swift */; };
 		03B121402331C102008EB33C /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B1213F2331C102008EB33C /* LoginState.swift */; };
@@ -35,6 +35,8 @@
 		03C51B2E233A3E6C0076B17A /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B2D233A3E6C0076B17A /* AuthError.swift */; };
 		03C51B30233A3E8D0076B17A /* AuthResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B2F233A3E8D0076B17A /* AuthResult.swift */; };
 		03C51B3223427EDE0076B17A /* FontUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B3123427EDD0076B17A /* FontUtil.swift */; };
+		03C51B35234414600076B17A /* SwarayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B34234414600076B17A /* SwarayButton.swift */; };
+		03C51B37234414EB0076B17A /* HighlightableTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B36234414EB0076B17A /* HighlightableTextButton.swift */; };
 		03DD57D4232C7AD100F78A9D /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D3232C7AD100F78A9D /* BaseController.swift */; };
 		03DD57D6232C7B4700F78A9D /* BaseControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */; };
 		03DD57DB232C8CB000F78A9D /* TriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57DA232C8CB000F78A9D /* TriangleView.swift */; };
@@ -95,7 +97,7 @@
 		03B1211E232DDD3B008EB33C /* SwarayTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwarayTextField.swift; sourceTree = "<group>"; };
 		03B12124232EC6B0008EB33C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		03B12132232ED2E1008EB33C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		03B12134232F0FB7008EB33C /* SwarayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwarayButton.swift; sourceTree = "<group>"; };
+		03B12134232F0FB7008EB33C /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		03B121392330753F008EB33C /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		03B1213B23307554008EB33C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		03B1213F2331C102008EB33C /* LoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
@@ -114,6 +116,8 @@
 		03C51B2D233A3E6C0076B17A /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		03C51B2F233A3E8D0076B17A /* AuthResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResult.swift; sourceTree = "<group>"; };
 		03C51B3123427EDD0076B17A /* FontUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontUtil.swift; sourceTree = "<group>"; };
+		03C51B34234414600076B17A /* SwarayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwarayButton.swift; sourceTree = "<group>"; };
+		03C51B36234414EB0076B17A /* HighlightableTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightableTextButton.swift; sourceTree = "<group>"; };
 		03DD57D3232C7AD100F78A9D /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseControllerView.swift; sourceTree = "<group>"; };
 		03DD57DA232C8CB000F78A9D /* TriangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleView.swift; sourceTree = "<group>"; };
@@ -335,6 +339,17 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
+		03C51B33234413820076B17A /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				03C51B212335BC080076B17A /* SocialButton.swift */,
+				03B12134232F0FB7008EB33C /* LoadingButton.swift */,
+				03C51B34234414600076B17A /* SwarayButton.swift */,
+				03C51B36234414EB0076B17A /* HighlightableTextButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
 		03DD57D2232C7A8500F78A9D /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -348,10 +363,9 @@
 		03DD57D9232C8C8C00F78A9D /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				03C51B33234413820076B17A /* Button */,
 				03DD57DA232C8CB000F78A9D /* TriangleView.swift */,
 				03B1211E232DDD3B008EB33C /* SwarayTextField.swift */,
-				03B12134232F0FB7008EB33C /* SwarayButton.swift */,
-				03C51B212335BC080076B17A /* SocialButton.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -659,6 +673,7 @@
 				03DD57E4232D2F7D00F78A9D /* BaseFont.swift in Sources */,
 				03C51B30233A3E8D0076B17A /* AuthResult.swift in Sources */,
 				03C51B2E233A3E6C0076B17A /* AuthError.swift in Sources */,
+				03C51B35234414600076B17A /* SwarayButton.swift in Sources */,
 				03B1213C23307554008EB33C /* HomeView.swift in Sources */,
 				03C51B272339B4590076B17A /* SignInManager.swift in Sources */,
 				03C51B3223427EDE0076B17A /* FontUtil.swift in Sources */,
@@ -667,10 +682,11 @@
 				031D3A79232C5A92006978E5 /* AppDelegate.swift in Sources */,
 				03DD57E6232D593000F78A9D /* Extensions.swift in Sources */,
 				03C51B0C233425830076B17A /* Locator.swift in Sources */,
+				03C51B37234414EB0076B17A /* HighlightableTextButton.swift in Sources */,
 				03DD57D6232C7B4700F78A9D /* BaseControllerView.swift in Sources */,
 				03C51B2C233A3E530076B17A /* AuthProvider.swift in Sources */,
 				03DD57D4232C7AD100F78A9D /* BaseController.swift in Sources */,
-				03B12135232F0FB7008EB33C /* SwarayButton.swift in Sources */,
+				03B12135232F0FB7008EB33C /* LoadingButton.swift in Sources */,
 				03B1213A2330753F008EB33C /* HomeController.swift in Sources */,
 				03C51B0923330DE20076B17A /* AuthService_P.swift in Sources */,
 				03DD57DB232C8CB000F78A9D /* TriangleView.swift in Sources */,

@@ -169,7 +169,6 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
     
     lazy var googleBtn: SocialButton = {
         let button = SocialButton()
-        button.width = loginBtnsWidth
         button.setTitle(title: StringConsts.googleSignUpBtnText)
         button.backgroundColor = .rgb(red: 66, green: 133, blue: 244)
         button.logo = UIImage(named: "google-logo")
@@ -178,7 +177,6 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
     
     lazy var facebookBtn: SocialButton = {
         let button = SocialButton()
-        button.width = loginBtnsWidth
         button.setTitle(title: StringConsts.facebookSignUpBtnText)
         button.backgroundColor = .rgb(red: 59, green: 89, blue: 152)
         button.logo = UIImage(named: "facebook-logo")

@@ -6,13 +6,13 @@
 //  Copyright © 2019 Kenny Gunderman. All rights reserved.
 //
 
-// Google button that matches Google's branding standards found here:
+// Social button that matches Google's branding standards found here:
 // https://developers.google.com/identity/branding-guidelines#matching
 
 import Foundation
 import UIKit
 
-class SocialButton: LoadingButton {
+class SocialButton: SwarayButton {
     
     private let customFont = FontUtil.loadFont(font: BaseFont.medium.rawValue, size: DimenConsts.regularFontSize)
     
@@ -64,8 +64,11 @@ class SocialButton: LoadingButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.loadingButtonWidth = 40
         addViews()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func setTitle(title: String) {
@@ -92,20 +95,5 @@ class SocialButton: LoadingButton {
             make.centerY.equalTo(self.snp.centerY)
             make.right.equalTo(self.snp.right).offset(-8)
         }
-    }
-    
-    
-    override func animate() {
-        super.animate()
-        
-        if (buttonState == .loading) {
-            tile.alpha = 0
-        } else {
-            tile.alpha = 1
-        }
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
