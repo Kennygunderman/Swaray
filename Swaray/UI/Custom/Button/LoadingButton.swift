@@ -29,7 +29,7 @@ class LoadingButton: SwarayButton {
 
     
     // Animate's button into a spinner view. In order for this to work
-    // the button must be constrained properly.
+    // the button must be constrained properly with a width constraint.
     func animate() {
         if (buttonState == .regular) {
             buttonState = .loading
