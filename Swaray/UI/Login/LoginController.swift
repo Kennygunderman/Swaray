@@ -10,8 +10,6 @@ import Foundation
 import UIKit
 import GoogleSignIn
 import Firebase
-import FBSDKLoginKit // remove one
-import FBSDKCoreKit  // of these two
 
 class LoginController: BaseController<LoginView, LoginViewModel> {
     private var state: LoginState = .login // State of controller
