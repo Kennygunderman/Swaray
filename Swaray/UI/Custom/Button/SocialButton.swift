@@ -26,7 +26,7 @@ class SocialButton: SwarayButton {
     private let socialIconImageView: UIImageView = {
         let imageView = UIImageView()
         
-        // Height & width of button must be 18
+        // Height & width of icon must be 18
         imageView.frame = CGRect(x: 0, y: 0, width: 18, height: 18)
         return imageView
     }()
