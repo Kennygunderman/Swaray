@@ -8,8 +8,6 @@
 
 import Foundation
 import UIKit
-import GoogleSignIn
-import Firebase
 
 class LoginController: BaseController<LoginView, LoginViewModel> {
     private var state: LoginState = .login // State of controller
@@ -79,8 +77,7 @@ class LoginController: BaseController<LoginView, LoginViewModel> {
     }
     
     @objc private func handleGoogleSignIn() {
-        GIDSignIn.sharedInstance()?.presentingViewController = self
-        GIDSignIn.sharedInstance().signIn()
+        viewModel.signInManager.googleSignIn(presentingViewController: self)
     }
     
     @objc private func handleFacebookSignIn() {

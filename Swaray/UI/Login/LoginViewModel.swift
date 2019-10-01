@@ -9,7 +9,6 @@
 import Foundation
 import Bond
 import Firebase
-import GoogleSignIn
 
 class LoginViewModel {
     let email = Observable<String?>("")
@@ -28,6 +27,7 @@ class LoginViewModel {
     
     init(signInManager: SignInManager = getSignInManager()) {
         self.signInManager = signInManager
+        signInManager.delegate = self
         
         _ = email.observeNext { _ in
             if self.emailValidation.value == 1 {
@@ -54,9 +54,6 @@ class LoginViewModel {
                 self.pwMatchValidation.value = 0
             }
         }
-        
-        signInManager.delegate = self
-        GIDSignIn.sharedInstance().delegate = signInManager
     }
     
     func validateEmail() -> Bool {

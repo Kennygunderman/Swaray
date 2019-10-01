@@ -12,7 +12,6 @@ import Firebase
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-
 // Manager for handling all routes of Logging in to the application
 // see `AuthProvider` for all possible Login routes.
 class SignInManager: NSObject, GIDSignInDelegate {
@@ -25,7 +24,7 @@ class SignInManager: NSObject, GIDSignInDelegate {
         self.authService = authService
     }
     
-    // Implement Google Sign In Logic.
+    // Implement Google Delegate Sign In Logic.
     // Once Google Sign In is complete, auth with the credential token provided from Google.
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let e = error {
@@ -39,6 +38,13 @@ class SignInManager: NSObject, GIDSignInDelegate {
             
             self.auth(with: credential, from: .google)
         }
+    }
+    
+    // Call's the Google Sign In delegate method
+    func googleSignIn(presentingViewController: UIViewController) {
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance()?.presentingViewController = presentingViewController
+        GIDSignIn.sharedInstance().signIn()
     }
     
     // Handles loggin in with facebook.
