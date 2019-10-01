@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+
 class LoginController: BaseController<LoginView, LoginViewModel> {
     private var state: LoginState = .login // State of controller
     let viewModel = LoginViewModel()
@@ -24,18 +25,25 @@ class LoginController: BaseController<LoginView, LoginViewModel> {
     
     // Subscribe UI to changes in observers from ViewModel
     private func subscribeUi() {
+        _ = viewModel.authingTrigger.observeNext { isAuthing in
+            if isAuthing {
+                self.baseView.loginBtn.animate()
+                self.disableLoginButtons()
+            }
+        }
+        
         _ = viewModel.authError.observeNext { error in
             if let e = error {
                 self.showErrorDialog(error: e)
                 self.baseView.loginBtn.animate()
-                self.baseView.loginBtn.isEnabled = true
+                self.enableLoginButtons()
             }
         }
         
         _ = viewModel.authSuccess.observeNext { result in
             if let _ = result {
-                self.baseView.loginBtn.setTitle(StringConsts.signUpSuccess, for: .normal)
                 self.baseView.loginBtn.animate()
+                self.baseView.loginBtn.setTitle(title: StringConsts.signUpSuccess)
                 
                 // Wait 1 second before navigating. This is done because we want to give
                 // the user enough time to read the success message of their account creation.
@@ -64,6 +72,16 @@ class LoginController: BaseController<LoginView, LoginViewModel> {
     fileprivate func setupActions() {
         baseView.actionBtn.addTarget(self, action: #selector(handleAction), for: .touchUpInside)
         baseView.loginBtn.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
+        baseView.googleBtn.addTarget(self, action: #selector(handleGoogleSignIn), for: .touchUpInside)
+        baseView.facebookBtn.addTarget(self, action: #selector(handleFacebookSignIn), for: .touchUpInside)
+    }
+    
+    @objc private func handleGoogleSignIn() {
+        viewModel.signInManager.googleSignIn(presentingViewController: self)
+    }
+    
+    @objc private func handleFacebookSignIn() {
+        viewModel.signInManager.facebookSignIn(presentingController: self)
     }
     
     @objc private func handleLogin() {
@@ -76,7 +94,6 @@ class LoginController: BaseController<LoginView, LoginViewModel> {
     
     func login() {
         if (viewModel.validateLogin()) {
-            setLoginButtonLoading()
             viewModel.login(
                 email: viewModel.email.value ?? "",
                 password: viewModel.password.value ?? ""
@@ -84,15 +101,20 @@ class LoginController: BaseController<LoginView, LoginViewModel> {
         }
     }
     
-    // Sets the login button to a loading state
-    private func setLoginButtonLoading() {
-        baseView.loginBtn.animate()
+    private func enableLoginButtons() {
+        baseView.loginBtn.isEnabled = true
+        baseView.googleBtn.isEnabled = true
+        baseView.facebookBtn.isEnabled = true
+    }
+    
+    private func disableLoginButtons() {
         baseView.loginBtn.isEnabled = false
+        baseView.googleBtn.isEnabled = false
+        baseView.facebookBtn.isEnabled = false
     }
     
     func signUp() {
         if viewModel.validateSignUp() {
-            setLoginButtonLoading()
             viewModel.createUser(
                 email: viewModel.email.value ?? "",
                 password: viewModel.password.value ?? ""

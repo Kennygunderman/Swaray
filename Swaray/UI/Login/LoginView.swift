@@ -41,7 +41,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
         let label = UILabel()
         label.text = StringConsts.loginTitle
         label.textColor = .white
-        label.font = loadFont(font: BaseFont.regular, size: DimenConsts.headerFontSize)
+        label.font = FontUtil.loadFont(font: BaseFont.regular, size: DimenConsts.headerFontSize)
         return label
     }()
     
@@ -50,7 +50,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
         let label = UILabel()
         label.text = StringConsts.noAccountLabel
         label.textColor = .white
-        label.font = loadFont(font: BaseFont.regular, size: DimenConsts.regularFontSize)
+        label.font = FontUtil.loadFont(font: BaseFont.regular, size: DimenConsts.regularFontSize)
         return label
     }()
     
@@ -59,7 +59,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
         let button = HighlightableTextButton()
         button.textColor = .appAccent
         button.setTitle(StringConsts.createAccBtnTxt, for: .normal)
-        button.titleLabel?.font = loadFont(font: BaseFont.bold, size: DimenConsts.regularFontSize)
+        button.titleLabel?.font = FontUtil.loadFont(font: BaseFont.bold, size: DimenConsts.regularFontSize)
         
         // This will remove the padding from the button.
         // If all values are set to 0, the padding will be be set to it's default,
@@ -72,7 +72,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
     lazy var emailTxt: SwarayTextField = {
         let textField = SwarayTextField()
         viewModel?.email.bidirectionalBind(to: textField.reactive.text)
-        textField.font = loadFont(font: .regular, size: DimenConsts.largeFontSize)
+        textField.font = FontUtil.loadFont(font: .regular, size: DimenConsts.largeFontSize)
         textField.setPlaceholder(placeholder: StringConsts.emailTxtPlaceholder)
         textField.accessibilityIdentifier = "emailTxtId"
         textField.delegate = self
@@ -85,7 +85,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
         viewModel?.emailValidation.bind(to: label.reactive.alpha)
         label.text = StringConsts.emailValidation
         label.textColor = .appAccent
-        label.font = loadFont(font: .bold, size: DimenConsts.smallFontSize)
+        label.font = FontUtil.loadFont(font: .bold, size: DimenConsts.smallFontSize)
         label.accessibilityIdentifier = "emailValidationLabelId"
         label.alpha = 0
         return label
@@ -94,7 +94,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
     lazy var passwordTxt: SwarayTextField = {
         let textField = SwarayTextField()
         viewModel?.password.bidirectionalBind(to: textField.reactive.text)
-        textField.font = loadFont(font: .regular, size: DimenConsts.largeFontSize)
+        textField.font = FontUtil.loadFont(font: .regular, size: DimenConsts.largeFontSize)
         textField.setPlaceholder(placeholder: StringConsts.passwordTxtPlaceholder)
         textField.accessibilityIdentifier = "passwordTxtId"
         textField.returnKeyType = .done
@@ -108,7 +108,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
         viewModel?.passwordValidation.bind(to: label.reactive.alpha)
         label.text = StringConsts.passwordValidation
         label.textColor = .appAccent
-        label.font = loadFont(font: .bold, size: DimenConsts.smallFontSize)
+        label.font = FontUtil.loadFont(font: .bold, size: DimenConsts.smallFontSize)
         label.accessibilityIdentifier = "passwordValidationLabelId"
         label.alpha = 0
         return label
@@ -117,7 +117,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
     lazy var passwordConfirmTxt: SwarayTextField = {
         let textField = SwarayTextField()
         viewModel?.confirmPassword.bidirectionalBind(to: textField.reactive.text)
-        textField.font = loadFont(font: .regular, size: DimenConsts.largeFontSize)
+        textField.font = FontUtil.loadFont(font: .regular, size: DimenConsts.largeFontSize)
         textField.setPlaceholder(placeholder: StringConsts.pwConfirmTxtPlaceholder)
         textField.returnKeyType = .done
         textField.alpha = 0
@@ -132,23 +132,55 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
         viewModel?.pwMatchValidation.bind(to: label.reactive.alpha)
         label.text = StringConsts.passwordMatchValidation
         label.textColor = .appAccent
-        label.font = loadFont(font: .bold, size: DimenConsts.smallFontSize)
+        label.font = FontUtil.loadFont(font: .bold, size: DimenConsts.smallFontSize)
         label.alpha = 0
         return label
     }()
     
-    // Make the button width the size of the screen with
+    private let loginBtnsGroup: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
+    }()
+    
+    // Make the buttons width the size of the screen with
     // a padding of 64 on each side
-    private let signUpBtnWidth = UIScreen.main.bounds.width - (64 * 2)
+    private let loginBtnsWidth = UIScreen.main.bounds.width - (64 * 2)
     
     lazy var loginBtn: LoadingButton = {
         let button = LoadingButton()
-        button.setTitle(StringConsts.loginBtnText, for: .normal)
+        button.contentScaleFactor = 0.5
+        button.setTitle(title: StringConsts.loginBtnText)
         button.textColor = .white
-        button.width = signUpBtnWidth
-        button.titleLabel?.font = loadFont(font: .medium, size: DimenConsts.largeFontSize)
+        button.width = loginBtnsWidth
+        button.titleLabel?.font = FontUtil.loadFont(font: .medium, size: DimenConsts.largeFontSize)
         button.backgroundColor = .appPrimary
         button.accessibilityIdentifier = "loginBtnId"
+        return button
+    }()
+    
+    lazy var orLabel: UILabel = {
+        let label = UILabel()
+        label.contentScaleFactor = 0.5
+        label.font = FontUtil.loadFont(font: .medium, size: DimenConsts.regularFontSize)
+        label.text = StringConsts.signUpOrLabel
+        return label
+    }()
+    
+    lazy var googleBtn: SocialButton = {
+        let button = SocialButton()
+        button.setTitle(title: StringConsts.googleSignUpBtnText)
+        button.backgroundColor = .rgb(red: 66, green: 133, blue: 244)
+        button.logo = UIImage(named: "google-logo")
+        return button
+    }()
+    
+    lazy var facebookBtn: SocialButton = {
+        let button = SocialButton()
+        button.setTitle(title: StringConsts.facebookSignUpBtnText)
+        button.backgroundColor = .rgb(red: 59, green: 89, blue: 152)
+        button.logo = UIImage(named: "facebook-logo")
+        button.tileColor = .clear
         return button
     }()
     
@@ -172,7 +204,13 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
         addSubview(passwordValidationLabel)
         addSubview(passwordConfirmTxt)
         addSubview(pwMatchValidationLabel)
-        bottomHalfView.addSubview(loginBtn)
+        
+        bottomHalfView.addSubview(loginBtnsGroup)
+        loginBtnsGroup.addSubview(loginBtn)
+        loginBtnsGroup.addSubview(orLabel)
+        loginBtnsGroup.addSubview(googleBtn)
+        loginBtnsGroup.addSubview(facebookBtn)
+
     }
     // Keep track of the bottom constraint of background
     // for handling the state animation transition.
@@ -183,7 +221,7 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
             make.top.equalTo(self.snp.top).offset(0)
             make.left.equalTo(self.snp.left).offset(0)
             make.right.equalTo(self.snp.right).offset(0)
-            bgBottomConstraint = make.bottom.equalTo(self.passwordTxt.snp.bottom).offset(144).constraint
+            bgBottomConstraint = make.bottom.equalTo(self.passwordTxt.snp.bottom).offset(DimenConsts.loginBgBottomConstraint).constraint
         }
         
         bottomHalfView.snp.makeConstraints { (make) -> Void in
@@ -248,15 +286,38 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
             make.left.equalTo(self.passwordConfirmTxt.snp.left).offset(0)
         }
         
+        loginBtnsGroup.snp.makeConstraints { (make) -> Void in
+            make.center.equalTo(self.bottomHalfView.snp.center)
+            make.top.equalTo(self.loginBtn.snp.top)
+            make.bottom.equalTo(self.facebookBtn.snp.bottom)
+            make.width.equalTo(loginBtnsWidth)
+        }
+        
         loginBtn.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(50)
-            make.width.equalTo(signUpBtnWidth)
-            make.center.equalTo(self.bottomHalfView.snp.center)
+            make.width.equalTo(loginBtnsWidth)
+            make.top.equalTo(self.loginBtnsGroup.snp.top)
+            make.centerX.equalTo(self.loginBtnsGroup.snp.centerX)
         }
-    }
-    
-    override func transitionInViews() -> [UIView] {
-        return [loginLabel, actionLabel, actionBtn, emailTxt, passwordTxt, loginBtn]
+        
+        orLabel.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(self.loginBtn.snp.bottom).offset(8)
+            make.centerX.equalTo(self.loginBtnsGroup.snp.centerX)
+        }
+
+        googleBtn.snp.makeConstraints { (make) -> Void in
+            make.height.equalTo(40)
+            make.width.equalTo(loginBtnsWidth)
+            make.top.equalTo(self.orLabel.snp.bottom).offset(8)
+            make.centerX.equalTo(self.loginBtnsGroup.snp.centerX)
+        }
+        
+        facebookBtn.snp.makeConstraints { (make) -> Void in
+            make.height.equalTo(40)
+            make.width.equalTo(loginBtnsWidth)
+            make.top.equalTo(self.googleBtn.snp.bottom).offset(4)
+            make.centerX.equalTo(self.loginBtnsGroup.snp.centerX)
+        }
     }
 }
 
@@ -276,7 +337,7 @@ extension LoginView {
             bgBottomConstraint = make
                 .bottom
                 .equalTo(viewToConstrainTo.snp.bottom)
-                .offset(state == .signUp ? 48 : 144)
+                .offset(state == .signUp ? 48 : DimenConsts.loginBgBottomConstraint)
                 .constraint
         }
     
@@ -294,7 +355,7 @@ extension LoginView {
             self.actionBtn.alpha = 0
             self.emailTxt.alpha = 0
             self.passwordTxt.alpha = 0
-            self.loginBtn.alpha = 0
+            self.loginBtnsGroup.alpha = 0
             self.layoutIfNeeded()
 
         }, finished: {
@@ -313,7 +374,7 @@ extension LoginView {
                 if (state == .signUp) {
                     self.passwordConfirmTxt.alpha = 1
                 }
-                self.loginBtn.alpha = 1
+                self.loginBtnsGroup.alpha = 1
             })
         })
     }
@@ -351,13 +412,16 @@ extension LoginView {
         setNeedsUpdateConstraints()
         startAnimation(duration: 0.5, anim: {
             self.layoutIfNeeded()
+            self.emailValidationLabel.alpha = 0
+            self.passwordValidationLabel.alpha = 0
+            self.pwMatchValidationLabel.alpha = 0
             self.loginLabel.alpha = 0
             self.actionLabel.alpha = 0
             self.actionBtn.alpha = 0
             self.emailTxt.alpha = 0
             self.passwordTxt.alpha = 0
             self.passwordConfirmTxt.alpha = 0
-            self.loginBtn.alpha = 0
+            self.loginBtnsGroup.alpha = 0
         }, finished: {
             animationFinished()
         })

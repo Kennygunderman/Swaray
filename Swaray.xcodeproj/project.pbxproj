@@ -16,7 +16,7 @@
 		03B1211F232DDD3B008EB33C /* SwarayTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B1211E232DDD3B008EB33C /* SwarayTextField.swift */; };
 		03B12125232EC6B0008EB33C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03B12124232EC6B0008EB33C /* GoogleService-Info.plist */; };
 		03B12133232ED2E1008EB33C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B12132232ED2E1008EB33C /* LoginViewModel.swift */; };
-		03B12135232F0FB7008EB33C /* SwarayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B12134232F0FB7008EB33C /* SwarayButton.swift */; };
+		03B12135232F0FB7008EB33C /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B12134232F0FB7008EB33C /* LoadingButton.swift */; };
 		03B1213A2330753F008EB33C /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B121392330753F008EB33C /* HomeController.swift */; };
 		03B1213C23307554008EB33C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B1213B23307554008EB33C /* HomeView.swift */; };
 		03B121402331C102008EB33C /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B1213F2331C102008EB33C /* LoginState.swift */; };
@@ -28,12 +28,18 @@
 		03C51B1A233439610076B17A /* AuthService_M.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B19233439610076B17A /* AuthService_M.swift */; };
 		03C51B1D23346BA30076B17A /* AuthServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B1C23346BA30076B17A /* AuthServiceInterface.swift */; };
 		03C51B1F2335AA7B0076B17A /* AssertionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B1E2335AA7B0076B17A /* AssertionHelper.swift */; };
+		03C51B222335BC080076B17A /* SocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B212335BC080076B17A /* SocialButton.swift */; };
+		03C51B242335CD5F0076B17A /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03C51B232335CB000076B17A /* Roboto-Medium.ttf */; };
+		03C51B272339B4590076B17A /* SignInManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B262339B4590076B17A /* SignInManager.swift */; };
+		03C51B2C233A3E530076B17A /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B2B233A3E530076B17A /* AuthProvider.swift */; };
+		03C51B2E233A3E6C0076B17A /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B2D233A3E6C0076B17A /* AuthError.swift */; };
+		03C51B30233A3E8D0076B17A /* AuthResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B2F233A3E8D0076B17A /* AuthResult.swift */; };
+		03C51B3223427EDE0076B17A /* FontUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B3123427EDD0076B17A /* FontUtil.swift */; };
+		03C51B35234414600076B17A /* SwarayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B34234414600076B17A /* SwarayButton.swift */; };
+		03C51B37234414EB0076B17A /* HighlightableTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C51B36234414EB0076B17A /* HighlightableTextButton.swift */; };
 		03DD57D4232C7AD100F78A9D /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D3232C7AD100F78A9D /* BaseController.swift */; };
 		03DD57D6232C7B4700F78A9D /* BaseControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */; };
 		03DD57DB232C8CB000F78A9D /* TriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57DA232C8CB000F78A9D /* TriangleView.swift */; };
-		03DD57DF232D247500F78A9D /* AvenirNextLTPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 03DD57DC232D247500F78A9D /* AvenirNextLTPro-Bold.otf */; };
-		03DD57E0232D247500F78A9D /* AvenirNextLTPro-Demi.otf in Resources */ = {isa = PBXBuildFile; fileRef = 03DD57DD232D247500F78A9D /* AvenirNextLTPro-Demi.otf */; };
-		03DD57E1232D247500F78A9D /* AvenirNextLTPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 03DD57DE232D247500F78A9D /* AvenirNextLTPro-Regular.otf */; };
 		03DD57E4232D2F7D00F78A9D /* BaseFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57E3232D2F7D00F78A9D /* BaseFont.swift */; };
 		03DD57E6232D593000F78A9D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57E5232D593000F78A9D /* Extensions.swift */; };
 		03DD57E9232D6C0A00F78A9D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DD57E8232D6C0A00F78A9D /* LoginController.swift */; };
@@ -91,7 +97,7 @@
 		03B1211E232DDD3B008EB33C /* SwarayTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwarayTextField.swift; sourceTree = "<group>"; };
 		03B12124232EC6B0008EB33C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		03B12132232ED2E1008EB33C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		03B12134232F0FB7008EB33C /* SwarayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwarayButton.swift; sourceTree = "<group>"; };
+		03B12134232F0FB7008EB33C /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		03B121392330753F008EB33C /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		03B1213B23307554008EB33C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		03B1213F2331C102008EB33C /* LoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
@@ -103,12 +109,18 @@
 		03C51B19233439610076B17A /* AuthService_M.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService_M.swift; sourceTree = "<group>"; };
 		03C51B1C23346BA30076B17A /* AuthServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceInterface.swift; sourceTree = "<group>"; };
 		03C51B1E2335AA7B0076B17A /* AssertionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssertionHelper.swift; sourceTree = "<group>"; };
+		03C51B212335BC080076B17A /* SocialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButton.swift; sourceTree = "<group>"; };
+		03C51B232335CB000076B17A /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		03C51B262339B4590076B17A /* SignInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInManager.swift; sourceTree = "<group>"; };
+		03C51B2B233A3E530076B17A /* AuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
+		03C51B2D233A3E6C0076B17A /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		03C51B2F233A3E8D0076B17A /* AuthResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResult.swift; sourceTree = "<group>"; };
+		03C51B3123427EDD0076B17A /* FontUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontUtil.swift; sourceTree = "<group>"; };
+		03C51B34234414600076B17A /* SwarayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwarayButton.swift; sourceTree = "<group>"; };
+		03C51B36234414EB0076B17A /* HighlightableTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightableTextButton.swift; sourceTree = "<group>"; };
 		03DD57D3232C7AD100F78A9D /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		03DD57D5232C7B4700F78A9D /* BaseControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseControllerView.swift; sourceTree = "<group>"; };
 		03DD57DA232C8CB000F78A9D /* TriangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleView.swift; sourceTree = "<group>"; };
-		03DD57DC232D247500F78A9D /* AvenirNextLTPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-Bold.otf"; sourceTree = "<group>"; };
-		03DD57DD232D247500F78A9D /* AvenirNextLTPro-Demi.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-Demi.otf"; sourceTree = "<group>"; };
-		03DD57DE232D247500F78A9D /* AvenirNextLTPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-Regular.otf"; sourceTree = "<group>"; };
 		03DD57E3232D2F7D00F78A9D /* BaseFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFont.swift; sourceTree = "<group>"; };
 		03DD57E5232D593000F78A9D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		03DD57E8232D6C0A00F78A9D /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -183,7 +195,6 @@
 		031D3A77232C5A92006978E5 /* Swaray */ = {
 			isa = PBXGroup;
 			children = (
-				03DD57E2232D249900F78A9D /* fonts */,
 				03C51B0A233424AF0076B17A /* DI */,
 				03C51B0723330DA50076B17A /* Service */,
 				031D3AAA232C6847006978E5 /* Util */,
@@ -194,6 +205,7 @@
 				031D3A81232C5A94006978E5 /* LaunchScreen.storyboard */,
 				031D3A84232C5A94006978E5 /* Info.plist */,
 				03B12124232EC6B0008EB33C /* GoogleService-Info.plist */,
+				03DD57E2232D249900F78A9D /* fonts */,
 			);
 			path = Swaray;
 			sourceTree = "<group>";
@@ -234,6 +246,7 @@
 			children = (
 				031D3AAB232C685D006978E5 /* Consts.swift */,
 				03DD57E5232D593000F78A9D /* Extensions.swift */,
+				03C51B3123427EDD0076B17A /* FontUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -274,9 +287,8 @@
 		03C51B0723330DA50076B17A /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				03C51B1C23346BA30076B17A /* AuthServiceInterface.swift */,
-				03C51B0823330DE20076B17A /* AuthService_P.swift */,
-				03C51B19233439610076B17A /* AuthService_M.swift */,
+				03C51B2A233A3E2E0076B17A /* Auth */,
+				03C51B252339B44B0076B17A /* SignIn */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -306,6 +318,38 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		03C51B252339B44B0076B17A /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				03C51B262339B4590076B17A /* SignInManager.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		03C51B2A233A3E2E0076B17A /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				03C51B1C23346BA30076B17A /* AuthServiceInterface.swift */,
+				03C51B0823330DE20076B17A /* AuthService_P.swift */,
+				03C51B19233439610076B17A /* AuthService_M.swift */,
+				03C51B2B233A3E530076B17A /* AuthProvider.swift */,
+				03C51B2D233A3E6C0076B17A /* AuthError.swift */,
+				03C51B2F233A3E8D0076B17A /* AuthResult.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		03C51B33234413820076B17A /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				03C51B212335BC080076B17A /* SocialButton.swift */,
+				03B12134232F0FB7008EB33C /* LoadingButton.swift */,
+				03C51B34234414600076B17A /* SwarayButton.swift */,
+				03C51B36234414EB0076B17A /* HighlightableTextButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
 		03DD57D2232C7A8500F78A9D /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,9 +363,9 @@
 		03DD57D9232C8C8C00F78A9D /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				03C51B33234413820076B17A /* Button */,
 				03DD57DA232C8CB000F78A9D /* TriangleView.swift */,
 				03B1211E232DDD3B008EB33C /* SwarayTextField.swift */,
-				03B12134232F0FB7008EB33C /* SwarayButton.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -329,11 +373,10 @@
 		03DD57E2232D249900F78A9D /* fonts */ = {
 			isa = PBXGroup;
 			children = (
-				03DD57DC232D247500F78A9D /* AvenirNextLTPro-Bold.otf */,
-				03DD57DD232D247500F78A9D /* AvenirNextLTPro-Demi.otf */,
-				03DD57DE232D247500F78A9D /* AvenirNextLTPro-Regular.otf */,
+				03C51B232335CB000076B17A /* Roboto-Medium.ttf */,
 			);
-			path = fonts;
+			name = fonts;
+			path = Fonts.temp_caseinsensitive_rename.;
 			sourceTree = "<group>";
 		};
 		03DD57E7232D6BA700F78A9D /* Login */ = {
@@ -389,6 +432,7 @@
 				031D3A72232C5A92006978E5 /* Frameworks */,
 				031D3A73232C5A92006978E5 /* Resources */,
 				49F16575B7F473D484399D62 /* [CP] Embed Pods Frameworks */,
+				D443440114A0129FD87DCABC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 				03C51B1B233461460076B17A /* PBXBuildRule */,
@@ -489,12 +533,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03C51B242335CD5F0076B17A /* Roboto-Medium.ttf in Resources */,
 				031D3A83232C5A94006978E5 /* LaunchScreen.storyboard in Resources */,
 				031D3A80232C5A94006978E5 /* Assets.xcassets in Resources */,
-				03DD57DF232D247500F78A9D /* AvenirNextLTPro-Bold.otf in Resources */,
 				031D3A7E232C5A93006978E5 /* Main.storyboard in Resources */,
-				03DD57E1232D247500F78A9D /* AvenirNextLTPro-Regular.otf in Resources */,
-				03DD57E0232D247500F78A9D /* AvenirNextLTPro-Demi.otf in Resources */,
 				03B12125232EC6B0008EB33C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -555,6 +597,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Swaray/Pods-Swaray-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D443440114A0129FD87DCABC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Swaray/Pods-Swaray-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Swaray/Pods-Swaray-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Swaray/Pods-Swaray-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F0AC10801FB02E64C7CEC807 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -610,16 +669,24 @@
 				03B1211F232DDD3B008EB33C /* SwarayTextField.swift in Sources */,
 				031D3AAC232C685D006978E5 /* Consts.swift in Sources */,
 				03C51B0E233428860076B17A /* ServiceModule.swift in Sources */,
+				03C51B222335BC080076B17A /* SocialButton.swift in Sources */,
 				03DD57E4232D2F7D00F78A9D /* BaseFont.swift in Sources */,
+				03C51B30233A3E8D0076B17A /* AuthResult.swift in Sources */,
+				03C51B2E233A3E6C0076B17A /* AuthError.swift in Sources */,
+				03C51B35234414600076B17A /* SwarayButton.swift in Sources */,
 				03B1213C23307554008EB33C /* HomeView.swift in Sources */,
+				03C51B272339B4590076B17A /* SignInManager.swift in Sources */,
+				03C51B3223427EDE0076B17A /* FontUtil.swift in Sources */,
 				03DD57EB232D6C2100F78A9D /* LoginView.swift in Sources */,
 				03B12133232ED2E1008EB33C /* LoginViewModel.swift in Sources */,
 				031D3A79232C5A92006978E5 /* AppDelegate.swift in Sources */,
 				03DD57E6232D593000F78A9D /* Extensions.swift in Sources */,
 				03C51B0C233425830076B17A /* Locator.swift in Sources */,
+				03C51B37234414EB0076B17A /* HighlightableTextButton.swift in Sources */,
 				03DD57D6232C7B4700F78A9D /* BaseControllerView.swift in Sources */,
+				03C51B2C233A3E530076B17A /* AuthProvider.swift in Sources */,
 				03DD57D4232C7AD100F78A9D /* BaseController.swift in Sources */,
-				03B12135232F0FB7008EB33C /* SwarayButton.swift in Sources */,
+				03B12135232F0FB7008EB33C /* LoadingButton.swift in Sources */,
 				03B1213A2330753F008EB33C /* HomeController.swift in Sources */,
 				03C51B0923330DE20076B17A /* AuthService_P.swift in Sources */,
 				03DD57DB232C8CB000F78A9D /* TriangleView.swift in Sources */,

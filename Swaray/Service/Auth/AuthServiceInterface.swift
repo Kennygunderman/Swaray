@@ -7,14 +7,10 @@
 //
 
 import Foundation
-
-// Custom Auth Result.
-// This is used to grab the subset of data needed from `AuthDataResult`.
-struct AuthResult {
-    var email: String
-}
+import Firebase
 
 protocol AuthServiceInterface {
     func createUser(email: String, password: String, callback: @escaping  (AuthResult?, Error?) -> Void)
-    func login(email: String, password: String, callback: @escaping (AuthResult?, Error?) -> Void)
+    func auth(with email: String, password: String, callback: @escaping (AuthResult?, Error?) -> Void)
+    func auth(with credential: AuthCredential, provider: AuthProvider, callback: @escaping (AuthResult?, Error?) -> Void)
 }

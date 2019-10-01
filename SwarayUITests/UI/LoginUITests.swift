@@ -22,7 +22,7 @@ class LoginUITests: XCTestCase {
         let confirmPw = app.secureTextFields["confirmPwTxtId"]
         let loginButton = app.buttons["loginBtnId"]
         XCTAssertEqual(false, confirmPw.exists)
-        XCTAssertEqual("LOGIN", loginButton.label)
+        XCTAssertEqual("Login", loginButton.label)
 
         actionButton.tap() //navigate to Sign Up
         sleep(1) //Wait for animation to stop
@@ -31,13 +31,13 @@ class LoginUITests: XCTestCase {
         XCTAssertEqual(true, confirmPw.exists)
         
         //check if button text has updated
-        XCTAssertEqual("SIGN UP", loginButton.label)
+        XCTAssertEqual("Sign Up", loginButton.label)
         
         actionButton.tap() //go back to login
         sleep(1) //Wait for animation to stop
         
         XCTAssertEqual(false, confirmPw.exists)
-        XCTAssertEqual("LOGIN", loginButton.label)
+        XCTAssertEqual("Login", loginButton.label)
     }
     
     //Test's validation labels are displaying properly
@@ -108,7 +108,7 @@ class LoginUITests: XCTestCase {
         signUpBtn.tap()
         
         // Check login button
-        XCTAssertEqual("SUCCESS!", signUpBtn.label)
+        XCTAssertEqual("Success!", signUpBtn.label)
         sleep(2)
         
         //check values are gone
@@ -137,7 +137,7 @@ class LoginUITests: XCTestCase {
         loginBtn.tap()
         
         // Check login button
-        XCTAssertEqual("SUCCESS!", loginBtn.label)
+        XCTAssertEqual("Success!", loginBtn.label)
         sleep(2)
         
         //check values are gone

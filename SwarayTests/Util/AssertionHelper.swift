@@ -10,6 +10,6 @@ import Foundation
 
 
 // Simple util for Assertions
-func eg(_ expected: Any, _ got: Any) -> String {
-    return "expected: \(expected), got: \(got)"
+func eg(_ expected: Any?, _ got: Any?) -> String {
+    return "expected: \(expected ?? "nil"), got: \(got ?? "nil")"
 }

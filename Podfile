@@ -13,6 +13,8 @@ target 'Swaray' do
   pod 'SnapKit', '~> 4.0.0'
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
+  pod 'GoogleSignIn'
+  pod 'FBSDKLoginKit'
   pod 'Bond'
 
   target 'SwarayTests' do

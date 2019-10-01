@@ -12,13 +12,18 @@
 // This type of set up inspired by: https://medium.com/@londeix/xcode-file-variants-without-targets-9724cbabe821
 
 import Foundation
+import Firebase
 
 class AuthService: AuthServiceInterface {
     func createUser(email: String, password: String, callback: @escaping (AuthResult?, Error?) -> Void) {
-        callback(AuthResult(email: "mock@email.com"), nil)
+        callback(AuthResult(provider: .creation, email: "mock@email.com"), nil)
     }
     
-    func login(email: String, password: String, callback: @escaping (AuthResult?, Error?) -> Void) {
-        callback(AuthResult(email: "mock@email.com"), nil)
+    func auth(with email: String, password: String, callback: @escaping (AuthResult?, Error?) -> Void) {
+        callback(AuthResult(provider: .login, email: "mock@email.com"), nil)
+    }
+    
+    func auth(with credential: AuthCredential, provider: AuthProvider, callback: @escaping (AuthResult?, Error?) -> Void) {
+        callback(AuthResult(provider: .login, email: "mock@email.com"), nil)
     }
 }
