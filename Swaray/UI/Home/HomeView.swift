@@ -27,9 +27,32 @@ class HomeView: BaseControllerView<HomeViewModel> {
         return triangle
     }()
     
+    let actionLabel: UILabel = {
+        let label = UILabel()
+        label.text = StringConsts.hostingOrJoiningLabel
+        label.font = FontUtil.loadFont(font: .light, size: DimenConsts.headerFontSize)
+        label.numberOfLines = 2
+        label.minimumScaleFactor = 0.5
+        label.textColor = .white
+        label.textAlignment = .center
+        return label
+    }()
+    
+    let hostingBtn: SwarayButton = {
+        let button = SwarayButton()
+        button.setTitle(title: StringConsts.hostingLabel)
+        button.backgroundColor = .appPrimary
+        return button
+    }()
+
+    //default button width
+    private let buttonWidth = UIScreen.main.bounds.width - (64 * 2)
+    
     override func addSubViews() {
         addSubview(homeBg)
         addSubview(triangle)
+        addSubview(actionLabel)
+        addSubview(hostingBtn)
     }
     
     override func setupConstraints() {
@@ -50,5 +73,23 @@ class HomeView: BaseControllerView<HomeViewModel> {
             make.bottom.equalTo(self.homeBg.snp.bottom).offset(0)
             make.height.equalTo(DimenConsts.triangleCutHeight)
         }
+        
+        actionLabel.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(self.homeBg.snp.top).offset(-DimenConsts.triangleCutHeight)
+            make.bottom.equalTo(self.homeBg.snp.bottom)
+            make.left.equalTo(self.homeBg.snp.left)
+            make.right.equalTo(self.homeBg.snp.right)
+        }
+        
+        hostingBtn.snp.makeConstraints { (make) -> Void in
+            make.height.equalTo(50)
+            make.centerX.equalTo(self.snp.centerX)
+            make.width.equalTo(buttonWidth)
+            make.top.equalTo(self.triangle.snp.bottom).offset(64)
+        }
+    }
+    
+    override func transitionInViews() -> [UIView] {
+        return [actionLabel]
     }
 }

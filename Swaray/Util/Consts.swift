@@ -50,6 +50,10 @@ public struct StringConsts {
     static let genericSignUpError: String = "Unable to sign up with the email and password you have provided. Please try again."
     static let googleSignInError: String = "Unable to sign in with Google at this time."
     static let facebookSignInError: String = "Unable to sign in with Facebook at this time."
+    
+    //static vals for Home
+    static let hostingOrJoiningLabel: String = "Will you be hosting an event or joining one?"
+    static let hostingLabel: String = "Hosting"
 
 }
 
