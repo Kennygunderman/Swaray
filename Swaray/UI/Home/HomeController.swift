@@ -10,6 +10,22 @@ import Foundation
 import UIKit
 
 class HomeController: BaseController<HomeView, HomeViewModel> {
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+        baseView.hostingBtn.addTarget(self, action: #selector(test), for: .touchUpInside)
+        
+       
+    }
+    
+    @objc func test() {
+        baseView.handleExitAnimation {
+            
+        }
+    }
 }
 
 class HomeViewModel {}
