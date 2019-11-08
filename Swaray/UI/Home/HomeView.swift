@@ -97,7 +97,7 @@ class HomeView: BaseControllerView<HomeViewModel> {
 extension HomeView {
     
     func handleExitAnimation(animationFinished: @escaping () -> Void) {
-        triangle.snp.makeConstraints { (make) -> Void in
+        triangle.snp.updateConstraints { (make) -> Void in
             make.height.equalTo(0)
         }
         
@@ -118,10 +118,6 @@ extension HomeView {
     }
     
     private func handleExitAnimShrink(animationFinished: @escaping () -> Void) {
-        triangle.snp.updateConstraints { (make) -> Void in
-            make.height.equalTo(DimenConsts.triangleCutHeight)
-        }
-        
         homeBg.snp.updateConstraints { (make) -> Void in
             make.height.equalTo(0)
         }
