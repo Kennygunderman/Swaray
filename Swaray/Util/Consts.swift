@@ -54,7 +54,12 @@ public struct StringConsts {
     //static vals for Home
     static let hostingOrJoiningLabel: String = "Will you be hosting an event or joining one?"
     static let hostingLabel: String = "Hosting"
-
+    
+    //vals for EventCreation
+    
+    //Name
+    static let eventCreationNameHint = "i.e Ciara's 30th Birthday Party"
+    static let eventNameLabel = "Name of the Event"
 }
 
 struct DimenConsts {

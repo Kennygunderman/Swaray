@@ -16,7 +16,7 @@
 		031D3A83232C5A94006978E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 031D3A81232C5A94006978E5 /* LaunchScreen.storyboard */; };
 		031D3A99232C5A94006978E5 /* LoginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D3A98232C5A94006978E5 /* LoginUITests.swift */; };
 		031D3AAC232C685D006978E5 /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D3AAB232C685D006978E5 /* Consts.swift */; };
-		03B1211F232DDD3B008EB33C /* SwarayTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B1211E232DDD3B008EB33C /* SwarayTextField.swift */; };
+		03B1211F232DDD3B008EB33C /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B1211E232DDD3B008EB33C /* LoginTextField.swift */; };
 		03B12125232EC6B0008EB33C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03B12124232EC6B0008EB33C /* GoogleService-Info.plist */; };
 		03B12133232ED2E1008EB33C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B12132232ED2E1008EB33C /* LoginViewModel.swift */; };
 		03B12135232F0FB7008EB33C /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B12134232F0FB7008EB33C /* LoadingButton.swift */; };
@@ -100,7 +100,7 @@
 		031D3A98232C5A94006978E5 /* LoginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUITests.swift; sourceTree = "<group>"; };
 		031D3A9A232C5A94006978E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		031D3AAB232C685D006978E5 /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
-		03B1211E232DDD3B008EB33C /* SwarayTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwarayTextField.swift; sourceTree = "<group>"; };
+		03B1211E232DDD3B008EB33C /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		03B12124232EC6B0008EB33C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		03B12132232ED2E1008EB33C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		03B12134232F0FB7008EB33C /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
@@ -192,6 +192,14 @@
 				0311F53E2375CBAB00D65289 /* EventNameViewModel.swift */,
 			);
 			path = Name;
+			sourceTree = "<group>";
+		};
+		0311F5402375D1AE00D65289 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				03B1211E232DDD3B008EB33C /* LoginTextField.swift */,
+			);
+			path = TextField;
 			sourceTree = "<group>";
 		};
 		031D3A6C232C5A92006978E5 = {
@@ -389,8 +397,8 @@
 			isa = PBXGroup;
 			children = (
 				03C51B33234413820076B17A /* Button */,
+				0311F5402375D1AE00D65289 /* TextField */,
 				03DD57DA232C8CB000F78A9D /* TriangleView.swift */,
-				03B1211E232DDD3B008EB33C /* SwarayTextField.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -692,7 +700,7 @@
 			files = (
 				0311F53A2375CB6500D65289 /* EventNameController.swift in Sources */,
 				03B121402331C102008EB33C /* LoginState.swift in Sources */,
-				03B1211F232DDD3B008EB33C /* SwarayTextField.swift in Sources */,
+				03B1211F232DDD3B008EB33C /* LoginTextField.swift in Sources */,
 				031D3AAC232C685D006978E5 /* Consts.swift in Sources */,
 				03C51B0E233428860076B17A /* ServiceModule.swift in Sources */,
 				03C51B222335BC080076B17A /* SocialButton.swift in Sources */,
