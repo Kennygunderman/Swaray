@@ -48,10 +48,6 @@ class HomeView: BaseControllerView<HomeViewModel> {
     //default button width
     private let buttonWidth = UIScreen.main.bounds.width - (64 * 2)
     
-    // Keep track of the bottom constraint of background
-    // for handling the state animation transition.
-    var bgBottomConstraint: Constraint? = nil
-    
     override func addSubViews() {
         addSubview(homeBg)
         addSubview(triangle)
@@ -100,11 +96,15 @@ class HomeView: BaseControllerView<HomeViewModel> {
 
 extension HomeView {
     
-    // Handles the exiting transiton to HomeController
     func handleExitAnimation(animationFinished: @escaping () -> Void) {
-     //   bgBottomConstraint?.deactivate()
         triangle.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(0)
+        }
+        
+        homeBg.snp.updateConstraints { (make) -> Void in
+            make.height.equalTo(
+                (UIScreen.main.bounds.height * 0.6)
+            )
         }
         
         setNeedsUpdateConstraints()
@@ -122,7 +122,6 @@ extension HomeView {
             make.height.equalTo(DimenConsts.triangleCutHeight)
         }
         
-       // bgBottomConstraint?.deactivate()
         homeBg.snp.updateConstraints { (make) -> Void in
             make.height.equalTo(0)
         }
