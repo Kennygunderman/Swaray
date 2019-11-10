@@ -7,10 +7,27 @@
 //
 
 import Foundation
+import UIKit
 
 class EventNameController: BaseController<EventNameView, EventNameViewModel> {
+    private let viewModel = EventNameViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("EventNameController Loaded")
+        setupToolbar()        
+    }
+    
+    override func getViewModel() -> EventNameViewModel? {
+        return viewModel
+    }
+    
+    fileprivate func setupToolbar() {
+        let item = UIBarButtonItem(title: "Next", style: UIBarButtonItem.Style.plain, target: self, action: #selector(handleNext))
+        item.tintColor = .white
+        navigationItem.setRightBarButtonItems([item], animated: true)
+    }
+    
+    @objc func handleNext() {
+        _ = viewModel.validateName()
     }
 }

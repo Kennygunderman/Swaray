@@ -60,6 +60,7 @@ public struct StringConsts {
     //Name
     static let eventCreationNameHint = "i.e Ciara's 30th Birthday Party"
     static let eventNameLabel = "Name of the Event"
+    static let eventNameValidationLavel = "Please add a Name"
 }
 
 struct DimenConsts {

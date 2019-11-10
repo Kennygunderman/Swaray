@@ -7,7 +7,28 @@
 //
 
 import Foundation
+import Bond
 
 class EventNameViewModel {
+    let name = Observable<String?>("")
+    let nameValidation = Observable<CGFloat>(0)
     
+    init() {
+        _ = name.observeNext { _ in
+            if self.nameValidation.value == 1
+                && self.validateName() {
+                self.nameValidation.value = 0
+            }
+        }
+    }
+
+    func validateName() -> Bool {
+        let isNameEmpty = name.value?.isEmpty ?? true
+        
+        if (isNameEmpty) {
+            nameValidation.value = 1
+        }
+        
+        return !isNameEmpty
+    }
 }
