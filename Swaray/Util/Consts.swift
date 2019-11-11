@@ -59,8 +59,11 @@ public struct StringConsts {
     
     //Name
     static let eventCreationNameHint = "i.e Ciara's 30th Birthday Party"
-    static let eventNameLabel = "Name of the Event"
-    static let eventNameValidationLavel = "Please add a Name"
+    static let eventCreationDateHint = "--/--/2020"
+    static let eventNameLabel = "What's this Event for?"
+    static let eventDateLabel = "When is the Event happening?"
+    static let eventNameValidationLavel = "Please add a name"
+    static let eventDateValidationLavel = "Please add a valid date"
 }
 
 struct DimenConsts {
