@@ -28,6 +28,9 @@ class EventNameController: BaseController<EventNameView, EventNameViewModel> {
     }
     
     @objc func handleNext() {
-        _ = viewModel.validateName()
+        if viewModel.validateName() {
+            baseView.eventNameTextField.resignFirstResponder()
+            self.navigationController?.pushViewController(EventDateController(), animated: true)
+        }
     }
 }

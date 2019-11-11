@@ -17,7 +17,7 @@ class EventNameViewModel {
         _ = name.observeNext { _ in
             if self.nameValidation.value == 1
                 && self.validateName() {
-                self.nameValidation.value = 0
+                self.setNameValidation(withValueToAnimate: 0)
             }
         }
     }
@@ -26,9 +26,17 @@ class EventNameViewModel {
         let isNameEmpty = name.value?.isEmpty ?? true
         
         if (isNameEmpty) {
-            nameValidation.value = 1
+            self.setNameValidation(withValueToAnimate: 1)
         }
         
         return !isNameEmpty
+    }
+    
+    
+    //Set's the nameValidation Observer using an animation
+    private func setNameValidation(withValueToAnimate: CGFloat) {
+        UIView.animate(withDuration: 0.25, animations: {
+            self.nameValidation.value = withValueToAnimate
+        })
     }
 }
