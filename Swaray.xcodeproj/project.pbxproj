@@ -10,6 +10,10 @@
 		0311F53A2375CB6500D65289 /* EventNameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0311F5392375CB6500D65289 /* EventNameController.swift */; };
 		0311F53D2375CB9C00D65289 /* EventNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0311F53C2375CB9C00D65289 /* EventNameView.swift */; };
 		0311F53F2375CBAB00D65289 /* EventNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0311F53E2375CBAB00D65289 /* EventNameViewModel.swift */; };
+		0311F5432378DD0500D65289 /* EventDateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0311F5422378DD0500D65289 /* EventDateController.swift */; };
+		0311F5452378DD2000D65289 /* EventDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0311F5442378DD2000D65289 /* EventDateView.swift */; };
+		0311F5472378DD2E00D65289 /* EventDateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0311F5462378DD2E00D65289 /* EventDateViewModel.swift */; };
+		0311F5492378ED5600D65289 /* UtilModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0311F5482378ED5600D65289 /* UtilModule.swift */; };
 		031D3A79232C5A92006978E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D3A78232C5A92006978E5 /* AppDelegate.swift */; };
 		031D3A7E232C5A93006978E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 031D3A7C232C5A93006978E5 /* Main.storyboard */; };
 		031D3A80232C5A94006978E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 031D3A7F232C5A94006978E5 /* Assets.xcassets */; };
@@ -88,6 +92,10 @@
 		0311F5392375CB6500D65289 /* EventNameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventNameController.swift; sourceTree = "<group>"; };
 		0311F53C2375CB9C00D65289 /* EventNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventNameView.swift; sourceTree = "<group>"; };
 		0311F53E2375CBAB00D65289 /* EventNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventNameViewModel.swift; sourceTree = "<group>"; };
+		0311F5422378DD0500D65289 /* EventDateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDateController.swift; sourceTree = "<group>"; };
+		0311F5442378DD2000D65289 /* EventDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDateView.swift; sourceTree = "<group>"; };
+		0311F5462378DD2E00D65289 /* EventDateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDateViewModel.swift; sourceTree = "<group>"; };
+		0311F5482378ED5600D65289 /* UtilModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilModule.swift; sourceTree = "<group>"; };
 		031D3A75232C5A92006978E5 /* Swaray.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swaray.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		031D3A78232C5A92006978E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		031D3A7D232C5A93006978E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -180,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				0311F53B2375CB7700D65289 /* Name */,
+				0311F5412378DC3D00D65289 /* Date */,
 			);
 			path = EventCreation;
 			sourceTree = "<group>";
@@ -200,6 +209,16 @@
 				03B1211E232DDD3B008EB33C /* LoginTextField.swift */,
 			);
 			path = TextField;
+			sourceTree = "<group>";
+		};
+		0311F5412378DC3D00D65289 /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				0311F5422378DD0500D65289 /* EventDateController.swift */,
+				0311F5442378DD2000D65289 /* EventDateView.swift */,
+				0311F5462378DD2E00D65289 /* EventDateViewModel.swift */,
+			);
+			path = Date;
 			sourceTree = "<group>";
 		};
 		031D3A6C232C5A92006978E5 = {
@@ -331,6 +350,7 @@
 			children = (
 				03C51B0B233425830076B17A /* Locator.swift */,
 				03C51B0D233428860076B17A /* ServiceModule.swift */,
+				0311F5482378ED5600D65289 /* UtilModule.swift */,
 			);
 			path = DI;
 			sourceTree = "<group>";
@@ -699,6 +719,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0311F53A2375CB6500D65289 /* EventNameController.swift in Sources */,
+				0311F5472378DD2E00D65289 /* EventDateViewModel.swift in Sources */,
 				03B121402331C102008EB33C /* LoginState.swift in Sources */,
 				03B1211F232DDD3B008EB33C /* LoginTextField.swift in Sources */,
 				031D3AAC232C685D006978E5 /* Consts.swift in Sources */,
@@ -710,11 +731,13 @@
 				03C51B2E233A3E6C0076B17A /* AuthError.swift in Sources */,
 				03C51B35234414600076B17A /* SwarayButton.swift in Sources */,
 				03B1213C23307554008EB33C /* HomeView.swift in Sources */,
+				0311F5492378ED5600D65289 /* UtilModule.swift in Sources */,
 				03C51B272339B4590076B17A /* SignInManager.swift in Sources */,
 				03C51B3223427EDE0076B17A /* FontUtil.swift in Sources */,
 				03DD57EB232D6C2100F78A9D /* LoginView.swift in Sources */,
 				0311F53D2375CB9C00D65289 /* EventNameView.swift in Sources */,
 				03B12133232ED2E1008EB33C /* LoginViewModel.swift in Sources */,
+				0311F5452378DD2000D65289 /* EventDateView.swift in Sources */,
 				031D3A79232C5A92006978E5 /* AppDelegate.swift in Sources */,
 				03DD57E6232D593000F78A9D /* Extensions.swift in Sources */,
 				03C51B0C233425830076B17A /* Locator.swift in Sources */,
@@ -722,6 +745,7 @@
 				03DD57D6232C7B4700F78A9D /* BaseControllerView.swift in Sources */,
 				03C51B2C233A3E530076B17A /* AuthProvider.swift in Sources */,
 				03DD57D4232C7AD100F78A9D /* BaseController.swift in Sources */,
+				0311F5432378DD0500D65289 /* EventDateController.swift in Sources */,
 				03B12135232F0FB7008EB33C /* LoadingButton.swift in Sources */,
 				03B1213A2330753F008EB33C /* HomeController.swift in Sources */,
 				03C51B0923330DE20076B17A /* AuthService_P.swift in Sources */,
