@@ -20,9 +20,9 @@ class EventDateView: BaseControllerView<EventDateViewModel> {
     
     lazy var eventDateTextField: UITextField = {
         let textField = UITextField()
-        textField.textColor = .black
+        textField.textColor = .darkText
         viewModel?.date.bidirectionalBind(to: textField.reactive.text)
-        textField.font = FontUtil.loadFont(font: .regular, size: DimenConsts.subHeaderFontSize)
+        textField.font = FontUtil.loadFont(font: .light, size: DimenConsts.subHeaderFontSize)
         textField.attributedPlaceholder = NSAttributedString(
             string: StringConsts.eventCreationDateHint,
             attributes: [.foregroundColor: UIColor.lightGray]

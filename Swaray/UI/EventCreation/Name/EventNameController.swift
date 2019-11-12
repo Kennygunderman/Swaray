@@ -14,11 +14,21 @@ class EventNameController: BaseController<EventNameView, EventNameViewModel> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupToolbar()        
+        setupToolbar()
+        subscribeUi()
     }
     
     override func getViewModel() -> EventNameViewModel? {
         return viewModel
+    }
+    
+    private func subscribeUi() {
+        _ = viewModel.navigateTrigger.observeNext { doNavigate in
+            if doNavigate {
+                self.baseView.eventNameTextField.resignFirstResponder()
+                self.navigationController?.pushViewController(EventDateController(), animated: true)
+            }
+        }
     }
     
     fileprivate func setupToolbar() {
@@ -28,9 +38,6 @@ class EventNameController: BaseController<EventNameView, EventNameViewModel> {
     }
     
     @objc func handleNext() {
-        if viewModel.validateName() {
-            baseView.eventNameTextField.resignFirstResponder()
-            self.navigationController?.pushViewController(EventDateController(), animated: true)
-        }
+        _ = viewModel.handleNext()
     }
 }

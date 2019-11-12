@@ -12,6 +12,7 @@ import Bond
 class EventNameViewModel {
     let name = Observable<String?>("")
     let nameValidation = Observable<CGFloat>(0)
+    let navigateTrigger = Observable<Bool>(false)
     
     init() {
         _ = name.observeNext { _ in
@@ -21,17 +22,28 @@ class EventNameViewModel {
             }
         }
     }
-
-    func validateName() -> Bool {
-        let isNameEmpty = name.value?.isEmpty ?? true
-        
-        if (isNameEmpty) {
+    
+    /**
+     Handles logic for when Next button is tapped.
+     Check's validation for Name text field, and notifies navigation observer
+     if valid. If not valid, notfies validation label.
+     
+     - Returns: Whether validation passes.
+     */
+    func handleNext() -> Bool {
+        let isValid = validateName()
+        if isValid {
+            navigateTrigger.value = true
+        } else {
             self.setNameValidation(withValueToAnimate: 1)
         }
-        
-        return !isNameEmpty
+        return isValid
     }
-    
+
+    //Check's if name value is empty or null
+    private func validateName() -> Bool {
+        return !(name.value?.isEmpty ?? true)
+    }
     
     //Set's the nameValidation Observer using an animation
     private func setNameValidation(withValueToAnimate: CGFloat) {

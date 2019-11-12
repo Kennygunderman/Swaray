@@ -12,7 +12,7 @@ import Bond
 class EventDateViewModel {
     let date = Observable<String?>("")
     let dateValidation = Observable<CGFloat>(0)
-  
+      
     let dateFormatter: DateFormatter
     init(dateFormatter: DateFormatter = getDateFormatter()) {
         self.dateFormatter = dateFormatter

@@ -20,9 +20,9 @@ class EventNameView: BaseControllerView<EventNameViewModel>, UITextFieldDelegate
     
     lazy var eventNameTextField: UITextField = {
         let textField = UITextField()
-        textField.textColor = .black
+        textField.textColor = .darkText
         viewModel?.name.bidirectionalBind(to: textField.reactive.text)
-        textField.font = FontUtil.loadFont(font: .regular, size: DimenConsts.subHeaderFontSize)
+        textField.font = FontUtil.loadFont(font: .light, size: DimenConsts.subHeaderFontSize)
         textField.attributedPlaceholder = NSAttributedString(
             string: StringConsts.eventCreationNameHint,
             attributes: [.foregroundColor: UIColor.lightGray]
@@ -72,6 +72,6 @@ class EventNameView: BaseControllerView<EventNameViewModel>, UITextFieldDelegate
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return viewModel?.validateName() ?? false
+        return viewModel?.handleNext() ?? false
     }
 }
