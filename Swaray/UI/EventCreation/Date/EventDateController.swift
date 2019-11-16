@@ -21,14 +21,20 @@ class EventDateController: BaseController<EventDateView, EventDateViewModel> {
         return viewModel
     }
     
-    
     // Override but doesn't call super to
     // enable back navigation.
     override func disableBackNavigation() {
-        
     }
     
     fileprivate func setupToolbar() {
+        // Setup Back button
+        let navbar = navigationController?.navigationBar
+        let backBtn = UIImage(named: "back-button")?.withRenderingMode(.alwaysOriginal)
+        navbar?.topItem?.title = ""
+        navbar?.backIndicatorImage = backBtn
+        navbar?.backIndicatorTransitionMaskImage = backBtn
+        
+        // Setup Done button
         let item = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(handleNext))
         item.tintColor = .white
         navigationItem.setRightBarButtonItems([item], animated: true)
