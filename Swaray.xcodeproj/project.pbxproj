@@ -14,6 +14,11 @@
 		0311F5452378DD2000D65289 /* EventDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0311F5442378DD2000D65289 /* EventDateView.swift */; };
 		0311F5472378DD2E00D65289 /* EventDateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0311F5462378DD2E00D65289 /* EventDateViewModel.swift */; };
 		0311F5492378ED5600D65289 /* UtilModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0311F5482378ED5600D65289 /* UtilModule.swift */; };
+		0311F54C2389D76000D65289 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0311F54B2389D76000D65289 /* Event.swift */; };
+		0311F54F2389DED100D65289 /* EventCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0311F54E2389DED100D65289 /* EventCreator.swift */; };
+		0311F5532389DF7F00D65289 /* GuidGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0311F5522389DF7F00D65289 /* GuidGenerator.swift */; };
+		0311F5552389E19B00D65289 /* EventRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0311F5542389E19B00D65289 /* EventRepository.swift */; };
+		0311F5572389E43A00D65289 /* RepoModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0311F5562389E43A00D65289 /* RepoModule.swift */; };
 		031D3A79232C5A92006978E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031D3A78232C5A92006978E5 /* AppDelegate.swift */; };
 		031D3A7E232C5A93006978E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 031D3A7C232C5A93006978E5 /* Main.storyboard */; };
 		031D3A80232C5A94006978E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 031D3A7F232C5A94006978E5 /* Assets.xcassets */; };
@@ -96,6 +101,11 @@
 		0311F5442378DD2000D65289 /* EventDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDateView.swift; sourceTree = "<group>"; };
 		0311F5462378DD2E00D65289 /* EventDateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDateViewModel.swift; sourceTree = "<group>"; };
 		0311F5482378ED5600D65289 /* UtilModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilModule.swift; sourceTree = "<group>"; };
+		0311F54B2389D76000D65289 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		0311F54E2389DED100D65289 /* EventCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCreator.swift; sourceTree = "<group>"; };
+		0311F5522389DF7F00D65289 /* GuidGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidGenerator.swift; sourceTree = "<group>"; };
+		0311F5542389E19B00D65289 /* EventRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRepository.swift; sourceTree = "<group>"; };
+		0311F5562389E43A00D65289 /* RepoModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoModule.swift; sourceTree = "<group>"; };
 		031D3A75232C5A92006978E5 /* Swaray.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swaray.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		031D3A78232C5A92006978E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		031D3A7D232C5A93006978E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -221,6 +231,39 @@
 			path = Date;
 			sourceTree = "<group>";
 		};
+		0311F54A2389D64000D65289 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0311F54B2389D76000D65289 /* Event.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0311F54D2389DEC400D65289 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				0311F54E2389DED100D65289 /* EventCreator.swift */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		0311F5502389DF2800D65289 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				0311F5512389DF3300D65289 /* Repository */,
+				0311F54A2389D64000D65289 /* Model */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		0311F5512389DF3300D65289 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				0311F5542389E19B00D65289 /* EventRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		031D3A6C232C5A92006978E5 = {
 			isa = PBXGroup;
 			children = (
@@ -246,6 +289,7 @@
 		031D3A77232C5A92006978E5 /* Swaray */ = {
 			isa = PBXGroup;
 			children = (
+				0311F5502389DF2800D65289 /* Data */,
 				03C51B0A233424AF0076B17A /* DI */,
 				03C51B0723330DA50076B17A /* Service */,
 				031D3AAA232C6847006978E5 /* Util */,
@@ -299,6 +343,7 @@
 				031D3AAB232C685D006978E5 /* Consts.swift */,
 				03DD57E5232D593000F78A9D /* Extensions.swift */,
 				03C51B3123427EDD0076B17A /* FontUtil.swift */,
+				0311F5522389DF7F00D65289 /* GuidGenerator.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -339,6 +384,7 @@
 		03C51B0723330DA50076B17A /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				0311F54D2389DEC400D65289 /* Event */,
 				03C51B2A233A3E2E0076B17A /* Auth */,
 				03C51B252339B44B0076B17A /* SignIn */,
 			);
@@ -351,6 +397,7 @@
 				03C51B0B233425830076B17A /* Locator.swift */,
 				03C51B0D233428860076B17A /* ServiceModule.swift */,
 				0311F5482378ED5600D65289 /* UtilModule.swift */,
+				0311F5562389E43A00D65289 /* RepoModule.swift */,
 			);
 			path = DI;
 			sourceTree = "<group>";
@@ -727,11 +774,13 @@
 				03C51B222335BC080076B17A /* SocialButton.swift in Sources */,
 				0311F53F2375CBAB00D65289 /* EventNameViewModel.swift in Sources */,
 				03DD57E4232D2F7D00F78A9D /* BaseFont.swift in Sources */,
+				0311F54F2389DED100D65289 /* EventCreator.swift in Sources */,
 				03C51B30233A3E8D0076B17A /* AuthResult.swift in Sources */,
 				03C51B2E233A3E6C0076B17A /* AuthError.swift in Sources */,
 				03C51B35234414600076B17A /* SwarayButton.swift in Sources */,
 				03B1213C23307554008EB33C /* HomeView.swift in Sources */,
 				0311F5492378ED5600D65289 /* UtilModule.swift in Sources */,
+				0311F5572389E43A00D65289 /* RepoModule.swift in Sources */,
 				03C51B272339B4590076B17A /* SignInManager.swift in Sources */,
 				03C51B3223427EDE0076B17A /* FontUtil.swift in Sources */,
 				03DD57EB232D6C2100F78A9D /* LoginView.swift in Sources */,
@@ -746,10 +795,13 @@
 				03C51B2C233A3E530076B17A /* AuthProvider.swift in Sources */,
 				03DD57D4232C7AD100F78A9D /* BaseController.swift in Sources */,
 				0311F5432378DD0500D65289 /* EventDateController.swift in Sources */,
+				0311F54C2389D76000D65289 /* Event.swift in Sources */,
 				03B12135232F0FB7008EB33C /* LoadingButton.swift in Sources */,
+				0311F5552389E19B00D65289 /* EventRepository.swift in Sources */,
 				03B1213A2330753F008EB33C /* HomeController.swift in Sources */,
 				03C51B0923330DE20076B17A /* AuthService_P.swift in Sources */,
 				03DD57DB232C8CB000F78A9D /* TriangleView.swift in Sources */,
+				0311F5532389DF7F00D65289 /* GuidGenerator.swift in Sources */,
 				03C51B1D23346BA30076B17A /* AuthServiceInterface.swift in Sources */,
 				03C51B1A233439610076B17A /* AuthService_M.swift in Sources */,
 				03DD57E9232D6C0A00F78A9D /* LoginController.swift in Sources */,

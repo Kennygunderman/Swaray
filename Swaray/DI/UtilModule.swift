@@ -15,3 +15,4 @@ fileprivate let dateFormatter: DateFormatter = {
 }()
 
 let getDateFormatter = Locator.bind(DateFormatter.self) { dateFormatter }
+let getGuidGenerator = Locator.bind(GuidGenerator.self) { GuidGenerator() }

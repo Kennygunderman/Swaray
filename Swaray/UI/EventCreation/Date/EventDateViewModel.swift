@@ -14,9 +14,18 @@ class EventDateViewModel {
     let dateValidation = Observable<CGFloat>(0)
       
     let dateFormatter: DateFormatter
-    init(dateFormatter: DateFormatter = getDateFormatter()) {
+    let eventCreator: EventCreator
+    let eventRepository: EventRepository
+    
+    var eventName: String = ""
+    
+    init(dateFormatter: DateFormatter = getDateFormatter(),
+         eventCreator: EventCreator = getEventCreator(),
+         eventRepository: EventRepository = getEventRepo()) {
         self.dateFormatter = dateFormatter
-        
+        self.eventCreator = eventCreator
+        self.eventRepository = eventRepository
+    
         _ = date.observeNext { _ in
             if self.dateValidation.value == 1
                 && self.validateDate() {
@@ -44,6 +53,49 @@ class EventDateViewModel {
         UIView.animate(withDuration: 0.25, animations: {
             self.dateValidation.value = withValueToAnimate
         })
+    }
+    
+    func saveEvent() {
+        if validateDate() {
+            let (eventStatus, event) = eventCreator.createEvent(
+                name: eventName,
+                date: date.value ?? ""
+            )
+        
+            if (event != nil && eventStatus == .success) {
+                //safe to force unwrap here
+                saveToFirestore(event: event!)
+            } else {
+                handleInvalidEvent(status: eventStatus)
+            }
+        }
+    }
+    
+    private func saveToFirestore(event: Event) {
+        eventRepository.save(event: event) { event, err in
+            if let _ = err {
+                /**
+                 post error
+                 */
+            } else {
+                /**
+                 post success
+                 */
+                print("event saved! \(event.code)")
+            }
+        }
+    }
+    
+    func handleInvalidEvent(status: EventCreationStatus) {
+        if (status == .invalidUser) {
+            /**
+             post invalid user msg to user
+            */
+        } else if (status == .invalidDate) {
+            /**
+            post invalid date msg to user
+            */
+        }
     }
 }
 

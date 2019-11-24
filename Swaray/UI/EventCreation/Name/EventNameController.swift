@@ -26,7 +26,10 @@ class EventNameController: BaseController<EventNameView, EventNameViewModel> {
         _ = viewModel.navigateTrigger.observeNext { doNavigate in
             if doNavigate {
                 self.baseView.eventNameTextField.resignFirstResponder()
-                self.navigationController?.pushViewController(EventDateController(), animated: true)
+                
+                let controller = EventDateController()
+                controller.eventName = self.viewModel.name.value ?? ""
+                self.navigationController?.pushViewController(controller, animated: true)
             }
         }
     }

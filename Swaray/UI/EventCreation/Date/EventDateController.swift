@@ -9,12 +9,16 @@
 import Foundation
 import UIKit
 
+import FirebaseFirestore
+
 class EventDateController: BaseController<EventDateView, EventDateViewModel> {
+    var eventName: String = ""
     private let viewModel = EventDateViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupToolbar()
+        viewModel.eventName = eventName
     }
     
     override func getViewModel() -> EventDateViewModel? {
@@ -41,9 +45,7 @@ class EventDateController: BaseController<EventDateView, EventDateViewModel> {
     }
     
     @objc func handleNext() {
-        if viewModel.validateDate() {
-            baseView.eventDateTextField.resignFirstResponder()
-            print("Creating event...")
-        }
+        baseView.eventDateTextField.resignFirstResponder()
+        viewModel.saveEvent()
     }
 }
