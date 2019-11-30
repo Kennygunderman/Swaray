@@ -61,9 +61,17 @@ public struct StringConsts {
     static let eventCreationNameHint = "i.e Ciara's 30th Birthday Party"
     static let eventCreationDateHint = "--/--/2020"
     static let eventNameLabel = "What's this Event for?"
+    
+    //Date
     static let eventDateLabel = "When is the Event happening?"
     static let eventNameValidationLavel = "Please add a name"
     static let eventDateValidationLavel = "Please add a valid date"
+    
+    //Error vals
+    static let firestoreErrorTitle = "Error Saving Event"
+    static let eventCreationErrorTitle = "Error Creating Event"
+    static let invalidUser = "Unable to create an Event with your account. Please try logging out and back in."
+    static let invalidDate = "The date you have provided is invalid. Please make sure the format follows mm/dd/yyyy."
 }
 
 struct DimenConsts {

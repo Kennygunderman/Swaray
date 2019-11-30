@@ -12,6 +12,8 @@ import Bond
 class EventDateViewModel {
     let date = Observable<String?>("")
     let dateValidation = Observable<CGFloat>(0)
+    let creationError = Observable<String?>("")
+    let eventSaveError = Observable<String?>("")
       
     let dateFormatter: DateFormatter
     let eventCreator: EventCreator
@@ -86,7 +88,7 @@ class EventDateViewModel {
         }
     }
     
-    func handleInvalidEvent(status: EventCreationStatus) {
+    private func handleInvalidEvent(status: EventCreationStatus) {
         if (status == .invalidUser) {
             /**
              post invalid user msg to user

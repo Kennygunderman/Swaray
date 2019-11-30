@@ -10,4 +10,6 @@ import Foundation
 
 let getAuthService = Locator.bind(AuthServiceInterface.self) { AuthService() }
 let getSignInManager = Locator.bind(SignInManager.self) { SignInManager(authService: getAuthService()) }
-let getEventCreator = Locator.bind(EventCreator.self) { EventCreator(guidGenerator: getGuidGenerator()) }
+let getEventCreator = Locator.bind(EventCreator.self) {
+    EventCreator(guidGenerator: getGuidGenerator(), dateFormatter: getDateFormatter())
+}
