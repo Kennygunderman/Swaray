@@ -19,6 +19,15 @@ class EventDateController: BaseController<EventDateView, EventDateViewModel> {
         super.viewDidLoad()
         setupToolbar()
         viewModel.eventName = eventName
+        subscribeUi()
+    }
+    
+    private func subscribeUi() {
+        _ = viewModel.alertError.observeNext { alertDialog in
+            if let alert = alertDialog {
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
     
     override func getViewModel() -> EventDateViewModel? {

@@ -12,8 +12,7 @@ import Bond
 class EventDateViewModel {
     let date = Observable<String?>("")
     let dateValidation = Observable<CGFloat>(0)
-    let creationError = Observable<String?>("")
-    let eventSaveError = Observable<String?>("")
+    let alertError = Observable<UIAlertController?>(nil)
       
     let dateFormatter: DateFormatter
     let eventCreator: EventCreator
@@ -76,28 +75,43 @@ class EventDateViewModel {
     private func saveToFirestore(event: Event) {
         eventRepository.save(event: event) { event, err in
             if let _ = err {
-                /**
-                 post error
-                 */
+                self.alertError.value = self.createAlertError(
+                    title: "save err",
+                    error: err?.localizedDescription ?? "Generic Error here"
+                )
             } else {
-                /**
-                 post success
-                 */
-                print("event saved! \(event.code)")
+                //todo: post a value to success
+                self.alertError.value = self.createAlertError(
+                    title: "save err",
+                    error: err?.localizedDescription ?? "Generic Error here"
+                )
             }
         }
     }
     
     private func handleInvalidEvent(status: EventCreationStatus) {
         if (status == .invalidUser) {
-            /**
-             post invalid user msg to user
-            */
+            self.alertError.value = self.createAlertError(
+                title: "Creation error",
+                error: "Invalid user was found please try relogging..."
+            )
         } else if (status == .invalidDate) {
-            /**
-            post invalid date msg to user
-            */
+            self.alertError.value = self.createAlertError(
+                title: "Creation error",
+                error: "Invalid date found. Please check the date and try again"
+            )
         }
+    }
+    
+    private func createAlertError(title: String, error: String) -> UIAlertController {
+        let alert = UIAlertController(
+            title: title,
+            message: error,
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        return alert
     }
 }
 
