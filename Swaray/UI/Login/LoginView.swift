@@ -69,8 +69,8 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
         return button
     }()
     
-    lazy var emailTxt: SwarayTextField = {
-        let textField = SwarayTextField()
+    lazy var emailTxt: LoginTextField = {
+        let textField = LoginTextField()
         viewModel?.email.bidirectionalBind(to: textField.reactive.text)
         textField.font = FontUtil.loadFont(font: .regular, size: DimenConsts.largeFontSize)
         textField.setPlaceholder(placeholder: StringConsts.emailTxtPlaceholder)
@@ -91,8 +91,8 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
         return label
     }()
     
-    lazy var passwordTxt: SwarayTextField = {
-        let textField = SwarayTextField()
+    lazy var passwordTxt: LoginTextField = {
+        let textField = LoginTextField()
         viewModel?.password.bidirectionalBind(to: textField.reactive.text)
         textField.font = FontUtil.loadFont(font: .regular, size: DimenConsts.largeFontSize)
         textField.setPlaceholder(placeholder: StringConsts.passwordTxtPlaceholder)
@@ -114,8 +114,8 @@ class LoginView: BaseControllerView<LoginViewModel>, UITextFieldDelegate {
         return label
     }()
     
-    lazy var passwordConfirmTxt: SwarayTextField = {
-        let textField = SwarayTextField()
+    lazy var passwordConfirmTxt: LoginTextField = {
+        let textField = LoginTextField()
         viewModel?.confirmPassword.bidirectionalBind(to: textField.reactive.text)
         textField.font = FontUtil.loadFont(font: .regular, size: DimenConsts.largeFontSize)
         textField.setPlaceholder(placeholder: StringConsts.pwConfirmTxtPlaceholder)

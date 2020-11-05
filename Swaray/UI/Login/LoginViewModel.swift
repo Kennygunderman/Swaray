@@ -143,7 +143,7 @@ extension LoginViewModel: SignInManagerDelegate {
         self.authSuccess.value = result
     }
     
-    // This implementation with return a generic error for Google & Facebook,
+    // This implementation will return a generic error for Google & Facebook,
     // but provide a more descriptive error if the AuthProvider is from creation or login.
     func authError(error: AuthErrorCode?, from: AuthProvider) {
         switch from {

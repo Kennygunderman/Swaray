@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SwarayTextField: UITextField {
+class LoginTextField: UITextField {
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         addBottomLine()

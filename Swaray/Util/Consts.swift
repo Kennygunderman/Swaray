@@ -50,7 +50,29 @@ public struct StringConsts {
     static let genericSignUpError: String = "Unable to sign up with the email and password you have provided. Please try again."
     static let googleSignInError: String = "Unable to sign in with Google at this time."
     static let facebookSignInError: String = "Unable to sign in with Facebook at this time."
-
+    
+    //static vals for Home
+    static let hostingOrJoiningLabel: String = "Will you be hosting an event or joining one?"
+    static let hostingLabel: String = "Hosting"
+    
+    //vals for EventCreation
+    
+    //Name
+    static let eventCreationNameHint = "i.e Ciara's 30th Birthday Party"
+    static let eventCreationDateHint = "--/--/2020"
+    static let eventNameLabel = "What's this Event for?"
+    
+    //Date
+    static let eventDateLabel = "When is the Event happening?"
+    static let eventNameValidationLavel = "Please add a name"
+    static let eventDateValidationLavel = "Please add a valid date"
+    
+    //Error vals
+    static let firestoreSaveEventErrorTitle = "Error Saving Event"
+    static let eventCreationErrorTitle = "Error Creating Event"
+    static let genericError = "Please contact support if this error persists."
+    static let invalidUser = "Unable to create an Event with your account. Please try logging out and back in."
+    static let invalidDate = "The date you have provided is invalid. Please make sure the format follows mm/dd/yyyy."
 }
 
 struct DimenConsts {

@@ -31,16 +31,14 @@ class BaseController<T_VIEW: BaseControllerView<T_VIEWMODEL>, T_VIEWMODEL>: UIVi
         self.view = baseView
         setTitleView()
         disableBackNavigation()
+        
+        // Logic for animating subviews into display
+        baseView.handleEnterTransition()
     }
     
     // Override if Controller has a ViewModel
     func getViewModel() -> T_VIEWMODEL? {
         return nil
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        // Logic for animating subviews into display
-        baseView.handleEnterTransition()
     }
     
     fileprivate func setTitleView() {
@@ -57,10 +55,9 @@ class BaseController<T_VIEW: BaseControllerView<T_VIEWMODEL>, T_VIEWMODEL>: UIVi
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return UIStatusBarStyle.lightContent
     }
-    
-    
+
     // Disables back navigation and swiping
-    fileprivate func disableBackNavigation() {
+    func disableBackNavigation() {
         self.navigationItem.leftBarButtonItem = nil
         self.navigationItem.hidesBackButton = true
         self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
