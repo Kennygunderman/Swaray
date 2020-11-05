@@ -75,8 +75,6 @@ class EventCreator {
             return (.invalidUser, nil)
         }
         
-        return (.invalidUser, nil)
-        
         let event = Event(
             guid: guidGenerator.generateGuid(),
             code: guidGenerator.generate8CharGuid(),

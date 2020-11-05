@@ -1,6 +1,6 @@
 
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '9.0'
+platform :ios, '14.1'
 
 project 'Swaray', {
   'Mock' => :debug
@@ -10,7 +10,7 @@ target 'Swaray' do
   use_frameworks!
 
   # Pods for Swaray
-  pod 'SnapKit', '~> 4.0.0'
+  pod 'SnapKit', '~> 5.0.0'
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Core'

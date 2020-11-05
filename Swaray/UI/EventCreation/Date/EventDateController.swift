@@ -23,7 +23,7 @@ class EventDateController: BaseController<EventDateView, EventDateViewModel> {
     }
     
     private func subscribeUi() {
-        _ = viewModel.alertError.observeNext { alertDialog in
+        _ = viewModel.alert.observeNext { alertDialog in
             if let alert = alertDialog {
                 self.present(alert, animated: true, completion: nil)
             }

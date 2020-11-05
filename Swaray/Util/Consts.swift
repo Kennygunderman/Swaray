@@ -68,8 +68,9 @@ public struct StringConsts {
     static let eventDateValidationLavel = "Please add a valid date"
     
     //Error vals
-    static let firestoreErrorTitle = "Error Saving Event"
+    static let firestoreSaveEventErrorTitle = "Error Saving Event"
     static let eventCreationErrorTitle = "Error Creating Event"
+    static let genericError = "Please contact support if this error persists."
     static let invalidUser = "Unable to create an Event with your account. Please try logging out and back in."
     static let invalidDate = "The date you have provided is invalid. Please make sure the format follows mm/dd/yyyy."
 }

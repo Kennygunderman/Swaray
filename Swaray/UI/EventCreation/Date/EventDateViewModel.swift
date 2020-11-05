@@ -12,7 +12,7 @@ import Bond
 class EventDateViewModel {
     let date = Observable<String?>("")
     let dateValidation = Observable<CGFloat>(0)
-    let alertError = Observable<UIAlertController?>(nil)
+    let alert = Observable<UIAlertController?>(nil)
       
     let dateFormatter: DateFormatter
     let eventCreator: EventCreator
@@ -75,15 +75,14 @@ class EventDateViewModel {
     private func saveToFirestore(event: Event) {
         eventRepository.save(event: event) { event, err in
             if let _ = err {
-                self.alertError.value = self.createAlertError(
-                    title: "save err",
-                    error: err?.localizedDescription ?? "Generic Error here"
+                self.alert.value = self.createAlert(
+                    title: StringConsts.firestoreSaveEventErrorTitle,
+                    error: err?.localizedDescription ?? StringConsts.genericError
                 )
             } else {
-                //todo: post a value to success
-                self.alertError.value = self.createAlertError(
-                    title: "save err",
-                    error: err?.localizedDescription ?? "Generic Error here"
+                self.alert.value = self.createAlert(
+                    title: "Event Saved!",
+                    error: "Your event has been saved! Event Code: \(event.code)"
                 )
             }
         }
@@ -91,19 +90,19 @@ class EventDateViewModel {
     
     private func handleInvalidEvent(status: EventCreationStatus) {
         if (status == .invalidUser) {
-            self.alertError.value = self.createAlertError(
-                title: "Creation error",
-                error: "Invalid user was found please try relogging..."
+            self.alert.value = self.createAlert(
+                title: StringConsts.eventCreationErrorTitle,
+                error: StringConsts.invalidUser
             )
         } else if (status == .invalidDate) {
-            self.alertError.value = self.createAlertError(
-                title: "Creation error",
-                error: "Invalid date found. Please check the date and try again"
+            self.alert.value = self.createAlert(
+                title: StringConsts.eventCreationErrorTitle,
+                error: StringConsts.invalidDate
             )
         }
     }
     
-    private func createAlertError(title: String, error: String) -> UIAlertController {
+    private func createAlert(title: String, error: String) -> UIAlertController {
         let alert = UIAlertController(
             title: title,
             message: error,
